@@ -38,33 +38,33 @@ public class UserController {
 
     @GetMapping("")
     public ResponseEntity<List<UserDTO>> getAllUser() {
-        List<RechargeEntity> rechargeEntities = rechargeService.getAllRecharge();
-        List<RechargeDTO> rechargeDTO = rechargeEntities.stream()
-                .map(recharge -> modelMapper.map(recharge, RechargeDTO.class))
+        List<UserEntity> userEntities = userService.getAllUser();
+        List<UserDTO> userDTO = userEntities.stream()
+                .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(rechargeDTO);
+        return ResponseEntity.ok(userDTO);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RechargeDTO> getRechargeById(@PathVariable Long id) {
-        RechargeEntity rechargeEntity = rechargeService.findById(id);
-        RechargeDTO rechargeDTO = modelMapper.map(rechargeEntity, RechargeDTO.class);
-        return ResponseEntity.ok(rechargeDTO);
+    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
+        UserEntity userEntity = userService.findById(id);
+        UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
+        return ResponseEntity.ok(userDTO);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<RechargeDTO> updateRecharge(@PathVariable Long id, @RequestBody RechargeDTO rechargeDTO) {
+    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 
-        RechargeEntity rechargeEntity = rechargeService.updateRecharge(id, rechargeDTO);
+        UserEntity userEntity = userService.updateUser(id, userDTO);
 
-        RechargeDTO rechargeDTO1 = modelMapper.map(rechargeEntity, RechargeDTO.class);
+        UserDTO userDTO1 = modelMapper.map(userEntity, UserDTO.class);
 
-        return ResponseEntity.ok(rechargeDTO1);
+        return ResponseEntity.ok(userDTO1);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRecharge(@PathVariable Long id) {
-        rechargeService.deleteRecharge(id);
-        return ResponseEntity.ok("Recharge " + id + " deleted");
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.ok("User " + id + " deleted");
     }
 }
