@@ -24,11 +24,13 @@ public class RentalEntity {
     @JoinColumn(name = "id_user")
     private UserEntity idUser;
 
-    //@Column(name = "id_vehicle")
-    //private VehicleEntity id_vehicle;
+    @ManyToOne
+    @JoinColumn(name = "id_vehicle")
+    private VehicleEntity id_vehicle;
 
-    //@Column(name = "id_admin")
-    //private AdministratorEntity id_admin;
+    @OneToOne
+    @JoinColumn(name = "id_admin")
+    private AdministratorEntity id_admin;
 
     @Column(name = "date_time_start_rental")
     private Date dateTimeStartRental;

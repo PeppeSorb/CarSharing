@@ -46,5 +46,6 @@ public class VehicleEntity {
     private String houseNumber;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
+    @JsonIgnore
     private List<RentalEntity> rentals;
 }
