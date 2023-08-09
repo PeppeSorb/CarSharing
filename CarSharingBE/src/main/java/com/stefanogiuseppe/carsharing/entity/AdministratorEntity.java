@@ -27,40 +27,13 @@ public class AdministratorEntity {
 
     private String email;
 
-    private String first_name;
-    
+    @Column(name = "first_name")
+    private String firstName;
+
     private String surname;
-    pwd varchar(50)
+
+    private String pwd;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
     private List<RentalEntity> managedRentals;
 }
-
-/*
-public class VehicleEntity {
-
-
-    @Column(name = "license_plate")
-    private String licensePlate;
-
-    @Column(name = "id_model")
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private int idModel;
-
-    private String country;
-
-    private String region;
-
-    private String city;
-
-    private String street;
-
-    @Column(name = "house_number")
-    private String houseNumber;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
-    private List<RentalEntity> rentals;
-}
-
- */
