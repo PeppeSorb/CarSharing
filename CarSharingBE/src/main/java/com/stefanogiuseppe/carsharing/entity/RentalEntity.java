@@ -20,7 +20,8 @@ public class RentalEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_user")
+    @ManyToOne
+    @JoinColumn(name = "id_user")
     private UserEntity idUser;
 
     //@Column(name = "id_vehicle")
@@ -37,4 +38,9 @@ public class RentalEntity {
 
     @Column(name = "type_rental")
     private String typeRental;
+
+    @OneToOne(mappedBy = "idRental")
+    private ReviewEntity review;
+
 }
+

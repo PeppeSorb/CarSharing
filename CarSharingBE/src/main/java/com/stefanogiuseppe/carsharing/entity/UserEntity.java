@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Where;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -49,5 +50,10 @@ public class UserEntity {
     private boolean deleted;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idUser")
+    @JsonIgnore
     private List<RechargeEntity> recharges;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idUser")
+    @JsonIgnore
+    private List<RentalEntity> rentals;
 }
