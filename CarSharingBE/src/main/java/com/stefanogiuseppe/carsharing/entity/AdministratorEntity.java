@@ -25,6 +25,12 @@ public class AdministratorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String email;
+
+    private String first_name;
+    
+    private String surname;
+    pwd varchar(50)
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
     private List<RentalEntity> managedRentals;
