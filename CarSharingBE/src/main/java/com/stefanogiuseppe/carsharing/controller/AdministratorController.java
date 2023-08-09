@@ -3,6 +3,7 @@ package com.stefanogiuseppe.carsharing.controller;
 import com.stefanogiuseppe.carsharing.dto.AdministratorDTO;
 import com.stefanogiuseppe.carsharing.entity.AdministratorEntity;
 import com.stefanogiuseppe.carsharing.service.AdministratorService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
