@@ -38,4 +38,3 @@ public class RentalEntity {
     @Column(name = "type_rental")
     private String typeRental;
 }
-

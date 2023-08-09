@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name = "administrator")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,11 +20,19 @@ import java.util.List;
 @ToString
 @Data
 //@Where(clause = "deleted = 0")
-public class VehicleEntity {
+public class AdministratorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vehicle")
     private Long id;
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
+    private List<RentalEntity> managedRentals;
+}
+
+/*
+public class VehicleEntity {
+
 
     @Column(name = "license_plate")
     private String licensePlate;
@@ -48,3 +56,5 @@ public class VehicleEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
     private List<RentalEntity> rentals;
 }
+
+ */

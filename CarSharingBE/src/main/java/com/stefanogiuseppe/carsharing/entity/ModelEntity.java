@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name = "model")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,31 +20,28 @@ import java.util.List;
 @ToString
 @Data
 //@Where(clause = "deleted = 0")
-public class VehicleEntity {
+public class ModelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vehicle")
     private Long id;
 
-    @Column(name = "license_plate")
-    private String licensePlate;
-
-    @Column(name = "id_model")
     @ManyToOne
-    @JoinColumn(name = "id")
-    private int idModel;
+    @JoinColumn(name = "id_category")
+    @Column(name = "id_category")
+    private Long idCategory;
 
-    private String country;
+    @Column(name = "make_and_model")
+    private String makeAndModel;
 
-    private String region;
+    @Column(name = "boot_capacity")
+    private int bootCapacity;
 
-    private String city;
+    @Column(name = "average_consumption")
+    private double averageConsumption;
 
-    private String street;
+    @Column(name = "for_new_drivers")
+    private boolean forNewDrivers;
 
-    @Column(name = "house_number")
-    private String houseNumber;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
-    private List<RentalEntity> rentals;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_model")
+    private List<VehicleEntity> vehicles;
 }
