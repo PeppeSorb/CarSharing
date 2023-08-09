@@ -1,15 +1,5 @@
 package com.stefanogiuseppe.carsharing.entity;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "administrator")
-public class AdministratorEntity {
-}
-
-/*
-package com.stefanogiuseppe.carsharing.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -21,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name = "administrator")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -30,11 +20,19 @@ import java.util.List;
 @ToString
 @Data
 //@Where(clause = "deleted = 0")
-public class VehicleEntity {
+public class AdministratorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vehicle")
     private Long id;
+
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
+    private List<RentalEntity> managedRentals;
+}
+
+/*
+public class VehicleEntity {
+
 
     @Column(name = "license_plate")
     private String licensePlate;
