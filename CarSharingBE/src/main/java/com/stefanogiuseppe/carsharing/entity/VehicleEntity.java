@@ -21,65 +21,30 @@ import java.util.List;
 @Data
 //@Where(clause = "deleted = 0")
 public class VehicleEntity {
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "country")
-    private String country;
-
-    @Column(name = "project_type")
-    private String projectType;
-
-    @Column(name = "project_name")
-    private String projectName;
-
-    @Column(name = "presumed_starting_month")
-    private LocalDate presumedStartingMonth;
-
-    @Column(name = "presumed_end_month")
-    private LocalDate presumedEndMonth;
-
-    @Column(name = "id_allocated_resources")
-    private Long idAllocatedResources;
-
-    @Column(name = "link_dir_business_onedrive")
-    private String linkDirBusinessOnedrive;
-
-    @Column(name = "link_dir_operative_onedrive")
-    private String linkDirOperativeOnedrive;
-
-    @Column(name = "link_trello")
-    private String linkTrello;
-
-    @Column(name = "link_gitlab")
-    private String linkGitlab;
-
-    @Column(name = "link_logbook")
-    private String linkLogbook;
-
-    @ManyToOne
-    @JoinColumn(name = "id_program")
-    @JsonIgnore
-    private ProgramEntity idProgram;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idProject")
-    // Attributo nella classe Project che fa riferimento a program
-    private List<SubProjectEntity> subProjects;
-
-    @Column(name = "deleted", nullable = false, columnDefinition = "bit default 0")
-    @JsonIgnore
-    private boolean deleted;
-    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vehicle")
     private Long id;
 
-    private String license_plate;
+    @Column(name = "license_plate")
+    private String licensePlate;
 
-    private int id_model;
+    @Column(name = "id_model")
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private int idModel;
 
-    
+    private String country;
+
+    private String region;
+
+    private String city;
+
+    private String street;
+
+    @Column(name = "house_number")
+    private String houseNumber;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
+    private List<RentalEntity> rentals;
 }
