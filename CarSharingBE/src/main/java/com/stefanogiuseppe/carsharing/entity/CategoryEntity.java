@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "model")
+@Table(name = "vehicle")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,28 +20,40 @@ import java.util.List;
 @ToString
 @Data
 //@Where(clause = "deleted = 0")
-public class ModelEntity {
+
+public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_category")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_category")
-    @Column(name = "id_category")
-    private Long idCategory;
 
-    @Column(name = "make_and_model")
-    private String makeAndModel;
-
-    @Column(name = "boot_capacity")
-    private int bootCapacity;
-
-    @Column(name = "average_consumption")
-    private double averageConsumption;
-
-    @Column(name = "for_new_drivers")
-    private boolean forNewDrivers;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_model")
-    private List<VehicleEntity> vehicles;
 }
+
+/*
+
+public class VehicleEntity {
+    @Column(name = "license_plate")
+    private String licensePlate;
+
+    @Column(name = "id_model")
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private int idModel;
+
+    private String country;
+
+    private String region;
+
+    private String city;
+
+    private String street;
+
+    @Column(name = "house_number")
+    private String houseNumber;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
+    private List<RentalEntity> rentals;
+}
+
+ */
