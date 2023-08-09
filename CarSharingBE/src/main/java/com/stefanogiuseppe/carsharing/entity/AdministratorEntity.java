@@ -34,6 +34,6 @@ public class AdministratorEntity {
 
     private String pwd;
 
-    @OneToOne(mappedBy = "id_admin")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
     private List<RentalEntity> managedRentals;
 }
