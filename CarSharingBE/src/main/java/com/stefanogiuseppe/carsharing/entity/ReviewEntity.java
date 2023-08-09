@@ -1,5 +1,6 @@
 package com.stefanogiuseppe.carsharing.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,4 +33,8 @@ public class ReviewEntity {
 
     @Column(name = "valutation")
     private int valutation;
+
+    @Column(name="deleted")
+    @JsonIgnore
+    private Boolean deleted;
 }

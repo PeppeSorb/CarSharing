@@ -1,5 +1,6 @@
 package com.stefanogiuseppe.carsharing.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,4 +30,8 @@ public class RechargeEntity {
 
     @Column(name="date_time")
     private LocalDateTime dateTime;
+
+    @Column(name = "deleted")
+    @JsonIgnore
+    private Boolean deleted;
 }
