@@ -25,7 +25,7 @@ public class AdministratorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_admin")
     private List<RentalEntity> managedRentals;
 }
