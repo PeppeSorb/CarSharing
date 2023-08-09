@@ -13,28 +13,20 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "rental")
+@Table(name = "recharge")
 @Where(clause = "deleted = 0")
-public class RentalEntity {
+public class RechargeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_user")
+    @ManyToOne
+    @JoinColumn(name = "id_user")
     private UserEntity idUser;
 
-    //@Column(name = "id_vehicle")
-    //private VehicleEntity id_vehicle;
+    @Column(name="amount")
+    private double amount;
 
-    //@Column(name = "id_admin")
-    //private AdministratorEntity id_admin;
-
-    @Column(name = "date_time_start_rental")
-    private Date dateTimeStartRental;
-
-    @Column(name = "date_time_end_rental")
-    private Date dateTimeEndRental;
-
-    @Column(name = "type_rental")
-    private String typeRental;
+    @Column(name="date_time")
+    private LocalDateTime dateTime;
 }
