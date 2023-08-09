@@ -27,33 +27,26 @@ public class CategoryEntity {
     @Column(name = "id_category")
     private Long id;
 
+    @Column(name = "hourly_rate")
+    private double hourlyRate;
+
+    @Column(name = "daily_rate")
+    private double dailyRate;
+
+    @Column(name = "two_days_rate")
+    private double twoDaysRate;
+
+    @Column(name = "weekly_rate")
+    private double weeklyRate;
+
+    @Column(name = "monthly_rate")
+    private double monthlyRate;
+
+    @Column(name = "extra_hourly_rate")
+    private double extraHourlyRate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_category")
+    private List<ModelEntity> models;
 
 }
 
-/*
-
-public class VehicleEntity {
-    @Column(name = "license_plate")
-    private String licensePlate;
-
-    @Column(name = "id_model")
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private int idModel;
-
-    private String country;
-
-    private String region;
-
-    private String city;
-
-    private String street;
-
-    @Column(name = "house_number")
-    private String houseNumber;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
-    private List<RentalEntity> rentals;
-}
-
- */
