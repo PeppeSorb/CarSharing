@@ -21,14 +21,14 @@ public class VehicleMapper {
     }
     public VehicleDTO toDto(VehicleEntity vehicleEntity) {
         VehicleDTO vehicleDTO = new VehicleDTO();
-        vehicleDTO.setId(vehicleDTO.getId());
-        vehicleDTO.setCity(vehicleDTO.getCity());
-        vehicleDTO.setCountry(vehicleDTO.getCountry());
-        vehicleDTO.setRegion(vehicleDTO.getRegion());
-        vehicleDTO.setHouseNumber(vehicleDTO.getHouseNumber());
-        vehicleDTO.setIdModel(vehicleDTO.getIdModel());
-        vehicleDTO.setLicensePlate(vehicleDTO.getLicensePlate());
-        vehicleDTO.setStreet(vehicleDTO.getStreet());
+        vehicleDTO.setId(vehicleEntity.getId());
+        vehicleDTO.setCity(vehicleEntity.getCity());
+        vehicleDTO.setCountry(vehicleEntity.getCountry());
+        vehicleDTO.setRegion(vehicleEntity.getRegion());
+        vehicleDTO.setHouseNumber(vehicleEntity.getHouseNumber());
+        vehicleDTO.setIdModel(vehicleEntity.getIdModel());
+        vehicleDTO.setLicensePlate(vehicleEntity.getLicensePlate());
+        vehicleDTO.setStreet(vehicleEntity.getStreet());
         return vehicleDTO;
     }
 }
