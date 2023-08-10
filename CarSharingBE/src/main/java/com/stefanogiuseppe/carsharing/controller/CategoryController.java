@@ -25,43 +25,52 @@ public class CategoryController {
     }
 
     @PostMapping("")
-    public ResponseEntity<CategoryDTO>addCategory(@RequestBody CategoryDTO categoryDTO){
+    public CategoryDTO addCategory(@RequestBody CategoryDTO categoryDTO){
         CategoryEntity categoryEntity = categoryMapper.map(categoryDTO, CategoryEntity.class);
         CategoryEntity categoryEntity1 = categoryService.saveCategory(categoryEntity);
         CategoryDTO categoryDTO1 = categoryMapper.map(categoryEntity1, CategoryDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoryDTO1);
+        return categoryDTO1;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<CategoryDTO>>getAllCategory(){
+    public List<CategoryDTO> getAllCategory(){
         List<CategoryEntity> categoryEntities=categoryService.getAllCategory();
         List<CategoryDTO> categoryDTO = categoryEntities.stream()
                 .map(category -> categoryMapper.map(category, CategoryDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(categoryDTO);
+        return categoryDTO;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoryDTO>getCategoryById(@PathVariable Long id){
+    public CategoryDTO getCategoryById(@PathVariable Long id){
         CategoryEntity categoryEntity = categoryService.findById(id);
         CategoryDTO categoryDTO = categoryMapper.map(categoryEntity, CategoryDTO.class);
-        return ResponseEntity.ok(categoryDTO);
+        return categoryDTO;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDTO>updateCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+    public CategoryDTO updatePutCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
 
         CategoryDTO categoryDTO1 = categoryMapper.map(categoryEntity, CategoryDTO.class);
 
-        return ResponseEntity.ok(categoryDTO1);
+        return categoryDTO1;
+    }
+    @PatchMapping("/{id}")
+    public CategoryDTO updatePatchCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+
+        CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
+
+        CategoryDTO categoryDTO1 = categoryMapper.map(categoryEntity, CategoryDTO.class);
+
+        return categoryDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String>deleteCategory(@PathVariable Long id){
+    public String deleteCategory(@PathVariable Long id){
         categoryService.deleteCategory(id);
-        return ResponseEntity.ok("Category " + id + " deleted");
+        return "Category " + id + " deleted";
     }
 }
 

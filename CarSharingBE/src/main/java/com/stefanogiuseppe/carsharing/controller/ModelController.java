@@ -25,43 +25,52 @@ public class ModelController {
     }
 
     @PostMapping("")
-    public ResponseEntity<ModelDTO>addModel(@RequestBody ModelDTO modelDTO){
+    public ModelDTO addModel(@RequestBody ModelDTO modelDTO){
         ModelEntity modelEntity = modelMapper.map(modelDTO, ModelEntity.class);
         ModelEntity modelEntity1 = modelService.saveModel(modelEntity);
         ModelDTO modelDTO1 = modelMapper.map(modelEntity1, ModelDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(modelDTO1);
+        return modelDTO1;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ModelDTO>>getAllModel(){
+    public List<ModelDTO>getAllModel(){
         List<ModelEntity> modelEntities=modelService.getAllModel();
         List<ModelDTO> modelDTO = modelEntities.stream()
                 .map(model -> modelMapper.map(model, ModelDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(modelDTO);
+        return modelDTO;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ModelDTO>getModelById(@PathVariable Long id){
+    public ModelDTO getModelById(@PathVariable Long id){
         ModelEntity modelEntity = modelService.findById(id);
         ModelDTO modelDTO = modelMapper.map(modelEntity, ModelDTO.class);
-        return ResponseEntity.ok(modelDTO);
+        return modelDTO;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ModelDTO>updateModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+    public ModelDTO updatePutModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 
         ModelDTO modelDTO1 = modelMapper.map(modelEntity, ModelDTO.class);
 
-        return ResponseEntity.ok(modelDTO1);
+        return modelDTO1;
+    }
+    @PatchMapping("/{id}")
+    public ModelDTO updatePatchModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+
+        ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
+
+        ModelDTO modelDTO1 = modelMapper.map(modelEntity, ModelDTO.class);
+
+        return modelDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String>deleteModel(@PathVariable Long id){
+    public String deleteModel(@PathVariable Long id){
         modelService.deleteModel(id);
-        return ResponseEntity.ok("Model " + id + " deleted");
+        return "Model " + id + " deleted";
     }
 }
 
