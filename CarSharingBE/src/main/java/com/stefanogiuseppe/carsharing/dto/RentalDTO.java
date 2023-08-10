@@ -25,5 +25,4 @@ public class RentalDTO {
     private Date dateTimeEndRental;
     private String typeRental;
     private ReviewEntity review;
-    private Boolean deleted;
 }
