@@ -48,7 +48,7 @@ public class ModelController {
         return ResponseEntity.ok(modelDTO);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ModelDTO>updateModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
