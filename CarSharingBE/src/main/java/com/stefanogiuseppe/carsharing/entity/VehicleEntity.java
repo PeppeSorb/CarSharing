@@ -29,10 +29,9 @@ public class VehicleEntity {
     @Column(name = "license_plate")
     private String licensePlate;
 
-    @Column(name = "id_model")
     @ManyToOne
-    @JoinColumn(name = "id")
-    private int idModel;
+    @JoinColumn(name = "id_model")
+    private ModelEntity idModel;
 
     private String country;
 
@@ -45,7 +44,7 @@ public class VehicleEntity {
     @Column(name = "house_number")
     private String houseNumber;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_vehicle")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idVehicle")
     @JsonIgnore
     private List<RentalEntity> rentals;
 }

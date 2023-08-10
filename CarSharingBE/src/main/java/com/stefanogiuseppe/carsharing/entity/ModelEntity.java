@@ -27,8 +27,7 @@ public class ModelEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_category")
-    @Column(name = "id_category")
-    private Long idCategory;
+    private CategoryEntity idCategory;
 
     @Column(name = "make_and_model")
     private String makeAndModel;
@@ -42,6 +41,6 @@ public class ModelEntity {
     @Column(name = "for_new_drivers")
     private boolean forNewDrivers;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_model")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idModel")
     private List<VehicleEntity> vehicles;
 }
