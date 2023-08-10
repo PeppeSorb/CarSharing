@@ -24,5 +24,4 @@ public class RentalDTO {
     private Date dateTimeStartRental;
     private Date dateTimeEndRental;
     private String typeRental;
-    private ReviewEntity review;
 }

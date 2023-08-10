@@ -33,12 +33,16 @@ public class VehicleEntity {
     @JoinColumn(name = "id_model")
     private ModelEntity idModel;
 
+    @Column(name = "country")
     private String country;
 
+    @Column(name = "region")
     private String region;
 
+    @Column(name = "city")
     private String city;
 
+    @Column(name = "street")
     private String street;
 
     @Column(name = "house_number")
