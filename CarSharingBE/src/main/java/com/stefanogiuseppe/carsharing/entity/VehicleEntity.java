@@ -29,9 +29,9 @@ public class VehicleEntity {
     @Column(name = "license_plate")
     private String licensePlate;
 
-    @Column(name = "id_model")
+
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_model")
     private int idModel;
 
     private String country;

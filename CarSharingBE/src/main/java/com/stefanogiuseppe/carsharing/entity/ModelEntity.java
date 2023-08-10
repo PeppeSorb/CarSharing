@@ -27,7 +27,6 @@ public class ModelEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_category")
-    @Column(name = "id_category")
     private Long idCategory;
 
     @Column(name = "make_and_model")
