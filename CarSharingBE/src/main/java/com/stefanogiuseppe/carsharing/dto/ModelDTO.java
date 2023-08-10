@@ -1,5 +1,6 @@
 package com.stefanogiuseppe.carsharing.dto;
 
+import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import jakarta.persistence.*;
 
@@ -22,7 +23,7 @@ public class ModelDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idCategory;
+    private CategoryEntity idCategory;
     private String makeAndModel;
     private int bootCapacity;
     private double averageConsumption;
