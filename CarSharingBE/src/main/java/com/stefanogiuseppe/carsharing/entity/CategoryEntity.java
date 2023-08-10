@@ -24,7 +24,6 @@ import java.util.List;
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_category")
     private Long id;
 
     @Column(name = "hourly_rate")
