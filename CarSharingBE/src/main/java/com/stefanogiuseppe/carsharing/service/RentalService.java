@@ -19,6 +19,7 @@ public class RentalService {
     private RentalRepository rentalRepository;
 
     public RentalEntity saveRental(RentalEntity rentalEntity) {
+        rentalEntity.setDeleted(false);
         return rentalRepository.save(rentalEntity);
     }
 
