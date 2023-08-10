@@ -49,7 +49,16 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public CategoryDTO updateCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+    public CategoryDTO updatePutCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+
+        CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
+
+        CategoryDTO categoryDTO1 = categoryMapper.map(categoryEntity, CategoryDTO.class);
+
+        return categoryDTO1;
+    }
+    @PatchMapping("/{id}")
+    public CategoryDTO updatePatchCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
 

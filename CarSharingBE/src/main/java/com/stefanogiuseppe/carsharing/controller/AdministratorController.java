@@ -49,7 +49,16 @@ public class AdministratorController {
     }
 
     @PutMapping("/{id}")
-    public AdministratorDTO updateAdministrator(@PathVariable Long id, @RequestBody AdministratorDTO administratorDTO){
+    public AdministratorDTO updatePutAdministrator(@PathVariable Long id, @RequestBody AdministratorDTO administratorDTO){
+
+        AdministratorEntity administratorEntity=administratorService.updateAdministrator(id, administratorDTO);
+
+        AdministratorDTO administratorDTO1 = administratorMapper.map(administratorEntity, AdministratorDTO.class);
+
+        return administratorDTO1;
+    }
+    @PatchMapping("/{id}")
+    public AdministratorDTO updatePatchAdministrator(@PathVariable Long id, @RequestBody AdministratorDTO administratorDTO){
 
         AdministratorEntity administratorEntity=administratorService.updateAdministrator(id, administratorDTO);
 

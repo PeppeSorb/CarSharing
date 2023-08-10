@@ -49,7 +49,16 @@ public class ModelController {
     }
 
     @PutMapping("/{id}")
-    public ModelDTO updateModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+    public ModelDTO updatePutModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+
+        ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
+
+        ModelDTO modelDTO1 = modelMapper.map(modelEntity, ModelDTO.class);
+
+        return modelDTO1;
+    }
+    @PatchMapping("/{id}")
+    public ModelDTO updatePatchModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 

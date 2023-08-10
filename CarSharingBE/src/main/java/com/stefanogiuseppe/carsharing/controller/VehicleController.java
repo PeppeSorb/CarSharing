@@ -49,7 +49,16 @@ public class VehicleController {
     }
 
     @PutMapping("/{id}")
-    public VehicleDTO updateVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
+    public VehicleDTO updatePutVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
+
+        VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
+
+        VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity, VehicleDTO.class);
+
+        return vehicleDTO1;
+    }
+    @PatchMapping("/{id}")
+    public VehicleDTO updatePatchVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
