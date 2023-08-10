@@ -29,42 +29,47 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
+    @ResponseBody
+    public UserDTO addUser(@RequestBody UserDTO userDTO) {
         UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
         UserEntity userEntity1 = userService.saveUser(userEntity);
         UserDTO userDTO1 = modelMapper.map(userEntity1, UserDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(userDTO1);
+        return userDTO1;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<UserDTO>> getAllUser() {
+    @ResponseBody
+    public List<UserDTO> getAllUser() {
         List<UserEntity> userEntities = userService.getAllUser();
         List<UserDTO> userDTO = userEntities.stream()
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(userDTO);
+        return userDTO;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
+    @ResponseBody
+    public UserDTO getUserById(@PathVariable Long id) {
         UserEntity userEntity = userService.findById(id);
         UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
-        return ResponseEntity.ok(userDTO);
+        return userDTO;
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    @ResponseBody
+    public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 
         UserEntity userEntity = userService.updateUser(id, userDTO);
 
         UserDTO userDTO1 = modelMapper.map(userEntity, UserDTO.class);
 
-        return ResponseEntity.ok(userDTO1);
+        return userDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+    @ResponseBody
+    public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return ResponseEntity.ok("User " + id + " deleted");
+        System.out.println("User " + id + " deleted");
     }
 }

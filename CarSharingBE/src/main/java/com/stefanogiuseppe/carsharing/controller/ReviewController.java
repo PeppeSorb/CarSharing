@@ -29,42 +29,47 @@ public class ReviewController {
     }
 
     @PostMapping("")
-    public ResponseEntity<ReviewDTO> addReview(@RequestBody ReviewDTO reviewDTO) {
+    @ResponseBody
+    public ReviewDTO addReview(@RequestBody ReviewDTO reviewDTO) {
         ReviewEntity reviewEntity = modelMapper.map(reviewDTO, ReviewEntity.class);
         ReviewEntity reviewEntity1 = reviewService.saveReview(reviewEntity);
         ReviewDTO reviewDTO1 = modelMapper.map(reviewEntity1, ReviewDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(reviewDTO1);
+        return reviewDTO1;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ReviewDTO>> getAllReview() {
+    @ResponseBody
+    public List<ReviewDTO> getAllReview() {
         List<ReviewEntity> reviewEntities = reviewService.getAllReview();
         List<ReviewDTO> reviewDTO = reviewEntities.stream()
                 .map(review -> modelMapper.map(review, ReviewDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(reviewDTO);
+        return reviewDTO;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReviewDTO> getReviewById(@PathVariable Long id) {
+    @ResponseBody
+    public ReviewDTO getReviewById(@PathVariable Long id) {
         ReviewEntity reviewEntity = reviewService.findById(id);
         ReviewDTO reviewDTO = modelMapper.map(reviewEntity, ReviewDTO.class);
-        return ResponseEntity.ok(reviewDTO);
+        return reviewDTO;
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ReviewDTO> updateReview(@PathVariable Long id, @RequestBody ReviewDTO reviewDTO) {
+    @ResponseBody
+    public ReviewDTO updateReview(@PathVariable Long id, @RequestBody ReviewDTO reviewDTO) {
 
         ReviewEntity reviewEntity = reviewService.updateReview(id, reviewDTO);
 
         ReviewDTO reviewDTO1 = modelMapper.map(reviewEntity, ReviewDTO.class);
 
-        return ResponseEntity.ok(reviewDTO1);
+        return reviewDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteReview(@PathVariable Long id) {
+    @ResponseBody
+    public void deleteReview(@PathVariable Long id) {
         reviewService.deleteReview(id);
-        return ResponseEntity.ok("Review " + id + " deleted");
+        System.out.println("Review " + id + " deleted");
     }
 }

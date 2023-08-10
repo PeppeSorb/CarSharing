@@ -29,11 +29,12 @@ public class RentalController {
     }
 
     @PostMapping("")
-    public ResponseEntity<RentalDTO> addRental(@RequestBody RentalDTO rentalDTO) {
+    @ResponseBody
+    public RentalDTO addRental(@RequestBody RentalDTO rentalDTO) {
         RentalEntity rentalEntity = modelMapper.map(rentalDTO, RentalEntity.class);
         RentalEntity rentalEntity1 = rentalService.saveRental(rentalEntity);
         RentalDTO rentalDTO1 = modelMapper.map(rentalEntity1, RentalDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(rentalDTO1);
+        return rentalDTO1;
     }
 
     @GetMapping("")
@@ -47,25 +48,28 @@ public class RentalController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RentalDTO> getRentalById(@PathVariable Long id) {
+    @ResponseBody
+    public RentalDTO getRentalById(@PathVariable Long id) {
         RentalEntity rentalEntity = rentalService.findById(id);
         RentalDTO rentalDTO = modelMapper.map(rentalEntity, RentalDTO.class);
-        return ResponseEntity.ok(rentalDTO);
+        return rentalDTO;
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<RentalDTO> updateRental(@PathVariable Long id, @RequestBody RentalDTO rentalDTO) {
+    @ResponseBody
+    public RentalDTO updateRental(@PathVariable Long id, @RequestBody RentalDTO rentalDTO) {
 
         RentalEntity rentalEntity = rentalService.updateRental(id, rentalDTO);
 
         RentalDTO rentalDTO1 = modelMapper.map(rentalEntity, RentalDTO.class);
 
-        return ResponseEntity.ok(rentalDTO1);
+        return rentalDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRental(@PathVariable Long id) {
+    @ResponseBody
+    public void deleteRental(@PathVariable Long id) {
         rentalService.deleteRental(id);
-        return ResponseEntity.ok("Rental " + id + " deleted");
+        System.out.println("Rental " + id + " deleted");
     }
 }
