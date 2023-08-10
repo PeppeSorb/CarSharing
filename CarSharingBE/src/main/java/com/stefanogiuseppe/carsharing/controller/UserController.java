@@ -70,7 +70,7 @@ public class UserController {
     @ResponseBody
     public UserDTO updatePatchUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 
-        UserEntity userEntity = userService.updatePatchUser(id, userDTO);
+        UserEntity userEntity = userService.updateUser(id, userDTO);
 
         UserDTO userDTO1 = userMapper.toDTO(userEntity);
 
@@ -81,7 +81,7 @@ public class UserController {
     @ResponseBody
     public UserDTO updatePutUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 
-        UserEntity userEntity = userService.updatePutUser(id, userDTO);
+        UserEntity userEntity = userService.updateUser(id, userDTO);
 
         UserDTO userDTO1 = userMapper.toDTO(userEntity);
 

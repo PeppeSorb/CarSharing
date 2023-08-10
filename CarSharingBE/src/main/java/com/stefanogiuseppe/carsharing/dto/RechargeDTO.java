@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 public class RechargeDTO {
     private Long id;
-    //private UserEntity idUser;
+    private UserEntity idUser;
     private double amount;
     private LocalDateTime dateTime;
 }
