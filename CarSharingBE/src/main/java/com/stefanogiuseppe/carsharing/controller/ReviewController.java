@@ -1,15 +1,10 @@
 package com.stefanogiuseppe.carsharing.controller;
 
-import com.stefanogiuseppe.carsharing.dto.RechargeDTO;
 import com.stefanogiuseppe.carsharing.dto.ReviewDTO;
-import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
-import com.stefanogiuseppe.carsharing.service.RechargeService;
 import com.stefanogiuseppe.carsharing.service.ReviewService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

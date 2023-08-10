@@ -5,8 +5,6 @@ import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.service.RechargeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

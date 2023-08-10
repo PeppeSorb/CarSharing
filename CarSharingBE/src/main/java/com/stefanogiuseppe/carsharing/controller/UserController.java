@@ -1,15 +1,12 @@
 package com.stefanogiuseppe.carsharing.controller;
 
-import com.stefanogiuseppe.carsharing.dto.RechargeDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
-import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
-import com.stefanogiuseppe.carsharing.service.RechargeService;
+import com.stefanogiuseppe.carsharing.mapper.UserMapper;
 import com.stefanogiuseppe.carsharing.service.UserService;
+import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +18,9 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserMapper userMapper;
     private ModelMapper modelMapper;
 
     @Autowired
@@ -31,9 +31,11 @@ public class UserController {
     @PostMapping("")
     @ResponseBody
     public UserDTO addUser(@RequestBody UserDTO userDTO) {
-        UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
+        UserEntity userEntity=userMapper.toEntity(userDTO);
+        //UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
         UserEntity userEntity1 = userService.saveUser(userEntity);
-        UserDTO userDTO1 = modelMapper.map(userEntity1, UserDTO.class);
+        UserDTO userDTO1 = userMapper.toDTO(userEntity1);
+        //UserDTO userDTO1 = modelMapper.map(userEntity1, UserDTO.class);
         return userDTO1;
     }
 
