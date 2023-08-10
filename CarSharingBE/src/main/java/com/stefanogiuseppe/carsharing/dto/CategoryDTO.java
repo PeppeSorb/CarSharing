@@ -20,5 +20,5 @@ public class CategoryDTO {
     private double weeklyRate;
     private double monthlyRate;
     private double extraHourlyRate;
-    //private List<ModelEntity> models;
+    private List<ModelEntity> models;
 }

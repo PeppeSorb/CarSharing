@@ -19,12 +19,14 @@ import java.util.List;
 @Getter
 @Setter
 public class ModelDTO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long idCategory;
     private String makeAndModel;
     private int bootCapacity;
     private double averageConsumption;
     private boolean forNewDrivers;
-    //private List<VehicleEntity> vehicles;
+    private List<VehicleEntity> vehicles;
 }
 

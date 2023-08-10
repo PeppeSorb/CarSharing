@@ -19,6 +19,6 @@ public class AdministratorDTO {
     private String firstName;
     private String surname;
     private String pwd;
-    //private List<RentalEntity> managedRentals;
+    private List<RentalEntity> managedRentals;
 
 }

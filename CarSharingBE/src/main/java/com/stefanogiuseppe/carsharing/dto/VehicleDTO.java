@@ -22,5 +22,5 @@ public class VehicleDTO {
     private String city;
     private String street;
     private String houseNumber;
-    //private List<RentalEntity> rentals;
+    private List<RentalEntity> rentals;
 }
