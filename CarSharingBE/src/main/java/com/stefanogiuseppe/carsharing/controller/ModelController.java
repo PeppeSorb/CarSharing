@@ -2,8 +2,9 @@ package com.stefanogiuseppe.carsharing.controller;
 
 import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
+import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
+import com.stefanogiuseppe.carsharing.mapper.ModelMapper;
 import com.stefanogiuseppe.carsharing.service.ModelService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +19,20 @@ import java.util.stream.Collectors;
 public class ModelController {
     @Autowired
     private ModelService modelService;
+    /*
     private ModelMapper modelMapper;
     @Autowired
     public ModelController(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
-
+    */
+    @Autowired
+    private ModelMapper modelMapper;
     @PostMapping("")
     public ModelDTO addModel(@RequestBody ModelDTO modelDTO){
-        ModelEntity modelEntity = modelMapper.map(modelDTO, ModelEntity.class);
+        ModelEntity modelEntity = modelMapper.toEntity(modelDTO);
         ModelEntity modelEntity1 = modelService.saveModel(modelEntity);
-        ModelDTO modelDTO1 = modelMapper.map(modelEntity1, ModelDTO.class);
+        ModelDTO modelDTO1 = modelMapper.toDto(modelEntity1);
         return modelDTO1;
     }
 
@@ -36,7 +40,7 @@ public class ModelController {
     public List<ModelDTO>getAllModel(){
         List<ModelEntity> modelEntities=modelService.getAllModel();
         List<ModelDTO> modelDTO = modelEntities.stream()
-                .map(model -> modelMapper.map(model, ModelDTO.class))
+                .map(model -> modelMapper.toDto(model))
                 .collect(Collectors.toList());
         return modelDTO;
     }
@@ -44,7 +48,7 @@ public class ModelController {
     @GetMapping("/{id}")
     public ModelDTO getModelById(@PathVariable Long id){
         ModelEntity modelEntity = modelService.findById(id);
-        ModelDTO modelDTO = modelMapper.map(modelEntity, ModelDTO.class);
+        ModelDTO modelDTO = modelMapper.toDto(modelEntity);
         return modelDTO;
     }
 
@@ -53,7 +57,7 @@ public class ModelController {
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 
-        ModelDTO modelDTO1 = modelMapper.map(modelEntity, ModelDTO.class);
+        ModelDTO modelDTO1 = modelMapper.toDto(modelEntity);
 
         return modelDTO1;
     }
@@ -62,7 +66,7 @@ public class ModelController {
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 
-        ModelDTO modelDTO1 = modelMapper.map(modelEntity, ModelDTO.class);
+        ModelDTO modelDTO1 = modelMapper.toDto(modelEntity);
 
         return modelDTO1;
     }

@@ -2,6 +2,8 @@ package com.stefanogiuseppe.carsharing.controller;
 
 import com.stefanogiuseppe.carsharing.dto.AdministratorDTO;
 import com.stefanogiuseppe.carsharing.entity.AdministratorEntity;
+import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
+import com.stefanogiuseppe.carsharing.mapper.RentalMapper;
 import com.stefanogiuseppe.carsharing.service.AdministratorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +20,20 @@ import java.util.stream.Collectors;
 public class AdministratorController {
     @Autowired
     private AdministratorService administratorService;
+    /*
     private ModelMapper administratorMapper;
     @Autowired
     public AdministratorController(ModelMapper administratorMapper) {
         this.administratorMapper = administratorMapper;
     }
-
+    */
+    @Autowired
+    private AdministratorMapper administratorMapper;
     @PostMapping("")
     public  AdministratorDTO addAdministrator(@RequestBody AdministratorDTO administratorDTO){
-        AdministratorEntity administratorEntity = administratorMapper.map(administratorDTO, AdministratorEntity.class);
+        AdministratorEntity administratorEntity = administratorMapper.toEntity(administratorDTO);
         AdministratorEntity administratorEntity1 = administratorService.saveAdministrator(administratorEntity);
-        AdministratorDTO administratorDTO1 = administratorMapper.map(administratorEntity1, AdministratorDTO.class);
+        AdministratorDTO administratorDTO1 = administratorMapper.toDto(administratorEntity1);
         return administratorDTO1;
     }
 
@@ -36,7 +41,7 @@ public class AdministratorController {
     public List<AdministratorDTO> getAllAdministrator(){
         List<AdministratorEntity> administratorEntities=administratorService.getAllAdministrator();
         List<AdministratorDTO> administratorDTO = administratorEntities.stream()
-                .map(administrator -> administratorMapper.map(administrator, AdministratorDTO.class))
+                .map(administrator -> administratorMapper.toDto(administrator))
                 .collect(Collectors.toList());
         return administratorDTO;
     }
@@ -44,7 +49,7 @@ public class AdministratorController {
     @GetMapping("/{id}")
     public AdministratorDTO getAdministratorById(@PathVariable Long id){
         AdministratorEntity administratorEntity = administratorService.findById(id);
-        AdministratorDTO administratorDTO = administratorMapper.map(administratorEntity, AdministratorDTO.class);
+        AdministratorDTO administratorDTO = administratorMapper.toDto(administratorEntity);
         return administratorDTO;
     }
 
@@ -53,7 +58,7 @@ public class AdministratorController {
 
         AdministratorEntity administratorEntity=administratorService.updateAdministrator(id, administratorDTO);
 
-        AdministratorDTO administratorDTO1 = administratorMapper.map(administratorEntity, AdministratorDTO.class);
+        AdministratorDTO administratorDTO1 = administratorMapper.toDto(administratorEntity);
 
         return administratorDTO1;
     }
@@ -62,7 +67,7 @@ public class AdministratorController {
 
         AdministratorEntity administratorEntity=administratorService.updateAdministrator(id, administratorDTO);
 
-        AdministratorDTO administratorDTO1 = administratorMapper.map(administratorEntity, AdministratorDTO.class);
+        AdministratorDTO administratorDTO1 = administratorMapper.toDto(administratorEntity);
 
         return administratorDTO1;
     }

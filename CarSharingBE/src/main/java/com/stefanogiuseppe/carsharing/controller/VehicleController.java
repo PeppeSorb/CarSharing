@@ -2,6 +2,8 @@ package com.stefanogiuseppe.carsharing.controller;
 
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
+import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
+import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
 import com.stefanogiuseppe.carsharing.service.VehicleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +20,20 @@ import java.util.stream.Collectors;
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
+    /*
     private ModelMapper modelMapper;
     @Autowired
     public VehicleController(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
-
+    */
+    @Autowired
+    private VehicleMapper vehicleMapper;
     @PostMapping("")
     public VehicleDTO addVehicle(@RequestBody VehicleDTO vehicleDTO){
-        VehicleEntity vehicleEntity = modelMapper.map(vehicleDTO, VehicleEntity.class);
+        VehicleEntity vehicleEntity = vehicleMapper.toEntity(vehicleDTO);
         VehicleEntity vehicleEntity1 = vehicleService.saveVehicle(vehicleEntity);
-        VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity1, VehicleDTO.class);
+        VehicleDTO vehicleDTO1 = vehicleMapper.toDto(vehicleEntity1);
         return vehicleDTO1;
     }
 
@@ -36,7 +41,7 @@ public class VehicleController {
     public List<VehicleDTO>getAllVehicle(){
         List<VehicleEntity> vehicleEntities=vehicleService.getAllVehicle();
         List<VehicleDTO> vehicleDTO = vehicleEntities.stream()
-                .map(vehicle -> modelMapper.map(vehicle, VehicleDTO.class))
+                .map(vehicle -> vehicleMapper.toDto(vehicle))
                 .collect(Collectors.toList());
         return vehicleDTO;
     }
@@ -44,7 +49,7 @@ public class VehicleController {
     @GetMapping("/{id}")
     public VehicleDTO getVehicleById(@PathVariable Long id){
         VehicleEntity vehicleEntity = vehicleService.findById(id);
-        VehicleDTO vehicleDTO = modelMapper.map(vehicleEntity, VehicleDTO.class);
+        VehicleDTO vehicleDTO = vehicleMapper.toDto(vehicleEntity);
         return vehicleDTO;
     }
 
@@ -53,7 +58,7 @@ public class VehicleController {
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
-        VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity, VehicleDTO.class);
+        VehicleDTO vehicleDTO1 = vehicleMapper.toDto(vehicleEntity);
 
         return vehicleDTO1;
     }
@@ -62,7 +67,7 @@ public class VehicleController {
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
-        VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity, VehicleDTO.class);
+        VehicleDTO vehicleDTO1 = vehicleMapper.toDto(vehicleEntity);
 
         return vehicleDTO1;
     }
