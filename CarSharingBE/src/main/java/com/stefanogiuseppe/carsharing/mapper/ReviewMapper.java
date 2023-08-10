@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReviewMapper {
-    public ReviewEntity convertDtoToEntity(ReviewDTO reviewDTO) {
+    public ReviewEntity toEntity(ReviewDTO reviewDTO) {
         ReviewEntity reviewEntity = new ReviewEntity();
         reviewEntity.setId(reviewDTO.getId());
         reviewEntity.setIdRental(reviewDTO.getIdRental());
@@ -15,7 +15,7 @@ public class ReviewMapper {
         reviewEntity.setValutation(reviewDTO.getValutation());
         return reviewEntity;
     }
-    public ReviewDTO convertEntityToDto(ReviewEntity reviewEntity) {
+    public ReviewDTO toDto(ReviewEntity reviewEntity) {
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setId(reviewEntity.getId());
         reviewDTO.setIdRental(reviewEntity.getIdRental());

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RechargeMapper {
-    public RechargeEntity convertDtoToEntity(RechargeDTO rechargeDTO) {
+    public RechargeEntity toEntity(RechargeDTO rechargeDTO) {
         RechargeEntity rechargeEntity = new RechargeEntity();
         rechargeEntity.setId(rechargeDTO.getId());
         rechargeEntity.setIdUser(rechargeDTO.getIdUser());
@@ -15,7 +15,7 @@ public class RechargeMapper {
         return rechargeEntity;
     }
 
-    public RechargeDTO convertEntityToDto(RechargeEntity rechargeEntity) {
+    public RechargeDTO toDto(RechargeEntity rechargeEntity) {
         RechargeDTO rechargeDTO = new RechargeDTO();
         rechargeDTO.setId(rechargeEntity.getId());
         rechargeDTO.setIdUser(rechargeEntity.getIdUser());
