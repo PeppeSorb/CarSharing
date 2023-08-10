@@ -27,6 +27,6 @@ public class ModelDTO {
     private int bootCapacity;
     private double averageConsumption;
     private boolean forNewDrivers;
-    private List<VehicleEntity> vehicles;
+    //private List<VehicleEntity> vehicles;
 }
 
