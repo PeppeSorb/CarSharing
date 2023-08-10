@@ -27,11 +27,11 @@ public class RentalEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_vehicle")
-    private VehicleEntity id_vehicle;
+    private VehicleEntity idVehicle;
 
     @OneToOne
     @JoinColumn(name = "id_admin")
-    private AdministratorEntity id_admin;
+    private AdministratorEntity idAdmin;
 
     @Column(name = "date_time_start_rental")
     private Date dateTimeStartRental;

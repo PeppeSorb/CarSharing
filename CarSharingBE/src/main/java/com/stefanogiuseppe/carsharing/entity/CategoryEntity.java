@@ -45,7 +45,7 @@ public class CategoryEntity {
     @Column(name = "extra_hourly_rate")
     private double extraHourlyRate;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_category")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idCategory")
     private List<ModelEntity> models;
 
 }
