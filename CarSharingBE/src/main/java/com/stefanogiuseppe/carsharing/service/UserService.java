@@ -33,7 +33,7 @@ public class UserService {
         return userRepository.findById(id).orElseThrow();
     }
 
-    public UserEntity updateUser(Long id, UserDTO userDTO) {
+    public UserEntity updatePatchUser(Long id, UserDTO userDTO) {
         UserEntity userEntity = findById(id);
         userDTO.setId(userEntity.getId());
 
@@ -42,6 +42,13 @@ public class UserService {
 
     }
 
+    public UserEntity updatePutUser(Long id, UserDTO userDTO) {
+        UserEntity userEntity = findById(id);
+        userDTO.setId(userEntity.getId());
+
+        BeanUtils.copyProperties(userDTO, userEntity, getNullPropertyNames(userDTO));
+        return userRepository.save(userEntity);
+    }
     private String[] getNullPropertyNames(Object source) {
         final BeanWrapper src = new BeanWrapperImpl(source);
         return Stream.of(src.getPropertyDescriptors())

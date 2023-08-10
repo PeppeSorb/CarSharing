@@ -20,7 +20,7 @@ public class UserMapper {
         return userDTO;
     }
 
-    public UserEntity toEntity(UserDTO userDTO) {
+    public static UserEntity toEntity(UserDTO userDTO) {
         UserEntity userEntity = new UserEntity();
         userEntity.setId(userDTO.getId());
         userEntity.setPivaOrCf(userDTO.getPivaOrCf());

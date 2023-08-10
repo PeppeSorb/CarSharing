@@ -4,13 +4,11 @@ import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.UserMapper;
 import com.stefanogiuseppe.carsharing.service.UserService;
-import org.apache.catalina.User;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/api/user")
@@ -21,17 +19,17 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
-    private ModelMapper modelMapper;
+    /*private ModelMapper modelMapper;
 
     @Autowired
     public UserController(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
-    }
+    }*/
 
     @PostMapping("")
     @ResponseBody
     public UserDTO addUser(@RequestBody UserDTO userDTO) {
-        UserEntity userEntity=userMapper.toEntity(userDTO);
+        UserEntity userEntity = userMapper.toEntity(userDTO);
         //UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
         UserEntity userEntity1 = userService.saveUser(userEntity);
         UserDTO userDTO1 = userMapper.toDTO(userEntity1);
@@ -43,27 +41,49 @@ public class UserController {
     @ResponseBody
     public List<UserDTO> getAllUser() {
         List<UserEntity> userEntities = userService.getAllUser();
+        List<UserDTO> userDTO = new ArrayList<>();
+        for (UserEntity u : userEntities) {
+            UserDTO userDTO1 = userMapper.toDTO(u);
+            userDTO.add(userDTO1);
+        }
+        return userDTO;
+    }
+  /*  @GetMapping("")
+    @ResponseBody
+    public List<UserDTO> getAllUser() {
+        List<UserEntity> userEntities = userService.getAllUser();
         List<UserDTO> userDTO = userEntities.stream()
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
         return userDTO;
-    }
+    }*/
 
     @GetMapping("/{id}")
     @ResponseBody
     public UserDTO getUserById(@PathVariable Long id) {
         UserEntity userEntity = userService.findById(id);
-        UserDTO userDTO = modelMapper.map(userEntity, UserDTO.class);
+        UserDTO userDTO = userMapper.toDTO(userEntity);;
         return userDTO;
     }
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    public UserDTO updatePatchUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
 
-        UserEntity userEntity = userService.updateUser(id, userDTO);
+        UserEntity userEntity = userService.updatePatchUser(id, userDTO);
 
-        UserDTO userDTO1 = modelMapper.map(userEntity, UserDTO.class);
+        UserDTO userDTO1 = userMapper.toDTO(userEntity);
+
+        return userDTO1;
+    }
+
+    @PutMapping("/{id}")
+    @ResponseBody
+    public UserDTO updatePutUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+
+        UserEntity userEntity = userService.updatePutUser(id, userDTO);
+
+        UserDTO userDTO1 = userMapper.toDTO(userEntity);
 
         return userDTO1;
     }
