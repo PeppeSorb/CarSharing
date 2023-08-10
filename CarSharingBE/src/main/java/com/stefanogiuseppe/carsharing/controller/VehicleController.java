@@ -25,43 +25,43 @@ public class VehicleController {
     }
 
     @PostMapping("")
-    public ResponseEntity<VehicleDTO>addVehicle(@RequestBody VehicleDTO vehicleDTO){
+    public VehicleDTO addVehicle(@RequestBody VehicleDTO vehicleDTO){
         VehicleEntity vehicleEntity = modelMapper.map(vehicleDTO, VehicleEntity.class);
         VehicleEntity vehicleEntity1 = vehicleService.saveVehicle(vehicleEntity);
         VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity1, VehicleDTO.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(vehicleDTO1);
+        return vehicleDTO1;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<VehicleDTO>>getAllVehicle(){
+    public List<VehicleDTO>getAllVehicle(){
         List<VehicleEntity> vehicleEntities=vehicleService.getAllVehicle();
         List<VehicleDTO> vehicleDTO = vehicleEntities.stream()
                 .map(vehicle -> modelMapper.map(vehicle, VehicleDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(vehicleDTO);
+        return vehicleDTO;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VehicleDTO>getVehicleById(@PathVariable Long id){
+    public VehicleDTO getVehicleById(@PathVariable Long id){
         VehicleEntity vehicleEntity = vehicleService.findById(id);
         VehicleDTO vehicleDTO = modelMapper.map(vehicleEntity, VehicleDTO.class);
-        return ResponseEntity.ok(vehicleDTO);
+        return vehicleDTO;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VehicleDTO>updateVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
+    public VehicleDTO updateVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
         VehicleDTO vehicleDTO1 = modelMapper.map(vehicleEntity, VehicleDTO.class);
 
-        return ResponseEntity.ok(vehicleDTO1);
+        return vehicleDTO1;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String>deleteVehicle(@PathVariable Long id){
+    public String deleteVehicle(@PathVariable Long id){
         vehicleService.deleteVehicle(id);
-        return ResponseEntity.ok("Vehicle " + id + " deleted");
+        return "Vehicle " + id + " deleted";
     }
 }
 
