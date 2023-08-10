@@ -50,7 +50,7 @@ public class UserEntity {
     private boolean deleted;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idUser")
-    @JsonIgnore
+    //@JsonIgnore
     private List<RechargeEntity> recharges;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idUser")

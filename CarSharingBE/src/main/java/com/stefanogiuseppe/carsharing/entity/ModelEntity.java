@@ -42,5 +42,6 @@ public class ModelEntity {
     private boolean forNewDrivers;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idModel")
+    @JsonIgnore
     private List<VehicleEntity> vehicles;
 }

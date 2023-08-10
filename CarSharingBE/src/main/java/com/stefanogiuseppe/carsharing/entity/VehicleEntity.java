@@ -23,7 +23,7 @@ import java.util.List;
 public class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vehicle")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "license_plate")

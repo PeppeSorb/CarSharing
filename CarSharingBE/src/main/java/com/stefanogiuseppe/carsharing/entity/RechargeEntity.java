@@ -23,6 +23,7 @@ public class RechargeEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
+    @JsonIgnore
     private UserEntity idUser;
 
     @Column(name="amount")

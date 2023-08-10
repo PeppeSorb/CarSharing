@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "rental")
+@Table(name = "review")
 @Where(clause = "deleted = 0")
 public class ReviewEntity {
     @Id
@@ -26,7 +26,7 @@ public class ReviewEntity {
     private RentalEntity idRental;
 
     @Column(name = "date_time_review")
-    private Date dateTimeReview;
+    private LocalDateTime dateTimeReview;
 
     @Column(name = "text_review")
     private String textReview;

@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import java.util.Date;
 public class ReviewDTO {
     private Long id;
     private RentalEntity idRental;
-    private Date dateTimeReview;
+    private LocalDateTime dateTimeReview;
     private String textReview;
     private int valutation;
 }

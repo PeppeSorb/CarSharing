@@ -19,8 +19,8 @@ import java.util.Date;
 public class RentalDTO {
     private Long id;
     private UserEntity idUser;
-    private VehicleEntity id_vehicle;
-    private AdministratorEntity id_admin;
+    private VehicleEntity idVehicle;
+    private AdministratorEntity idAdmin;
     private Date dateTimeStartRental;
     private Date dateTimeEndRental;
     private String typeRental;

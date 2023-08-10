@@ -46,6 +46,8 @@ public class CategoryEntity {
     private double extraHourlyRate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idCategory")
+    @JsonIgnore
+
     private List<ModelEntity> models;
 
 }

@@ -1,11 +1,8 @@
 package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.ReviewDTO;
-import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
-import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.repository.ReviewRepository;
-import com.stefanogiuseppe.carsharing.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
