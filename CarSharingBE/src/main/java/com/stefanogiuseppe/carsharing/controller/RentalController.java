@@ -37,12 +37,13 @@ public class RentalController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<RentalDTO>> getAllRental() {
+    @ResponseBody
+    public List<RentalDTO> getAllRental() {
         List<RentalEntity> rentalEntities = rentalService.getAllRental();
         List<RentalDTO> rentalDTO = rentalEntities.stream()
                 .map(rental -> modelMapper.map(rental, RentalDTO.class))
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(rentalDTO);
+        return rentalDTO;
     }
 
     @GetMapping("/{id}")
