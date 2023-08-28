@@ -2,10 +2,14 @@ package com.stefanogiuseppe.carsharing.controller;
 
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
+import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
+import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.mapper.RentalMapper;
+import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
 import com.stefanogiuseppe.carsharing.service.RentalService;
+import com.stefanogiuseppe.carsharing.service.VehicleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +24,9 @@ import java.util.stream.Collectors;
 public class RentalController {
     @Autowired
     private RentalService rentalService;
+
+    @Autowired
+    private VehicleService vehicleService;
  /*   private ModelMapper modelMapper;
 
     @Autowired
@@ -29,6 +36,9 @@ public class RentalController {
 
     @Autowired
     private RentalMapper rentalMapper;
+
+    @Autowired
+    private VehicleMapper vehicleMapper;
 
     @PostMapping("")
     @ResponseBody
@@ -86,5 +96,12 @@ public class RentalController {
     public void deleteRental(@PathVariable Long id) {
         rentalService.deleteRental(id);
         System.out.println("Rental " + id + " deleted");
+    }
+
+    @GetMapping("/create/{idVehicle}")
+    @ResponseBody
+    public String getRental(@PathVariable Long idVehicle) {
+        String rentalEntity = rentalService.makeReservation(idVehicle);
+        return rentalEntity;
     }
 }

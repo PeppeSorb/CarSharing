@@ -2,7 +2,9 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
+import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
+import com.stefanogiuseppe.carsharing.repository.VehicleRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -17,6 +19,8 @@ import java.util.stream.Stream;
 public class RentalService {
     @Autowired
     private RentalRepository rentalRepository;
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
     public RentalEntity saveRental(RentalEntity rentalEntity) {
         rentalEntity.setDeleted(false);
@@ -52,6 +56,21 @@ public class RentalService {
         RentalEntity rentalEntity = rentalRepository.findById(id).orElseThrow();
         rentalEntity.setDeleted(true);
         rentalRepository.save(rentalEntity);
+    }
+
+    public String makeReservation(Long idVehicle) {
+        VehicleEntity vehicleEntity= vehicleRepository.findById(idVehicle).orElseThrow();
+        // Verifica se l'ID del veicolo è già presente in rental
+        boolean isVehicleAlreadyRented = rentalRepository.existsByIdVehicle(vehicleEntity);
+
+        if (isVehicleAlreadyRented) {
+            return ("Il veicolo è già stato prenotato.");
+        }
+
+        else
+
+
+        return ("Prenotazione effettuata con successo.");
     }
 
 }
