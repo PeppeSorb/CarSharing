@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6a85a96e-a5ea-45a9-9a02-c40ad50bd3c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.$Car Sharing DB v1.drawio.bkp" beforeDir="false" afterPath="$PROJECT_DIR$/.$Car Sharing DB v1.drawio.bkp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Car Sharing DB v1.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Car Sharing DB v1.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Car sharing.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Car sharing.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/CarSharing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/CarSharing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/libraries/maven_wrapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/libraries/maven_wrapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/CarsharingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/CarsharingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/ModelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/ModelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/RechargeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/RechargeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/controller/VehicleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/AdministratorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/AdministratorDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/CategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/ModelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/ModelDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/RechargeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/RechargeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/RentalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/RentalDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/ReviewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/VehicleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/dto/VehicleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/AdministratorEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/AdministratorEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/CategoryEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/ModelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/ModelEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/RechargeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/RechargeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/RentalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/RentalEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/ReviewEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/ReviewEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/VehicleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/entity/VehicleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/AdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/AdministratorMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/ModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/ModelMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/RechargeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/RechargeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/RentalMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/RentalMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/ReviewMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/VehicleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/mapper/VehicleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/AdministratorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/AdministratorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/ModelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/ModelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/RechargeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/RechargeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/repository/VehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/AdministratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/AdministratorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/ModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/ModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/RechargeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/RechargeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/RentalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/RentalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/java/com/stefanogiuseppe/carsharing/service/VehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/test/java/com/stefanogiuseppe/carsharing/CarsharingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/test/java/com/stefanogiuseppe/carsharing/CarsharingApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/src/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/src/test/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingBE/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingBE/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/extensions.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/extensions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/.vscode/tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CarSharingFE/CarSharingFE/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dumb_db_carsharing_popolato_v2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Dumb_db_carsharing_popolato_v2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dump_db_stefano_28_agosto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Dump_db_stefano_28_agosto.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dumb_car_sharing_popolato.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dumb_car_sharing_popolato.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2UbniCh4NK05SCvuJFBLFDTyYO4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/giusor/Desktop/IET/CarSharing"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a85a96e-a5ea-45a9-9a02-c40ad50bd3c9" name="Changes" comment="" />
+      <created>1693217272915</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693217272915</updated>
+    </task>
+    <servers />
+  </component>
+</project>

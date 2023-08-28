@@ -66,9 +66,13 @@ public class RentalService {
         boolean emptyRental=true; //controllo se comunque tra le prenotazioni le date sono scadute
         List<RentalEntity> rentals = vehicleEntity.getRentals();
         for(RentalEntity rental:rentals){
-            if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental().after(new Date())) {
+            if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental()==null) {
                 emptyRental = false;
             }
+            else if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental().after(new Date())) {
+                emptyRental = false;
+            }
+
             System.out.println(emptyRental);
         }
 
@@ -76,8 +80,11 @@ public class RentalService {
         if (isVehicleAlreadyRented && (emptyRental==false)) {
             return ("Il veicolo è già stato prenotato.");
         }
-        else
+        else{
+            //AGGIUNGERE UN NUOVO RENTAL
             return ("Prenotazione effettuata con successo.");
+        }
+
     }
 
 }
