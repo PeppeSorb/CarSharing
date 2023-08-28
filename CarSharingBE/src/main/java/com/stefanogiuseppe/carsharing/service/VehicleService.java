@@ -49,7 +49,8 @@ public class VehicleService {
 
     public void deleteVehicle(Long id) {
         VehicleEntity vehicleEntity = vehicleRepository.findById(id).orElseThrow();
-        vehicleRepository.delete(vehicleEntity);
+        vehicleEntity.setDeleted(true);
+        vehicleRepository.save(vehicleEntity);
     }
 
 }

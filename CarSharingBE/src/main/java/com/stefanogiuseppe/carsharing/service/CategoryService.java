@@ -50,7 +50,8 @@ public class CategoryService {
 
     public void deleteCategory(Long id) {
         CategoryEntity categoryEntity = categoryRepository.findById(id).orElseThrow();
-        categoryRepository.delete(categoryEntity);
+        categoryEntity.setDeleted(true);
+        categoryRepository.save(categoryEntity);
     }
 
 }

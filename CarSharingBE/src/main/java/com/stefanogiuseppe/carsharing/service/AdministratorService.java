@@ -50,7 +50,9 @@ public class AdministratorService {
 
     public void deleteAdministrator(Long id) {
         AdministratorEntity administratorEntity = administratorRepository.findById(id).orElseThrow();
-        administratorRepository.delete(administratorEntity);
+        administratorEntity.setDeleted(true);
+        administratorRepository.save(administratorEntity);
     }
+
 
 }

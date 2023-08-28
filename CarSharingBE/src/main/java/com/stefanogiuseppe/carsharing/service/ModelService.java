@@ -50,7 +50,8 @@ public class ModelService {
 
     public void deleteModel(Long id) {
         ModelEntity modelEntity = modelRepository.findById(id).orElseThrow();
-        modelRepository.delete(modelEntity);
+        modelEntity.setDeleted(true);
+        modelRepository.save(modelEntity);
     }
 
 }
