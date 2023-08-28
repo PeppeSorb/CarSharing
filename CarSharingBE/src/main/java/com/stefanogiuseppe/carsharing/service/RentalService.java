@@ -2,8 +2,10 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
+import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
+import com.stefanogiuseppe.carsharing.repository.UserRepository;
 import com.stefanogiuseppe.carsharing.repository.VehicleRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -22,6 +24,9 @@ public class RentalService {
     private RentalRepository rentalRepository;
     @Autowired
     private VehicleRepository vehicleRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public RentalEntity saveRental(RentalEntity rentalEntity) {
         rentalEntity.setDeleted(false);
@@ -59,7 +64,7 @@ public class RentalService {
         rentalRepository.save(rentalEntity);
     }
 
-    public String makeReservation(Long idVehicle) {
+    public boolean makeReservation(Long idVehicle) {
         VehicleEntity vehicleEntity= vehicleRepository.findById(idVehicle).orElseThrow();
         // Verifica se l'ID del veicolo è già presente in rental
         boolean isVehicleAlreadyRented = rentalRepository.existsByIdVehicle(vehicleEntity);
@@ -73,17 +78,54 @@ public class RentalService {
                 emptyRental = false;
             }
 
-            System.out.println(emptyRental);
+           // System.out.println(emptyRental);
         }
 
 
         if (isVehicleAlreadyRented && (emptyRental==false)) {
-            return ("Il veicolo è già stato prenotato.");
+            return false;//("Il veicolo è già stato prenotato.");
         }
         else{
             //AGGIUNGERE UN NUOVO RENTAL
-            return ("Prenotazione effettuata con successo.");
+            return true;//("Prenotazione effettuata con successo.");
         }
+
+    }
+
+    public boolean userCanRental(Long idUser){
+        UserEntity userEntity= userRepository.findById(idUser).orElseThrow();
+        boolean isUserValid=rentalRepository.existsByIdUser(userEntity);
+        boolean isUserCanRental=true;
+
+        List<RentalEntity> rentals = userEntity.getRentals();
+
+        for(RentalEntity rental:rentals){
+            if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental()==null) {
+                isUserCanRental = false;
+            }
+            else if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental().after(new Date())) {
+                isUserCanRental = false;
+            }
+
+            System.out.println(isUserCanRental);
+        }
+
+        if (isUserValid && (isUserCanRental==false)) {
+            return false;//("Non puoi fare altre prenotazioni.");
+        }
+        else{
+            //AGGIUNGERE UN NUOVO RENTAL
+            return true;//("Prenotazione effettuata con successo.");
+        }
+    }
+
+    public RentalEntity saveNewRentalByUserAndVehicle(Long idUser, Long idVehicle, RentalEntity rentalEntity){
+        UserEntity userEntity= userRepository.findById(idUser).orElseThrow();
+        VehicleEntity vehicleEntity = vehicleRepository.findById(idVehicle).orElseThrow();
+
+        rentalEntity.setIdVehicle(vehicleEntity);
+        rentalEntity.setIdUser(userEntity);
+        return rentalEntity;
 
     }
 
