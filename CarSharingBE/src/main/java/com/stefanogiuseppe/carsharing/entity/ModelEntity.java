@@ -19,7 +19,7 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 @Data
-//@Where(clause = "deleted = 0")
+@Where(clause = "deleted = 0")
 public class ModelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
