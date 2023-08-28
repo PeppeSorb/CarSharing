@@ -49,5 +49,9 @@ public class CategoryEntity {
 
     private List<ModelEntity> models;
 
+    @Column(name="deleted")
+    @JsonIgnore
+    private Boolean deleted;
+
 }
 

@@ -37,4 +37,8 @@ public class AdministratorEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idAdmin")
     @JsonIgnore
     private List<RentalEntity> managedRentals;
+
+    @Column(name="deleted")
+    @JsonIgnore
+    private Boolean deleted;
 }

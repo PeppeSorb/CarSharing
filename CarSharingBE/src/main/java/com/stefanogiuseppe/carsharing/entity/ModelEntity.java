@@ -44,4 +44,8 @@ public class ModelEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idModel")
     @JsonIgnore
     private List<VehicleEntity> vehicles;
+
+    @Column(name="deleted")
+    @JsonIgnore
+    private Boolean deleted;
 }
