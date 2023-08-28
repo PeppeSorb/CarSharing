@@ -5,7 +5,7 @@ import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.ModelMapper;
 import com.stefanogiuseppe.carsharing.service.ModelService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@Api(value = "Vehicles Models Controller", description = "This controller allows create, read, update and delete operations on Vehicles Models")
+@Tag(name = "Vehicles Models Controller", description = "This controller allows create, read, update and delete operations on Vehicles Models")
 @RequestMapping(path = "/api/model")
 @CrossOrigin(origins = "*")
 public class ModelController {
