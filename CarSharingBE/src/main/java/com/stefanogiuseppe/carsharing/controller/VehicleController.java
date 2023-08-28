@@ -5,6 +5,7 @@ import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
 import com.stefanogiuseppe.carsharing.service.VehicleService;
+import io.swagger.annotations.Api;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Api(value = "Vehicles Controller", description = "This controller allows create, read, update and delete operations on Vehicles")
 @RequestMapping(path = "/api/vehicle")
 @CrossOrigin(origins = "*")
 public class VehicleController {
