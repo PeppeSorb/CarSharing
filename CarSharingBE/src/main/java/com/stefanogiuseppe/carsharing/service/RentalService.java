@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -62,8 +63,17 @@ public class RentalService {
         VehicleEntity vehicleEntity= vehicleRepository.findById(idVehicle).orElseThrow();
         // Verifica se l'ID del veicolo è già presente in rental
         boolean isVehicleAlreadyRented = rentalRepository.existsByIdVehicle(vehicleEntity);
+        boolean emptyRental=true; //controllo se comunque tra le prenotazioni le date sono scadute
+        List<RentalEntity> rentals = vehicleEntity.getRentals();
+        for(RentalEntity rental:rentals){
+            if(rental.getDateTimeStartRental().before(new Date()) && rental.getDateTimeEndRental().after(new Date())) {
+                emptyRental = false;
+            }
+            System.out.println(emptyRental);
+        }
 
-        if (isVehicleAlreadyRented) {
+
+        if (isVehicleAlreadyRented && (emptyRental==false)) {
             return ("Il veicolo è già stato prenotato.");
         }
         else
