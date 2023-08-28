@@ -98,10 +98,23 @@ public class RentalController {
         System.out.println("Rental " + id + " deleted");
     }
 
-    @GetMapping("/create/{idVehicle}")
+    @GetMapping("/create/{idVehicle}/{idUser}")
     @ResponseBody
-    public String getRental(@PathVariable Long idVehicle) {
-        String rentalEntity = rentalService.makeReservation(idVehicle);
-        return rentalEntity;
+    public String getRental(@PathVariable Long idVehicle, @PathVariable Long idUser, @RequestBody RentalDTO rentalDTO) {
+        RentalEntity rentalEntityNew= rentalMapper.toEntity(rentalDTO);
+        boolean rentalEntity = rentalService.makeReservation(idVehicle);
+        boolean userEntity= rentalService.userCanRental(idUser);
+        if(rentalEntity && userEntity){
+            RentalEntity rentalEntity1=rentalService.saveNewRentalByUserAndVehicle(idUser, idVehicle, rentalEntityNew);
+            RentalDTO rentalDTO1 = rentalMapper.toDto(rentalEntity1);
+            addRental(rentalDTO1);
+            return ("Prenotazione effettuata con successo.");
+        }
+        else if(rentalEntity==false)
+            return ("Il veicolo è già stato prenotato.");
+        else if(userEntity==false)
+            return ("Non puoi fare altre prenotazioni.");
+
+        return ("Err");
     }
 }
