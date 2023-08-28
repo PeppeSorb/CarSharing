@@ -42,7 +42,7 @@ CREATE TABLE `administrator` (
 
 LOCK TABLES `administrator` WRITE;
 /*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-INSERT INTO `administrator` VALUES (4,'stefano.dibisceglie@gmail.com','Stefano','Di Bisceglie','1234',0),(5,'giuseppe.sorbello@gmail.com','Giuseppe','Sorbello','1234',0),(6,'riccardo.buongiovanni@gmail.com','Riccardo','Buongiovanni','1234',0);
+INSERT INTO `administrator` VALUES (4,'stefano.dibisceglie@gmail.com','Stefano','Di Bisceglie','1234',0),(5,'giuseppe.sorbello@gmail.com','Giuseppe','Sorbello','1234',0),(6,'riccardo.buongiovanni@gmail.com','Riccardo','Buongiovanni','1234',1);
 /*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,6 +254,7 @@ CREATE TABLE `vehicle` (
   `street` varchar(50) DEFAULT NULL,
   `house_number` varchar(50) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
+  `booked` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `license_plate` (`license_plate`),
   KEY `id_model` (`id_model`),
@@ -267,7 +268,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'AB123CD',1,'Italia','Lombardia','Milano','Via Roma','123',0),(2,'EF456GH',2,'Italia','Lazio','Roma','Via Nazionale','456',0),(3,'IJ789KL',3,'Germania','Lombardia','Napoli','Via Toledo','789',0),(4,'MN012OP',4,'Italia','Piemonte','Torino','Corso Vittorio Emanuele','101',0),(5,'QR345ST',NULL,'Italia','Veneto','Venezia','Piazza San Marco','234',0),(6,'UV678WX',6,'Italia','Sicilia','Palermo','Via Maqueda','567',0),(7,'YZ901AB',7,'Italia','Toscana','Firenze','Piazza del Duomo','890',0),(8,'CD234EF',8,'Italia','Emilia-Romagna','Bologna','Via dell\'Indipendenza','1234',0),(9,'GH567IJ',9,'Italia','Calabria','Reggio Calabria','Corso Garibaldi','5678',0);
+INSERT INTO `vehicle` VALUES (1,'AB123CD',1,'Italia','Lombardia','Milano','Via Roma','123',0,0),(2,'EF456GH',2,'Italia','Lazio','Roma','Via Nazionale','456',1,0),(3,'IJ789KL',3,'Germania','Lombardia','Napoli','Via Toledo','789',0,0),(4,'MN012OP',4,'Italia','Piemonte','Torino','Corso Vittorio Emanuele','101',0,0),(5,'QR345ST',NULL,'Italia','Veneto','Venezia','Piazza San Marco','234',0,0),(6,'UV678WX',6,'Italia','Sicilia','Palermo','Via Maqueda','567',0,0),(7,'YZ901AB',7,'Italia','Toscana','Firenze','Piazza del Duomo','890',0,0),(8,'CD234EF',8,'Italia','Emilia-Romagna','Bologna','Via dell\'Indipendenza','1234',0,0),(9,'GH567IJ',9,'Italia','Calabria','Reggio Calabria','Corso Garibaldi','5678',0,0);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -280,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-28  9:41:18
+-- Dump completed on 2023-08-28 10:53:36
