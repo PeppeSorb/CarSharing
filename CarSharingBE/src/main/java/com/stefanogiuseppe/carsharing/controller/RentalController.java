@@ -110,7 +110,8 @@ public class RentalController {
 
     @GetMapping("/create/{idVehicle}/{idUser}")
     @ResponseBody
-    public String getRental(@PathVariable Long idVehicle, @PathVariable Long idUser, @RequestBody RentalDTO rentalDTO) {
+    @Operation(description = "Adds a new rental if the vehicle is not currently booked and if the user is not currently renting a vehicle")
+    public String getRental(@Parameter(description="The id of the vehicle to rent") @PathVariable Long idVehicle, @Parameter(description="The id of the user who wants to rent the vehicle") @PathVariable Long idUser, @Parameter(description="The rental in a JSON format") @RequestBody RentalDTO rentalDTO) {
         RentalEntity rentalEntityNew= rentalMapper.toEntity(rentalDTO);
         boolean rentalEntity = rentalService.makeReservation(idVehicle);
         boolean userEntity= rentalService.userCanRental(idUser);
