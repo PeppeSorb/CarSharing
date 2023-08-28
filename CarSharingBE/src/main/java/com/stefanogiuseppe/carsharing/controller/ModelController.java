@@ -5,6 +5,8 @@ import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.ModelMapper;
 import com.stefanogiuseppe.carsharing.service.ModelService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,8 @@ public class ModelController {
     @Autowired
     private ModelMapper modelMapper;
     @PostMapping("")
-    public ModelDTO addModel(@RequestBody ModelDTO modelDTO){
+    @Operation(description = "Adds a new vehicle model to the repository")
+    public ModelDTO addModel(@Parameter(description = "The new administrator in a JSON format") @RequestBody ModelDTO modelDTO){
         ModelEntity modelEntity = modelMapper.toEntity(modelDTO);
         ModelEntity modelEntity1 = modelService.saveModel(modelEntity);
         ModelDTO modelDTO1 = modelMapper.toDto(modelEntity1);
@@ -39,6 +42,7 @@ public class ModelController {
     }
 
     @GetMapping("")
+    @Operation(description = "Returns all vehicles models of the repository")
     public List<ModelDTO>getAllModel(){
         List<ModelEntity> modelEntities=modelService.getAllModel();
         List<ModelDTO> modelDTO = modelEntities.stream()
@@ -48,14 +52,16 @@ public class ModelController {
     }
 
     @GetMapping("/{id}")
-    public ModelDTO getModelById(@PathVariable Long id){
+    @Operation(description = "Returns a model inside the repository with the specified id")
+    public ModelDTO getModelById(@Parameter(description="The id of the requested model") @PathVariable Long id){
         ModelEntity modelEntity = modelService.findById(id);
         ModelDTO modelDTO = modelMapper.toDto(modelEntity);
         return modelDTO;
     }
 
     @PutMapping("/{id}")
-    public ModelDTO updatePutModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+    @Operation(description = "Updates all information of an existing vehicle model")
+    public ModelDTO updatePutModel(@Parameter(description="The id of the vehicle model to update") @PathVariable Long id, @Parameter(description = "The updated vehicle model") @RequestBody ModelDTO modelDTO){
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 
@@ -64,7 +70,8 @@ public class ModelController {
         return modelDTO1;
     }
     @PatchMapping("/{id}")
-    public ModelDTO updatePatchModel(@PathVariable Long id, @RequestBody ModelDTO modelDTO){
+    @Operation(description = "Updates some information of an existing vehicle model")
+    public ModelDTO updatePatchModel(@Parameter(description="The id of the vehicle model to update") @PathVariable Long id, @Parameter(description = "The updated information of vehicle model") @RequestBody ModelDTO modelDTO){
 
         ModelEntity modelEntity=modelService.updateModel(id, modelDTO);
 
@@ -74,7 +81,8 @@ public class ModelController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteModel(@PathVariable Long id){
+    @Operation(description = "Deletes a vehicle model from the repository")
+    public String deleteModel(@Parameter(description = "The id of the vehicle model to delete") @PathVariable Long id){
         modelService.deleteModel(id);
         return "Model " + id + " deleted";
     }

@@ -5,6 +5,8 @@ import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.CategoryMapper;
 import com.stefanogiuseppe.carsharing.service.CategoryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,8 @@ public class CategoryController {
     @Autowired
     private CategoryMapper categoryMapper;
     @PostMapping("")
-    public CategoryDTO addCategory(@RequestBody CategoryDTO categoryDTO){
+    @Operation(description = "Adds a new category to the repository")
+    public CategoryDTO addCategory(@Parameter(description = "The new administrator in a JSON format") @RequestBody CategoryDTO categoryDTO){
         CategoryEntity categoryEntity = categoryMapper.toEntity(categoryDTO);
         CategoryEntity categoryEntity1 = categoryService.saveCategory(categoryEntity);
         CategoryDTO categoryDTO1 = categoryMapper.toDto(categoryEntity1);
@@ -40,6 +43,7 @@ public class CategoryController {
     }
 
     @GetMapping("")
+    @Operation(description = "Returns all categories of the repository")
     public List<CategoryDTO> getAllCategory(){
         List<CategoryEntity> categoryEntities=categoryService.getAllCategory();
         List<CategoryDTO> categoryDTO = categoryEntities.stream()
@@ -49,14 +53,16 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public CategoryDTO getCategoryById(@PathVariable Long id){
+    @Operation(description = "Returns a category inside the repository with the specified id")
+    public CategoryDTO getCategoryById(@Parameter(description="The id of the requested category") @PathVariable Long id){
         CategoryEntity categoryEntity = categoryService.findById(id);
         CategoryDTO categoryDTO = categoryMapper.toDto(categoryEntity);
         return categoryDTO;
     }
 
     @PutMapping("/{id}")
-    public CategoryDTO updatePutCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+    @Operation(description = "Updates all information of an existing category")
+    public CategoryDTO updatePutCategory(@Parameter(description="The id of the vehicle category to update") @PathVariable Long id,@Parameter(description = "The updated vehicle category") @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
 
@@ -65,7 +71,8 @@ public class CategoryController {
         return categoryDTO1;
     }
     @PatchMapping("/{id}")
-    public CategoryDTO updatePatchCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO){
+    @Operation(description = "Updates some information of an existing vehicle category")
+    public CategoryDTO updatePatchCategory(@Parameter(description="The id of the category to update") @PathVariable Long id, @Parameter(description = "The updated information of vehicle category") @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
 
@@ -75,7 +82,8 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteCategory(@PathVariable Long id){
+    @Operation(description = "Deletes a vehicle category from the repository")
+    public String deleteCategory(@Parameter(description = "The id of the category to delete") @PathVariable Long id){
         categoryService.deleteCategory(id);
         return "Category " + id + " deleted";
     }

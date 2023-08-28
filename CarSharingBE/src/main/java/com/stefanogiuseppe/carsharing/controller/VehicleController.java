@@ -5,6 +5,8 @@ import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
 import com.stefanogiuseppe.carsharing.service.VehicleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,8 @@ public class VehicleController {
     @Autowired
     private VehicleMapper vehicleMapper;
     @PostMapping("")
-    public VehicleDTO addVehicle(@RequestBody VehicleDTO vehicleDTO){
+    @Operation(description = "Adds a new vehicle to the repository")
+    public VehicleDTO addVehicle(@Parameter(description = "The new administrator in a JSON format") @RequestBody VehicleDTO vehicleDTO){
         VehicleEntity vehicleEntity = vehicleMapper.toEntity(vehicleDTO);
         VehicleEntity vehicleEntity1 = vehicleService.saveVehicle(vehicleEntity);
         VehicleDTO vehicleDTO1 = vehicleMapper.toDto(vehicleEntity1);
@@ -40,6 +43,7 @@ public class VehicleController {
     }
 
     @GetMapping("")
+    @Operation(description = "Returns all vehicles of the repository")
     public List<VehicleDTO>getAllVehicle(){
         List<VehicleEntity> vehicleEntities=vehicleService.getAllVehicle();
         List<VehicleDTO> vehicleDTO = vehicleEntities.stream()
@@ -49,14 +53,16 @@ public class VehicleController {
     }
 
     @GetMapping("/{id}")
-    public VehicleDTO getVehicleById(@PathVariable Long id){
+    @Operation(description = "Returns a vehicle inside the repository with the specified id")
+    public VehicleDTO getVehicleById(@Parameter(description="The id of the requested vehicle") @PathVariable Long id){
         VehicleEntity vehicleEntity = vehicleService.findById(id);
         VehicleDTO vehicleDTO = vehicleMapper.toDto(vehicleEntity);
         return vehicleDTO;
     }
 
     @PutMapping("/{id}")
-    public VehicleDTO updatePutVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
+    @Operation(description = "Updates all information of an existing vehicle")
+    public VehicleDTO updatePutVehicle(@Parameter(description="The id of the vehicle to update") @PathVariable Long id, @Parameter(description = "The updated vehicle") @RequestBody VehicleDTO vehicleDTO){
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
@@ -65,7 +71,8 @@ public class VehicleController {
         return vehicleDTO1;
     }
     @PatchMapping("/{id}")
-    public VehicleDTO updatePatchVehicle(@PathVariable Long id, @RequestBody VehicleDTO vehicleDTO){
+    @Operation(description = "Updates some information of an existing vehicle")
+    public VehicleDTO updatePatchVehicle(@Parameter(description="The id of the vehicle to update") @PathVariable Long id, @Parameter(description = "The updated information of vehicle") @RequestBody VehicleDTO vehicleDTO){
 
         VehicleEntity vehicleEntity=vehicleService.updateVehicle(id, vehicleDTO);
 
@@ -75,7 +82,8 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteVehicle(@PathVariable Long id){
+    @Operation(description = "Deletes a vehicle from the repository")
+    public String deleteVehicle(@Parameter(description = "The id of the vehicle to delete") @PathVariable Long id){
         vehicleService.deleteVehicle(id);
         return "Vehicle " + id + " deleted";
     }
