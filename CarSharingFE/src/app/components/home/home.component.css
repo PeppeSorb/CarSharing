@@ -1,0 +1,165 @@
+.header{
+    min-height: 695px;
+    padding: 10px 10px;
+    background-color: beige;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title{
+    float: left;
+    font-size: 280px;
+    margin-left: 20px;
+}
+
+.navbar{
+    float: right;
+}
+
+.navbar ul{
+    display: flex;
+    list-style-type: none;
+    padding-right: 25px;
+}
+
+.navbar ul li{
+    padding: 0 15px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.slogan{
+    margin-top: 620px;
+    margin-left: 45px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+.instructions{
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.instructions h3{
+    font-size: 40px;
+    padding: 15px 0px;
+}
+
+.card-1{
+    /* max-width: 400px; */
+    display: flex;
+    height: 450px;
+    box-shadow: 8px 8px #9eb0b67e;
+    margin: 25px;
+    border: solid gray 1px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img{
+    background-color: blue;
+    min-width: 450px;
+    width: 450px;
+    height: 450px;
+    margin-right: 30px;
+}
+
+.img2{
+    background-color: blue;
+    min-width: 450px;
+    width: 450px;
+    height: 450px;
+    margin-left: 30px;
+}
+
+.how-to{
+    max-width: 700px;
+}
+
+.how-to p{
+    font-size: 18px;
+    line-height: 28px;
+    text-align: left;
+}
+
+.how-to2{
+    max-width: 700px;
+    margin-left: 30px;
+}
+
+.how-to2 p{
+    font-size: 18px;
+    line-height: 28px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.card-title{
+    font-size: 25px;
+}
+
+.cars{
+    padding-bottom: 10px;
+}
+
+.cars h3{
+    font-size: 40px;
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.card-2{
+    /* display: flex; */
+    box-shadow: 8px 8px #9eb0b67e;
+    margin: 25px;
+    border: solid gray 1px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+summary{
+    list-style-type: none;
+    min-height: fit-content;
+    padding: 15px;
+    font-size: 20px;
+    background-color: bisque;
+}
+
+summary .open{
+    float: right;
+    margin-right: 20px;
+}
+
+.card-2 p{
+    padding-left: 15px;
+}
+
+.locations h3{
+    font-size: 40px;
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.col-4{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 200px;
+}
+
+.block{
+    flex-basis: 25%;
+}
+
+.col-4 ul{
+    list-style-type: none;
+}
