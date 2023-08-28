@@ -66,11 +66,8 @@ public class RentalService {
         if (isVehicleAlreadyRented) {
             return ("Il veicolo è già stato prenotato.");
         }
-
         else
-
-
-        return ("Prenotazione effettuata con successo.");
+            return ("Prenotazione effettuata con successo.");
     }
 
 }
