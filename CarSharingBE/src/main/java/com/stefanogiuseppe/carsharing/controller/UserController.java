@@ -4,6 +4,9 @@ import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.UserMapper;
 import com.stefanogiuseppe.carsharing.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Tag(name = "Users Controller", description = "This controller allows create, read, update and delete operations on Users")
 @RequestMapping(path = "/api/user")
 @CrossOrigin(origins = "*")
 public class UserController {
@@ -28,7 +32,8 @@ public class UserController {
 
     @PostMapping("")
     @ResponseBody
-    public UserDTO addUser(@RequestBody UserDTO userDTO) {
+    @Operation(description = "Adds a new user to the repository")
+    public UserDTO addUser(@Parameter(description = "The new user in a JSON format") @RequestBody UserDTO userDTO) {
         UserEntity userEntity = userMapper.toEntity(userDTO);
         //UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
         UserEntity userEntity1 = userService.saveUser(userEntity);
@@ -39,6 +44,7 @@ public class UserController {
 
     @GetMapping("")
     @ResponseBody
+    @Operation(description = "Returns all users of the repository")
     public List<UserDTO> getAllUser() {
         List<UserEntity> userEntities = userService.getAllUser();
         List<UserDTO> userDTO = new ArrayList<>();
@@ -60,7 +66,8 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public UserDTO getUserById(@PathVariable Long id) {
+    @Operation(description = "Returns an user inside the repository with the specified id")
+    public UserDTO getUserById(@Parameter(description="The id of the requested user") @PathVariable Long id) {
         UserEntity userEntity = userService.findById(id);
         UserDTO userDTO = userMapper.toDTO(userEntity);;
         return userDTO;
@@ -68,7 +75,8 @@ public class UserController {
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public UserDTO updatePatchUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    @Operation(description = "Updates some information of an existing user")
+    public UserDTO updatePatchUser(@Parameter(description="The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated user") @RequestBody UserDTO userDTO) {
 
         UserEntity userEntity = userService.updateUser(id, userDTO);
 
@@ -79,7 +87,8 @@ public class UserController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public UserDTO updatePutUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+    @Operation(description = "Updates all information of an existing user")
+    public UserDTO updatePutUser(@Parameter(description="The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated information of user") @RequestBody UserDTO userDTO) {
 
         UserEntity userEntity = userService.updateUser(id, userDTO);
 
@@ -90,7 +99,8 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteUser(@PathVariable Long id) {
+    @Operation(description = "Deletes an user from the repository")
+    public void deleteUser(@Parameter(description = "The id of the user to delete") @PathVariable Long id) {
         userService.deleteUser(id);
         System.out.println("User " + id + " deleted");
     }

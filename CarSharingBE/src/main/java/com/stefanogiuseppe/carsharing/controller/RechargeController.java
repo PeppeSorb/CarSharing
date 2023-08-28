@@ -6,6 +6,9 @@ import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.RechargeMapper;
 import com.stefanogiuseppe.carsharing.service.RechargeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Tag(name = "Recharges Controller", description = "This controller allows create, read, update and delete operations on Recharges")
 @RequestMapping(path = "/api/recharge")
 @CrossOrigin(origins = "*")
 public class RechargeController {
@@ -32,7 +36,8 @@ public class RechargeController {
 
     @PostMapping("")
     @ResponseBody
-    public RechargeDTO addRecharge(@RequestBody RechargeDTO rechargeDTO) {
+    @Operation(description = "Adds a new recharge to the repository")
+    public RechargeDTO addRecharge(@Parameter(description = "The new recharge in a JSON format") @RequestBody RechargeDTO rechargeDTO) {
         RechargeEntity rechargeEntity = rechargeMapper.toEntity(rechargeDTO);
         RechargeEntity rechargeEntity1 = rechargeService.saveRecharge(rechargeEntity);
         RechargeDTO rechargeDTO1 = rechargeMapper.toDto(rechargeEntity1);
@@ -41,6 +46,7 @@ public class RechargeController {
 
     @GetMapping("")
     @ResponseBody
+    @Operation(description = "Returns all recharges of the repository")
     public List<RechargeDTO> getAllRecharge() {
         List<RechargeEntity> rechargeEntities = rechargeService.getAllRecharge();
         List<RechargeDTO> rechargeDTO = new ArrayList<>();
@@ -53,7 +59,8 @@ public class RechargeController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public RechargeDTO getRechargeById(@PathVariable Long id) {
+    @Operation(description = "Returns a recharge inside the repository with the specified id")
+    public RechargeDTO getRechargeById(@Parameter(description="The id of the requested recharge") @PathVariable Long id) {
         RechargeEntity rechargeEntity = rechargeService.findById(id);
         RechargeDTO rechargeDTO = rechargeMapper.toDto(rechargeEntity);
         return rechargeDTO;
@@ -61,7 +68,8 @@ public class RechargeController {
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public RechargeDTO updatePatchRecharge(@PathVariable Long id, @RequestBody RechargeDTO rechargeDTO) {
+    @Operation(description = "Updates some information of an existing administrator")
+    public RechargeDTO updatePatchRecharge(@Parameter(description="The id of the recharge to update") @PathVariable Long id, @Parameter(description = "The updated recharge") @RequestBody RechargeDTO rechargeDTO) {
 
         RechargeEntity rechargeEntity = rechargeService.updateRecharge(id, rechargeDTO);
 
@@ -72,7 +80,8 @@ public class RechargeController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public RechargeDTO updatePutRecharge(@PathVariable Long id, @RequestBody RechargeDTO rechargeDTO) {
+    @Operation(description = "Updates all information of an existing administrator")
+    public RechargeDTO updatePutRecharge(@Parameter(description="The id of the recharge to update") @PathVariable Long id, @Parameter(description = "The updated information of recharge") @RequestBody RechargeDTO rechargeDTO) {
 
         RechargeEntity rechargeEntity = rechargeService.updateRecharge(id, rechargeDTO);
 
@@ -83,7 +92,8 @@ public class RechargeController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteRecharge(@PathVariable Long id) {
+    @Operation(description = "Deletes a recharge from the repository")
+    public void deleteRecharge(@Parameter(description = "The id of the recharge to delete") @PathVariable Long id) {
         rechargeService.deleteRecharge(id);
         System.out.println("Recharge " + id + " deleted");
     }

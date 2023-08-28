@@ -10,6 +10,9 @@ import com.stefanogiuseppe.carsharing.mapper.RentalMapper;
 import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
 import com.stefanogiuseppe.carsharing.service.RentalService;
 import com.stefanogiuseppe.carsharing.service.VehicleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Tag(name = "Rentals Controller", description = "This controller allows create, read, update and delete operations on Rentals")
 @RequestMapping(path = "/api/rental")
 @CrossOrigin(origins = "*")
 public class RentalController {
@@ -42,7 +46,8 @@ public class RentalController {
 
     @PostMapping("")
     @ResponseBody
-    public RentalDTO addRental(@RequestBody RentalDTO rentalDTO) {
+    @Operation(description = "Adds a new rental to the repository")
+    public RentalDTO addRental(@Parameter(description = "The new rental in a JSON format") @RequestBody RentalDTO rentalDTO) {
         RentalEntity rentalEntity = rentalMapper.toEntity(rentalDTO);
         RentalEntity rentalEntity1 = rentalService.saveRental(rentalEntity);
         RentalDTO rentalDTO1 = rentalMapper.toDto(rentalEntity1);
@@ -51,6 +56,7 @@ public class RentalController {
 
     @GetMapping("")
     @ResponseBody
+    @Operation(description = "Returns all rentals of the repository")
     public List<RentalDTO> getAllRental() {
         List<RentalEntity> rentalEntities = rentalService.getAllRental();
         List<RentalDTO> rentalDTO = new ArrayList<>();
@@ -63,7 +69,8 @@ public class RentalController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public RentalDTO getRentalById(@PathVariable Long id) {
+    @Operation(description = "Returns a rental inside the repository with the specified id")
+    public RentalDTO getRentalById(@Parameter(description="The id of the requested rental") @PathVariable Long id) {
         RentalEntity rentalEntity = rentalService.findById(id);
         RentalDTO rentalDTO = rentalMapper.toDto(rentalEntity);
         return rentalDTO;
@@ -71,7 +78,8 @@ public class RentalController {
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public RentalDTO updatePatchRental(@PathVariable Long id, @RequestBody RentalDTO rentalDTO) {
+    @Operation(description = "Updates some information of an existing rental")
+    public RentalDTO updatePatchRental(@Parameter(description="The id of the rental to update") @PathVariable Long id,@Parameter(description = "The updated rental") @RequestBody RentalDTO rentalDTO) {
 
         RentalEntity rentalEntity = rentalService.updateRental(id, rentalDTO);
 
@@ -82,7 +90,8 @@ public class RentalController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public RentalDTO updatePutRental(@PathVariable Long id, @RequestBody RentalDTO rentalDTO) {
+    @Operation(description = "Updates all information of an existing rental")
+    public RentalDTO updatePutRental(@Parameter(description="The id of the rental to update") @PathVariable Long id, @Parameter(description = "The updated information of rental") @RequestBody RentalDTO rentalDTO) {
 
         RentalEntity rentalEntity = rentalService.updateRental(id, rentalDTO);
 
@@ -93,7 +102,8 @@ public class RentalController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteRental(@PathVariable Long id) {
+    @Operation(description = "Deletes a rental from the repository")
+    public void deleteRental(@Parameter(description = "The id of the rental to delete") @PathVariable Long id) {
         rentalService.deleteRental(id);
         System.out.println("Rental " + id + " deleted");
     }

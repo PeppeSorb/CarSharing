@@ -6,6 +6,9 @@ import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.ReviewMapper;
 import com.stefanogiuseppe.carsharing.service.ReviewService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Tag(name = "Reviews Controller", description = "This controller allows create, read, update and delete operations on Reviews")
 @RequestMapping(path = "/api/review")
 @CrossOrigin(origins = "*")
 public class ReviewController {
@@ -32,7 +36,8 @@ public class ReviewController {
 
     @PostMapping("")
     @ResponseBody
-    public ReviewDTO addReview(@RequestBody ReviewDTO reviewDTO) {
+    @Operation(description = "Adds a new review to the repository")
+    public ReviewDTO addReview(@Parameter(description = "The new review in a JSON format") @RequestBody ReviewDTO reviewDTO) {
         ReviewEntity reviewEntity = reviewMapper.toEntity(reviewDTO);
         ReviewEntity reviewEntity1 = reviewService.saveReview(reviewEntity);
         ReviewDTO reviewDTO1 = reviewMapper.toDto(reviewEntity1);
@@ -41,6 +46,7 @@ public class ReviewController {
 
     @GetMapping("")
     @ResponseBody
+    @Operation(description = "Returns all reviews of the repository")
     public List<ReviewDTO> getAllReview() {
         List<ReviewEntity> reviewEntities = reviewService.getAllReview();
         List<ReviewDTO> reviewDTO = new ArrayList<>();
@@ -54,7 +60,8 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ReviewDTO getReviewById(@PathVariable Long id) {
+    @Operation(description = "Returns a review inside the repository with the specified id")
+    public ReviewDTO getReviewById(@Parameter(description="The id of the requested review") @PathVariable Long id) {
         ReviewEntity reviewEntity = reviewService.findById(id);
         ReviewDTO reviewDTO = reviewMapper.toDto(reviewEntity);
         return reviewDTO;
@@ -62,7 +69,8 @@ public class ReviewController {
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public ReviewDTO updatePatchReview(@PathVariable Long id, @RequestBody ReviewDTO reviewDTO) {
+    @Operation(description = "Updates some information of an existing review")
+    public ReviewDTO updatePatchReview(@Parameter(description="The id of the review to update") @PathVariable Long id, @Parameter(description = "The updated review") @RequestBody ReviewDTO reviewDTO) {
 
         ReviewEntity reviewEntity = reviewService.updateReview(id, reviewDTO);
 
@@ -73,7 +81,8 @@ public class ReviewController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public ReviewDTO updatePutReview(@PathVariable Long id, @RequestBody ReviewDTO reviewDTO) {
+    @Operation(description = "Updates all information of an existing administrator")
+    public ReviewDTO updatePutReview(@Parameter(description="The id of the review to update") @PathVariable Long id, @Parameter(description = "The updated information of review") @RequestBody ReviewDTO reviewDTO) {
 
         ReviewEntity reviewEntity = reviewService.updateReview(id, reviewDTO);
 
@@ -85,7 +94,8 @@ public class ReviewController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteReview(@PathVariable Long id) {
+    @Operation(description = "Deletes a review from the repository")
+    public void deleteReview(@Parameter(description = "The id of the review to delete") @PathVariable Long id) {
         reviewService.deleteReview(id);
         System.out.println("Review " + id + " deleted");
     }
