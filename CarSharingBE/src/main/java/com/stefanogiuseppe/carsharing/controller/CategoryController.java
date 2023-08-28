@@ -5,6 +5,7 @@ import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.CategoryMapper;
 import com.stefanogiuseppe.carsharing.service.CategoryService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Tag(name = "Vehicles Categories Controller", description = "This controller allows create, read, update and delete operations on Vehicles Categories")
 @RequestMapping(path = "/api/category")
 @CrossOrigin(origins = "*")
 public class CategoryController {
