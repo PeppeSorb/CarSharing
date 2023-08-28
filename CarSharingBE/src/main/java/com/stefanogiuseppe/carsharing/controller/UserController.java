@@ -66,7 +66,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    @Operation(description = "Returns an user inside the repository with the specified id")
+    @Operation(description = "Returns a user inside the repository with the specified id")
     public UserDTO getUserById(@Parameter(description="The id of the requested user") @PathVariable Long id) {
         UserEntity userEntity = userService.findById(id);
         UserDTO userDTO = userMapper.toDTO(userEntity);;
@@ -99,7 +99,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    @Operation(description = "Deletes an user from the repository")
+    @Operation(description = "Deletes a user from the repository")
     public void deleteUser(@Parameter(description = "The id of the user to delete") @PathVariable Long id) {
         userService.deleteUser(id);
         System.out.println("User " + id + " deleted");
