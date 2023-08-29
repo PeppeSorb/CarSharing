@@ -1,5 +1,6 @@
 .navbar{
     float: right;
+    margin-top: 20px;
 }
 
 .navbar ul{
@@ -17,4 +18,8 @@
 .navbar ul li a{
     text-decoration: none;
     color: black;
+}
+
+.navbar ul li:hover{
+    transform: scale(1.07);
 }

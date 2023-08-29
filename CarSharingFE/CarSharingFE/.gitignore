@@ -40,3 +40,69 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+
+# Node.js dependencies
+
+node_modules/
+
+
+# Built files
+
+dist/
+
+dist-server/
+
+
+# Environment variables
+
+.env
+
+.env.prod
+
+
+# Angular CLI configuration
+
+angular.json
+
+tsconfig.json
+
+tsconfig.app.json
+
+tsconfig.spec.json
+
+tsconfig.server.json
+
+
+# Angular testing
+
+karma.conf.js
+
+protractor.conf.js
+
+
+# Logs
+
+logs/
+
+*.log
+
+
+# IDE specific files
+
+.vscode/
+
+.idea/
+
+
+# Dependency lock files
+
+package-lock.json
+
+yarn.lock
+
+
+# User-specific files
+
+.DS_Store

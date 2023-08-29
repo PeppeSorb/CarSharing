@@ -1,6 +1,13 @@
+.title{
+    float: left;
+    font-size: 100px;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
 .navbar{
-    margin-top: 10px;
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 .body{
@@ -10,7 +17,10 @@
 
 .body .title{
     padding-top: 30px;
-    clear: right;
+    clear: both;
+    padding-left: 715px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .body h1{
@@ -20,7 +30,7 @@
 .col-3{
     display: flex;
     margin-left: 25px;
-    clear: right;
+    clear: both;
     margin-top: -40px;
 }
 
@@ -33,4 +43,38 @@
     margin-right: 10px;
     margin-left: 65px;
     border: solid gray 1px;
+}
+
+.card h2{
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.card .text{
+    max-width: 385px;
+    margin-left: 22px;
+}
+
+.card p{
+    font-size: 17px;
+    line-height: 28px;
+    text-align: left;
+}
+
+.action{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.action button{
+    margin-left: 35px;
+}
+
+.login{
+    margin-top: 10px;
+    padding-left: 35px;
+}
+
+.title2{
+    padding-left: 40px;
 }
