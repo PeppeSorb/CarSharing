@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .authorizeRequests((authz) -> authz
                                 .requestMatchers("/api/..").permitAll()
                                 //.requestMatchers("/api/admin/**").hasRole("ADMIN")
-                                .requestMatchers("/api/rental/create/**").hasRole("USER")
+                                .requestMatchers("/api/rental").hasAnyRole("USER","ADMIN")
                                 .requestMatchers("/api/vehicle").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                         // .and().formLogin("/login")
