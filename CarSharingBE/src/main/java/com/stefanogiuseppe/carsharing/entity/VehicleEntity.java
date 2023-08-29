@@ -48,6 +48,9 @@ public class VehicleEntity {
     @Column(name = "house_number")
     private String houseNumber;
 
+    @Column(name="booked")
+    private Boolean booked;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idVehicle")
     @JsonIgnore
     private List<RentalEntity> rentals;

@@ -45,7 +45,8 @@ public class VehicleController {
     @GetMapping("")
     @Operation(description = "Returns all vehicles of the repository")
     public List<VehicleDTO>getAllVehicle(){
-        List<VehicleEntity> vehicleEntities=vehicleService.getAllVehicle();
+        //List<VehicleEntity> vehicleEntities=vehicleService.getAllVehicle();
+        List<VehicleEntity> vehicleEntities = vehicleService.getAllVehicleIsRental();
         List<VehicleDTO> vehicleDTO = vehicleEntities.stream()
                 .map(vehicle -> vehicleMapper.toDto(vehicle))
                 .collect(Collectors.toList());

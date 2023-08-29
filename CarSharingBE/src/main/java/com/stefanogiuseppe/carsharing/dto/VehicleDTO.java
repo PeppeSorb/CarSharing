@@ -22,5 +22,6 @@ public class VehicleDTO {
     private String city;
     private String street;
     private String houseNumber;
+    private Boolean booked;
     //private List<RentalEntity> rentals;
 }

@@ -17,6 +17,7 @@ public class VehicleMapper {
         vehicleEntity.setIdModel(vehicleDTO.getIdModel());
         vehicleEntity.setLicensePlate(vehicleDTO.getLicensePlate());
         vehicleEntity.setStreet(vehicleDTO.getStreet());
+        vehicleEntity.setBooked(vehicleDTO.getBooked());
         return vehicleEntity;
     }
     public VehicleDTO toDto(VehicleEntity vehicleEntity) {
@@ -29,6 +30,7 @@ public class VehicleMapper {
         vehicleDTO.setIdModel(vehicleEntity.getIdModel());
         vehicleDTO.setLicensePlate(vehicleEntity.getLicensePlate());
         vehicleDTO.setStreet(vehicleEntity.getStreet());
+        vehicleDTO.setBooked(vehicleEntity.getBooked());
         return vehicleDTO;
     }
 }
