@@ -1,0 +1,36 @@
+.navbar{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.body{
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.body .title{
+    padding-top: 30px;
+    clear: right;
+}
+
+.body h1{
+    font-size: 40px;
+}
+
+.col-3{
+    display: flex;
+    margin-left: 25px;
+    clear: right;
+    margin-top: -40px;
+}
+
+.card{
+    margin-top: 100px;
+    /* flex-basis: 33%; */
+    width: 400px;
+    height: 500px;
+    box-shadow: 8px 8px #9eb0b67e;
+    margin-right: 10px;
+    margin-left: 65px;
+    border: solid gray 1px;
+}
