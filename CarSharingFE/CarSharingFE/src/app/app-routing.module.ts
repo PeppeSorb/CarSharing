@@ -5,9 +5,11 @@ import { HomeComponent } from './components/home/home.component';
 import { FaresComponent } from './components/fares/fares.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CarmapComponent } from './carmap/carmap.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'mappa', component: CarmapComponent},
   {path: 'tariffe', component: FaresComponent},
   {path: 'login', component: LogInComponent},
   {path: 'signup', component: SignUpComponent}
