@@ -51,6 +51,12 @@ public class VehicleEntity {
     @Column(name="booked")
     private Boolean booked;
 
+    @Column(name="latitude")
+    private Double latitude;
+
+    @Column(name = "longitude")
+    private Double longitude;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idVehicle")
     @JsonIgnore
     private List<RentalEntity> rentals;

@@ -4,6 +4,7 @@ import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.mapper.AdministratorMapper;
 import com.stefanogiuseppe.carsharing.mapper.VehicleMapper;
+import com.stefanogiuseppe.carsharing.service.GoogleMapsService;
 import com.stefanogiuseppe.carsharing.service.VehicleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -24,6 +25,9 @@ import java.util.stream.Collectors;
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
+
+    @Autowired
+    private GoogleMapsService googleMapsService;
     /*
     private ModelMapper modelMapper;
     @Autowired
