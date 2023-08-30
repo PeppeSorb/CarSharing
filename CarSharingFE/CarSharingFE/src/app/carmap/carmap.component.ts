@@ -6,7 +6,7 @@ declare var L: any;
   templateUrl: './carmap.component.html',
   styleUrls: ['./carmap.component.css']
 })
-export class CarmapComponent implements OnInit{
+export class CarmapComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
@@ -20,4 +20,3 @@ export class CarmapComponent implements OnInit{
     const vehicleMarker = L.marker([51.505, -0.09]).addTo(map);
   }
 }
-
