@@ -6,6 +6,7 @@ import com.stefanogiuseppe.carsharing.entity.RentalEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
 import com.stefanogiuseppe.carsharing.repository.UserRepository;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -21,8 +22,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private EmailService emailService;
+
     public UserEntity saveUser(UserEntity userEntity) {
-        return userRepository.save(userEntity);
+                userRepository.save(userEntity);
+                try {
+                    String verifyLink = "http://localhost:8080/api/user/verify/" + userEntity.getId();
+                    emailService.sendVerificationEmail(userEntity.getEmail(), verifyLink);
+                }catch (MessagingException e){e.printStackTrace();}
+          return userEntity;
     }
 
     public List<UserEntity> getAllUser() {

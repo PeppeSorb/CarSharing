@@ -108,18 +108,13 @@ public class UserController {
     @GetMapping("/verify/{userId}")
     public String verifyEmail(@PathVariable Long userId) {
         UserEntity user= userService.findById(userId);
-
-
             if (!user.isEmailIsVerified()) {
                 user.setEmailIsVerified(true);
                 userService.saveUser(user);
                 return ("Account verificato con successo!");
             }
-            if else{
+            else{
                 return ("L'account è già stato verificato.");
-            }
-            else if {
-            return ("Email not found");
             }
     }
 }
