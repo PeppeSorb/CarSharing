@@ -1,4 +1,5 @@
 package com.stefanogiuseppe.carsharing.service;
+import com.google.maps.model.LatLng;
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
@@ -20,6 +21,9 @@ public class VehicleService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
+
+    @Autowired
+    private GoogleMapsService googleMapsService;
 
     public VehicleEntity saveVehicle(VehicleEntity vehicleEntity) {
         return vehicleRepository.save(vehicleEntity);
@@ -79,12 +83,22 @@ public class VehicleService {
         List<VehicleEntity> vehicles = vehicleRepository.findAll();
         List<VehicleEntity> newVehicles = new ArrayList<>();
         for(VehicleEntity vehicle: vehicles) {
+            LatLng coordinates = googleMapsService.getCoordinatesFromAddress(vehicle.getCountry(), vehicle.getStreet(), vehicle.getCity(), vehicle.getHouseNumber());
+            if(coordinates!=null){
+            vehicle.setLatitude(coordinates.lat);
+            vehicle.setLongitude(coordinates.lng);
+            }
+
             Boolean isRental = isBooked(vehicle.getId());
             vehicle.setBooked(isRental);
+
+
             saveVehicle(vehicle);
             System.out.println(isRental);
             newVehicles.add(vehicle);
         }
         return newVehicles;
     }
+
+
 }

@@ -23,5 +23,7 @@ public class VehicleDTO {
     private String street;
     private String houseNumber;
     private Boolean booked;
+    private Double latitude;
+    private Double longitude;
     //private List<RentalEntity> rentals;
 }
