@@ -7,9 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { FaresComponent } from './components/fares/fares.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,12 +22,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     FaresComponent,
     NavbarComponent,
-    LogInComponent
+    LogInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf
   ],
   providers: [],
   bootstrap: [AppComponent]

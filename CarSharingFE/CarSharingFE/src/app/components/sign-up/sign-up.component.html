@@ -1,0 +1,55 @@
+<div class="title">
+    <span>Car</span>
+</div>
+<div class="navbar">
+    <app-navbar></app-navbar>
+</div>
+
+<div class="body">
+    <div class="title">
+        <h1>Registrati</h1>
+    </div>
+    <div class="card">
+        <form action="">
+            <section>
+                <mat-form-field class="field">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" name="nome" matInput [(ngModel)]="a">
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Cognome</mat-label>
+                    <input type="text" name="cognome" matInput [(ngModel)]="b">
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <mat-form-field class="field">
+                    <mat-label>P. Iva/Codice fiscale</mat-label>
+                    <input type="text" name="pIva" matInput [(ngModel)]="c">
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <mat-form-field class="field">
+                    <mat-label>Numero patente</mat-label>
+                    <input type="text" name="patente" matInput [(ngModel)]="d">
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <mat-form-field class="field">
+                    <mat-label>Email</mat-label>
+                    <input type="email" name="email" matInput [(ngModel)]="e">
+                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <mat-form-field class="field">
+                    <mat-label>Password</mat-label>
+                    <input type="password" name="password" matInput [(ngModel)]="f">
+                    <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+            </section>
+            <section>
+                <button class="button" mat-raised-button color="primary">Invia</button>
+            </section>
+        </form>
+    </div>
+    <div class="login">
+        <p>Sei già iscritto ? <a routerLink="/login">Accedi</a> !</p>
+    </div>
+</div>
+

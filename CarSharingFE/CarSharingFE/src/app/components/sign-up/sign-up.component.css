@@ -17,7 +17,7 @@
 .body .title{
     padding-top: 35px;
     clear: right;
-    padding-left: 700px;
+    padding-left: 680px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -30,18 +30,19 @@
     /* margin-top: 100px; */
     clear: both;
     width: 500px;
-    height: 400px;
+    min-height: 700px;
     box-shadow: 8px 8px #9eb0b67e;
     margin-right: auto;
     margin-left: auto;
     border: solid gray 1px;
 }
 
-.signup{
+.login{
     margin-top: 40px;
+    padding-bottom: 50px;
 }
 
-/* .signup a{
+/* .login a{
     text-decoration: none;
     color: black;
 } */
@@ -52,6 +53,7 @@ section{
 
 .field{
     width: 350px;
+    margin-bottom: 10px;
 }
 
 .button{
