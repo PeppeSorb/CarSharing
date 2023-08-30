@@ -31,19 +31,19 @@ public class GeoCodingService {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readTree(response);
-            System.out.println(jsonNode);
+            //System.out.println(jsonNode);
             if (jsonNode.isArray() && jsonNode.size() > 0) {
                 JsonNode firstResult = jsonNode.get(0);
                 ls.add(firstResult.get("lat").asDouble());
                 ls.add(firstResult.get("lon").asDouble());
-                System.out.println(firstResult.get("lat").asDouble());
+                //System.out.println(firstResult.get("lat").asDouble());
                 return ls;
                 /*double latitude = firstResult.get("lat").asDouble();
                 double longitude = firstResult.get("lon").asDouble();
                 return new Coordinates(latitude, longitude);*/
             }
         } catch (IOException e) {
-            System.out.println("ERR");
+            //System.out.println("ERR");
             e.printStackTrace();
         }
 
