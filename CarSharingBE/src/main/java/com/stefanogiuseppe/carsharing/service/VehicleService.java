@@ -23,7 +23,8 @@ public class VehicleService {
     private VehicleRepository vehicleRepository;
 
     @Autowired
-    private GoogleMapsService googleMapsService;
+    private GeoCodingService geoCodingService;
+    //private GoogleMapsService googleMapsService;
 
     public VehicleEntity saveVehicle(VehicleEntity vehicleEntity) {
         return vehicleRepository.save(vehicleEntity);
@@ -83,11 +84,14 @@ public class VehicleService {
         List<VehicleEntity> vehicles = vehicleRepository.findAll();
         List<VehicleEntity> newVehicles = new ArrayList<>();
         for(VehicleEntity vehicle: vehicles) {
-            LatLng coordinates = googleMapsService.getCoordinatesFromAddress(vehicle.getCountry(), vehicle.getStreet(), vehicle.getCity(), vehicle.getHouseNumber());
-            if(coordinates!=null){
-            vehicle.setLatitude(coordinates.lat);
-            vehicle.setLongitude(coordinates.lng);
+            List<Double> ls= geoCodingService.getCoordinatesFromAddress(vehicle.getCountry(), vehicle.getStreet(), vehicle.getCity(), vehicle.getHouseNumber());
+            //LatLng coordinates = googleMapsService.getCoordinatesFromAddress(vehicle.getCountry(), vehicle.getStreet(), vehicle.getCity(), vehicle.getHouseNumber());
+            if(ls!=null){
+            vehicle.setLatitude(ls.get(0));
+            vehicle.setLongitude(ls.get(1));
             }
+
+
 
             Boolean isRental = isBooked(vehicle.getId());
             vehicle.setBooked(isRental);
