@@ -17,12 +17,7 @@ export class CarmapComponent implements OnInit{
     }).addTo(map);
 
     // Aggiungi marcatori per i veicoli disponibili
-    L.Control.geocoder({
-      defaultMarkGeocode: false
-    }).on('markgeocode', function (e: any) {
-      const latlng = e.geocode.center;
-      L.marker(latlng).addTo(map);
-    }).addTo(map);
+    const vehicleMarker = L.marker([51.505, -0.09]).addTo(map);
   }
 }
 
