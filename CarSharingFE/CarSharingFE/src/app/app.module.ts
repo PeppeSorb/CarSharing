@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { CarmapComponent } from './carmap/carmap.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NgIf} from '@angular/common';
     FaresComponent,
     NavbarComponent,
     LogInComponent,
-    SignUpComponent
+    SignUpComponent,
+    CarmapComponent
   ],
   imports: [
     BrowserModule,
