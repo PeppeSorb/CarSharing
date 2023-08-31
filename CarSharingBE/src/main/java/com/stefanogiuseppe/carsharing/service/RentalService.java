@@ -14,8 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -27,6 +29,9 @@ public class RentalService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private GeoCodingService geoCodingService;
 
     public RentalEntity saveRental(RentalEntity rentalEntity) {
         rentalEntity.setDeleted(false);
@@ -127,6 +132,27 @@ public class RentalService {
         rentalEntity.setIdUser(userEntity);
         return rentalEntity;
 
+    }
+    public RentalEntity endRental(Long idRental, double lat, double lon){
+        RentalEntity rentalToEnd = rentalRepository.findById(idRental).orElseThrow();
+        rentalToEnd.setDateTimeEndRental(new Date());
+        Long vehicleId = rentalToEnd.getIdVehicle().getId();
+        Optional<VehicleEntity> vehicleToMoveOptional = vehicleRepository.findById(vehicleId);
+        //se esiste un veicolo associato al noleggio...
+        if(!vehicleToMoveOptional.isEmpty()){
+            VehicleEntity vehicleToMove = vehicleToMoveOptional.get();
+            //aggiorna la posizione del veicolo
+            vehicleToMove.setLatitude(lat);
+            vehicleToMove.setLongitude(lon);
+            List<String> address = geoCodingService.getAddressFromCoordinates(lat,lon);
+            vehicleToMove.setCountry(address.get(0));
+            vehicleToMove.setStreet(address.get(1));
+            vehicleToMove.setCity(address.get(2));
+            vehicleToMove.setHouseNumber(address.get(3));
+            //sblocca il veicolo
+            vehicleToMove.setBooked(false);
+        }
+        return rentalToEnd;
     }
 
 }
