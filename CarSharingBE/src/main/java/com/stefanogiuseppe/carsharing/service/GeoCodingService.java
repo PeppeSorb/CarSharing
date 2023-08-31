@@ -49,4 +49,29 @@ public class GeoCodingService {
 
         return null;
     }
+    public List<String> getAddressFromCoordinates(double lat, double lon){
+        //https://nominatim.openstreetmap.org/reverse?lat=LATITUDINE&lon=LONGITUDINE&format=json
+        List<String> ls= new ArrayList<>();
+        String requestUrl = "https://nominatim.openstreetmap.org/reverse?lat="+lat+"&lon="+lon+"&format=json";
+        // Esegui la richiesta GET
+        String response = restTemplate.getForObject(requestUrl, String.class);
+        // Analizza la risposta JSON
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode jsonNode = objectMapper.readTree(response);
+            //System.out.println(jsonNode);
+            if (jsonNode.isArray() && jsonNode.size() > 0) {
+                JsonNode firstResult = jsonNode.get(0);
+                ls.add(firstResult.get("address").get("country").asText());
+                ls.add(firstResult.get("address").get("road").asText());
+                ls.add(firstResult.get("address").get("town").asText());
+                ls.add(""); //ancora da definire l'inserimento del numero civico
+                return ls;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

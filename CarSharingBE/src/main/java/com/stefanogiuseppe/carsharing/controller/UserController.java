@@ -106,7 +106,8 @@ public class UserController {
     }
 
     @GetMapping("/verify/{userId}")
-    public String verifyEmail(@PathVariable Long userId) {
+    @Operation(description = "When this method is called, the user's email gets verified.")
+    public String verifyEmail(@Parameter(description = "The id of the user to verify") @PathVariable Long userId) {
         UserEntity user= userService.findById(userId);
             if (!user.isEmailIsVerified()) {
                 user.setEmailIsVerified(true);
