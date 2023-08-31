@@ -128,4 +128,13 @@ public class RentalController {
 
         return ("Err");
     }
+    @GetMapping("/end/{idRental}/{lat}/{lon}")
+    @ResponseBody
+    @Operation(description = "Ends the specified rental. Requires the user to specify where is the vehicle at the end of the rental.")
+    public RentalDTO endRental(@Parameter(description="The id of the rent") @PathVariable Long idRent, @Parameter(description="The latitude of vehicle coordinate") @PathVariable double lat, @Parameter(description="The longitude of vehicle coordinate") @PathVariable double lon){
+        RentalEntity rentalEntity = rentalService.endRental(idRent,lat,lon);
+        RentalDTO rentalDTO = rentalMapper.toDto(rentalEntity);
+        return rentalDTO;
+    }
+
 }

@@ -151,8 +151,9 @@ public class RentalService {
             vehicleToMove.setHouseNumber(address.get(3));
             //sblocca il veicolo
             vehicleToMove.setBooked(false);
+            vehicleRepository.save(vehicleToMove);
         }
-        return rentalToEnd;
+        return rentalRepository.save(rentalToEnd);
     }
 
 }
