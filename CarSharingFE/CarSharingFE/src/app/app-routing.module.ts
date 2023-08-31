@@ -6,11 +6,12 @@ import { FaresComponent } from './components/fares/fares.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { CarmapComponent } from './carmap/carmap.component';
+import { authGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'mappa', component: CarmapComponent},
-  {path: 'tariffe', component: FaresComponent},
+  {path: 'tariffe', canActivate: [authGuard], component: FaresComponent},
   {path: 'login', component: LogInComponent},
   {path: 'signup', component: SignUpComponent}
 ];
