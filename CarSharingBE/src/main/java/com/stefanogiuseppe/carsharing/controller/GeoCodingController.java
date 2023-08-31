@@ -20,7 +20,12 @@ public class GeoCodingController {
 
     @GetMapping("/{lat}/{lon}")
     @Operation(description = "Given a latitude and a longitude, returns the address.")
-    public List<String> testReverseGeoCoding(@Parameter(description="The latitude") @PathVariable double lat, @Parameter(description="The longitude") @PathVariable double lon){
-        return geoCodingService.getAddressFromCoordinates(lat,lon);
+    public String testReverseGeoCoding(@Parameter(description="The latitude") @PathVariable double lat, @Parameter(description="The longitude") @PathVariable double lon){
+        List<String> str = geoCodingService.getAddressFromCoordinates(lat,lon);
+        String toreturn = "";
+        for(String s : str){
+            toreturn += s + " ";
+        }
+        return toreturn;
     }
 }
