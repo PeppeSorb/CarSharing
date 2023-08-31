@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
-    
+
     /*
     private ModelMapper modelMapper;
     @Autowired
