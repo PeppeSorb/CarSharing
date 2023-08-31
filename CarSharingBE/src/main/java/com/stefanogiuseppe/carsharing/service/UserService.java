@@ -2,8 +2,11 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
+import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
+import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
+import com.stefanogiuseppe.carsharing.repository.RechargeRepository;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
 import com.stefanogiuseppe.carsharing.repository.UserRepository;
 import jakarta.mail.MessagingException;
@@ -14,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -21,6 +25,12 @@ import java.util.stream.Stream;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RechargeRepository rechargeRepository;
+
+    @Autowired
+    private RentalRepository rentalRepository;
 
     @Autowired
     private EmailService emailService;
@@ -73,5 +83,34 @@ public class UserService {
         UserEntity userEntity = userRepository.findById(id).orElseThrow();
         userEntity.setDeleted(true);
         userRepository.save(userEntity);
+    }
+    public double getUserResidualCredit(Long userId){
+        double credit = 0;
+        //somma tutte le ricariche
+        List<RechargeEntity> recharges = rechargeRepository.findAll();
+        for(RechargeEntity re : recharges){
+            if(re.getIdUser().getId() == userId){
+                credit = credit + re.getAmount();
+            }
+        }
+        //sottrai tutti i costi dei noleggi già conclusi
+        List<RentalEntity> rentals = rentalRepository.findAll();
+        for(RentalEntity r : rentals){
+            if(r.getDateTimeEndRental() != null && r.getIdUser().getId() == userId){
+                //r è un noleggio concluso dell'utente con id userId
+                //cerca di capire quanto ha pagato l'utente
+                //cosa determina il prezzo da pagare:
+                //category del veicolo
+                //tempo totale di utilizzo
+                //tipo di noleggio
+                //considera eventuali extra
+                //indispensabile ottenere il tempo trascorso tra datetime start e datetime end
+                CategoryEntity ce = r.getIdVehicle().getIdModel().getIdCategory();
+                r.getDateTimeEndRental();
+                Date diff = r.getDateTimeEndRental(); //continuare calcolando la differenza
+
+            }
+        }
+        return credit;
     }
 }
