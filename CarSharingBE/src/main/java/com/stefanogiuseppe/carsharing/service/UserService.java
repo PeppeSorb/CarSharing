@@ -26,12 +26,22 @@ public class UserService {
     private EmailService emailService;
 
     public UserEntity saveUser(UserEntity userEntity) {
+        List<UserEntity> userEntities = userRepository.findAll();
+        for (UserEntity user : userEntities) {
+            if (userEntity.getId() == user.getId()) {
                 userRepository.save(userEntity);
-                try {
-                    String verifyLink = "http://localhost:8080/api/user/verify/" + userEntity.getId();
-                    emailService.sendVerificationEmail(userEntity.getEmail(), verifyLink);
-                }catch (MessagingException e){e.printStackTrace();}
-          return userEntity;
+                return userEntity;
+            }
+        }
+
+        userRepository.save(userEntity);
+        try {
+            String verifyLink = "http://localhost:8080/api/user/verify/" + userEntity.getId();
+            emailService.sendVerificationEmail(userEntity.getEmail(), verifyLink);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return userEntity;
     }
 
     public List<UserEntity> getAllUser() {

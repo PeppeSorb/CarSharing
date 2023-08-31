@@ -109,7 +109,7 @@ public class UserController {
     @Operation(description = "When this method is called, the user's email gets verified.")
     public String verifyEmail(@Parameter(description = "The id of the user to verify") @PathVariable Long userId) {
         UserEntity user= userService.findById(userId);
-            if (!user.isEmailIsVerified()) {
+            if (user.isEmailIsVerified()==false) {
                 user.setEmailIsVerified(true);
                 userService.saveUser(user);
                 return ("Account verificato con successo!");
