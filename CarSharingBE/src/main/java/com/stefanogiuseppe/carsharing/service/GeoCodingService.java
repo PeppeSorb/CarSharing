@@ -62,16 +62,25 @@ public class GeoCodingService {
         try {
             JsonNode jsonNode = objectMapper.readTree(response);
             System.out.println(jsonNode);
-            if (jsonNode.isArray() && jsonNode.size() > 0) {
-                System.out.println("Qui dentro ci siamo arrivati!");
-                JsonNode firstResult = jsonNode.get(0);
-                ls.add(firstResult.get("address").get("country").asText());
-                System.out.println("Country: " + firstResult.get("address").get("country").asText());
-                ls.add(firstResult.get("address").get("road").asText());
-                System.out.println("Road: " + firstResult.get("address").get("road").asText());
-                ls.add(firstResult.get("address").get("town").asText());
-                System.out.println("Town: " + firstResult.get("address").get("town").asText());
-                ls.add(""); //ancora da definire l'inserimento del numero civico
+            System.out.println("Dimensione: "+ jsonNode.size());
+            System.out.println("è array: " + jsonNode.isArray());
+            if (jsonNode.size() > 0) {
+                if(jsonNode.get("address").get("country") == null){
+                    ls.add(null);
+                }else{
+                    ls.add(jsonNode.get("address").get("country").asText());
+                }
+                if(jsonNode.get("address").get("road") == null){
+                    ls.add(null);
+                }else{
+                    ls.add(jsonNode.get("address").get("road").asText());
+                }
+                if(jsonNode.get("address").get("town") == null){
+                    ls.add(null);
+                }else{
+                    ls.add(jsonNode.get("address").get("town").asText());
+                }
+                ls.add(null); //ancora da definire l'inserimento del numero civico
                 return ls;
             }
         } catch (IOException e) {

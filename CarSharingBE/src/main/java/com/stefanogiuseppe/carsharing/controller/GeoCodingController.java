@@ -24,7 +24,10 @@ public class GeoCodingController {
         List<String> str = geoCodingService.getAddressFromCoordinates(lat,lon);
         String toreturn = "";
         for(String s : str){
-            toreturn += s + " ";
+            if(s == null){
+                s = "(??)";
+            }
+            toreturn += s + "|";
         }
         return toreturn;
     }
