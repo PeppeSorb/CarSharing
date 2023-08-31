@@ -10,21 +10,21 @@
         <h1>Accedi</h1>
     </div>
     <div class="card">
-        <form action="">
+        <form #form="ngForm" (submit)="login(form)">
             <section>
                 <mat-form-field class="field">
                     <mat-label>Email</mat-label>
-                    <input type="email" name="email" matInput [(ngModel)]="a">
+                    <input type="email" name="email" matInput [(ngModel)]="a" required>
                     <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Password</mat-label>
-                    <input type="password" name="nome" matInput [(ngModel)]="b">
+                    <input type="password" name="password" matInput [(ngModel)]="b" required>
                     <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
             </section>
             <section>
-                <button class="button" mat-raised-button color="primary">Invia</button>
+                <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
             </section>
         </form>
     </div>
