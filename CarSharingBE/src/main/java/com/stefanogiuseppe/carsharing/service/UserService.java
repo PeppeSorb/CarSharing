@@ -89,22 +89,4 @@ public class UserService {
         userEntity.setDeleted(true);
         userRepository.save(userEntity);
     }
-    public double getUserResidualCredit(Long userId){
-        double credit = 0;
-        //somma tutte le ricariche
-        List<RechargeEntity> recharges = rechargeRepository.findAll();
-        for(RechargeEntity re : recharges){
-            if(re.getIdUser().getId() == userId){
-                credit = credit + re.getAmount();
-            }
-        }
-        //sottrai tutti i costi dei noleggi già conclusi
-        List<RentalEntity> rentals = rentalRepository.findAll();
-        for(RentalEntity r : rentals){
-            if(r.getDateTimeEndRental() != null && r.getIdUser().getId() == userId){
-                credit = credit - rentalService.getRentalPrice(r);
-            }
-        }
-        return credit;
-    }
 }
