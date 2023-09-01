@@ -21,6 +21,7 @@ public class UserDTO {
     private String password;
     private boolean emailIsVerified;
     private String urlProfilePicture;
+    private double residualCredit;
     //private List<RechargeEntity> recharges;
 
 

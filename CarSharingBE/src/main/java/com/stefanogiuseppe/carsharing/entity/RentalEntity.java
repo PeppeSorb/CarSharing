@@ -42,9 +42,14 @@ public class RentalEntity {
     @Column(name = "type_rental")
     private String typeRental;
 
+    @Column(name = "payed")
+    private Boolean payed;
+
     @Column(name = "deleted")
     @JsonIgnore
     private Boolean deleted;
+
+
 
     @OneToOne(mappedBy = "idRental")
     private ReviewEntity review;

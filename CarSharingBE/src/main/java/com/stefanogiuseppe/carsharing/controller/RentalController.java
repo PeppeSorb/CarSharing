@@ -150,4 +150,11 @@ public class RentalController {
             return null;
         }
     }
+
+    @GetMapping("/pay/{idRental}")
+    @ResponseBody
+    @Operation(description = "Pays the rental for the user, if the user has enough money and the rental hasn't been payed yet.")
+    public String payRental(@Parameter(description = "The id of the rental") @PathVariable Long idRental){
+        return rentalService.payRental(idRental);
+    }
 }

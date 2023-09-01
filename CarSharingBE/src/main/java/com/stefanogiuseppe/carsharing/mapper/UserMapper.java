@@ -17,6 +17,7 @@ public class UserMapper {
         userDTO.setPassword(userEntity.getPassword());
         userDTO.setEmailIsVerified(userEntity.isEmailIsVerified());
         userDTO.setUrlProfilePicture(userEntity.getUrlProfilePicture());
+        userDTO.setResidualCredit(userEntity.getResidualCredit());
         return userDTO;
     }
 
@@ -31,6 +32,7 @@ public class UserMapper {
         userEntity.setPassword(userDTO.getPassword());
         userEntity.setEmailIsVerified(userDTO.isEmailIsVerified());
         userEntity.setUrlProfilePicture(userDTO.getUrlProfilePicture());
+        userEntity.setResidualCredit(userDTO.getResidualCredit());
         return userEntity;
     }
 }

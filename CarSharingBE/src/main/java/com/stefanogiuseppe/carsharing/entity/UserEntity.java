@@ -45,6 +45,9 @@ public class UserEntity {
     @Column(name="url_profile_picture")
     private String urlProfilePicture;
 
+    @Column(name = "residual_credit")
+    private double residualCredit;
+
     @Column(name="deleted")
     @JsonIgnore
     private boolean deleted;

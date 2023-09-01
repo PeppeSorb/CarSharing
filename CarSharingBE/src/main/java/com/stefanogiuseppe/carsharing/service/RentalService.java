@@ -207,5 +207,31 @@ public class RentalService {
         }
         return new RentalPriceResponse(rentalPrice,extraPay);
     }
+    public String payRental(Long idRental){
+        Optional<RentalEntity> rOptional = rentalRepository.findById(idRental);
+        if(rOptional.isEmpty() == false){
+            RentalEntity r = rOptional.get();
+            if(r.getPayed() == true){
+                return "Rental already payed";
+            }else{
+                Optional<UserEntity> userOptional = userRepository.findById(r.getIdUser().getId());
+                if(userOptional.isEmpty() == false){
+                    double price = getRentalPrice(r).getAmount();
+                    UserEntity user = userOptional.get();
+                    if(user.getResidualCredit() >= price){
+                        user.setResidualCredit(user.getResidualCredit() - price);
+                        r.setPayed(true);
+                        return "Rental payed successfully";
+                    }else{
+                        return "User credit insufficient";
+                    }
+                }else{
+                    return "User not found";
+                }
+            }
+        }else{
+            return "Rental not found";
+        }
+    }
 
 }
