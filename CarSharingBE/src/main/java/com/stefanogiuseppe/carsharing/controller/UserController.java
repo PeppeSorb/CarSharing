@@ -1,15 +1,20 @@
 package com.stefanogiuseppe.carsharing.controller;
 
+import com.stefanogiuseppe.carsharing.config.LoginRequest;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.UserMapper;
+import com.stefanogiuseppe.carsharing.service.AuthenticationService;
 import com.stefanogiuseppe.carsharing.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +30,22 @@ public class UserController {
     private UserMapper userMapper;
     /*private ModelMapper modelMapper;
 
+
     @Autowired
     public UserController(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }*/
+
+    @Autowired
+    private AuthenticationService authenticateService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+            String token = authenticateService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword());
+            System.out.println(token);
+            // Restituisci il token come risposta
+            return ResponseEntity.ok(token);
+    }
 
     @PostMapping("")
     @ResponseBody
