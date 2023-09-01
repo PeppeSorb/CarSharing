@@ -1,20 +1,16 @@
 package com.stefanogiuseppe.carsharing.controller;
 
-import com.stefanogiuseppe.carsharing.config.LoginRequest;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.mapper.UserMapper;
-import com.stefanogiuseppe.carsharing.service.AuthenticationService;
+//import com.stefanogiuseppe.carsharing.service.AuthenticationService;
 import com.stefanogiuseppe.carsharing.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,15 +32,15 @@ public class UserController {
         this.modelMapper = modelMapper;
     }*/
 
-    @Autowired
-    private AuthenticationService authenticateService;
+    //@Autowired
+    //private AuthenticationService authenticateService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-            String token = authenticateService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword());
-            System.out.println(token);
-            // Restituisci il token come risposta
-            return ResponseEntity.ok(token);
+    public String login(@RequestBody String email, String password) {
+        //String token = authenticateService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword());
+        //System.out.println(token);
+        // Restituisci il token come risposta
+        return email;//token;
     }
 
     @PostMapping("")
@@ -84,16 +80,17 @@ public class UserController {
     @GetMapping("/{id}")
     @ResponseBody
     @Operation(description = "Returns a user inside the repository with the specified id")
-    public UserDTO getUserById(@Parameter(description="The id of the requested user") @PathVariable Long id) {
+    public UserDTO getUserById(@Parameter(description = "The id of the requested user") @PathVariable Long id) {
         UserEntity userEntity = userService.findById(id);
-        UserDTO userDTO = userMapper.toDTO(userEntity);;
+        UserDTO userDTO = userMapper.toDTO(userEntity);
+        ;
         return userDTO;
     }
 
     @PatchMapping("/{id}")
     @ResponseBody
     @Operation(description = "Updates some information of an existing user")
-    public UserDTO updatePatchUser(@Parameter(description="The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated user") @RequestBody UserDTO userDTO) {
+    public UserDTO updatePatchUser(@Parameter(description = "The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated user") @RequestBody UserDTO userDTO) {
 
         UserEntity userEntity = userService.updateUser(id, userDTO);
 
@@ -105,7 +102,7 @@ public class UserController {
     @PutMapping("/{id}")
     @ResponseBody
     @Operation(description = "Updates all information of an existing user")
-    public UserDTO updatePutUser(@Parameter(description="The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated information of user") @RequestBody UserDTO userDTO) {
+    public UserDTO updatePutUser(@Parameter(description = "The id of the user to update") @PathVariable Long id, @Parameter(description = "The updated information of user") @RequestBody UserDTO userDTO) {
 
         UserEntity userEntity = userService.updateUser(id, userDTO);
 
@@ -125,14 +122,13 @@ public class UserController {
     @GetMapping("/verify/{userId}")
     @Operation(description = "When this method is called, the user's email gets verified.")
     public String verifyEmail(@Parameter(description = "The id of the user to verify") @PathVariable Long userId) {
-        UserEntity user= userService.findById(userId);
-            if (user.isEmailIsVerified()==false) {
-                user.setEmailIsVerified(true);
-                userService.saveUser(user);
-                return ("Account verificato con successo!");
-            }
-            else{
-                return ("L'account è già stato verificato.");
-            }
+        UserEntity user = userService.findById(userId);
+        if (user.isEmailIsVerified() == false) {
+            user.setEmailIsVerified(true);
+            userService.saveUser(user);
+            return ("Account verificato con successo!");
+        } else {
+            return ("L'account è già stato verificato.");
+        }
     }
 }
