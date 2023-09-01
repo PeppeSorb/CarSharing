@@ -1,0 +1,15 @@
+.header{
+    min-height: 695px;
+    padding: 10px 10px;
+}
+
+.title{
+    float: left;
+    font-size: 100px;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.navbar{
+    margin-top: -10px;
+}

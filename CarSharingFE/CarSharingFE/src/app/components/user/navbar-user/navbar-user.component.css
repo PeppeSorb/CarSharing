@@ -1,0 +1,25 @@
+.navbar{
+    float: right;
+    margin-top: 20px;
+}
+
+.navbar ul{
+    display: flex;
+    list-style-type: none;
+    padding-right: 25px;
+}
+
+.navbar ul li{
+    padding: 0 15px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar ul li:hover{
+    transform: scale(1.07);
+}

@@ -16,6 +16,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { CarmapComponent } from './carmap/carmap.component';
+import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
+import { NavbarAdminComponent } from './components/admin/navbar-admin/navbar-admin.component';
+import { HomeUserComponent } from './components/user/home-user/home-user.component';
+import { NavbarUserComponent } from './components/user/navbar-user/navbar-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { CarmapComponent } from './carmap/carmap.component';
     NavbarComponent,
     LogInComponent,
     SignUpComponent,
-    CarmapComponent
+    CarmapComponent,
+    HomeAdminComponent,
+    NavbarAdminComponent,
+    HomeUserComponent,
+    NavbarUserComponent
   ],
   imports: [
     BrowserModule,
