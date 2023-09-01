@@ -2,9 +2,11 @@ package com.stefanogiuseppe.carsharing.config;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+@Component
 public class JwtTokenProvider {
 
     private static final String SECRET_KEY = "segreto"; // Chiave segreta per firmare il token JWT
