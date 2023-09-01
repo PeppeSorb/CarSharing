@@ -155,6 +155,7 @@ public class RentalController {
     @ResponseBody
     @Operation(description = "Pays the rental for the user, if the user has enough money and the rental hasn't been payed yet.")
     public String payRental(@Parameter(description = "The id of the rental") @PathVariable Long idRental){
+        System.out.println("You asked to pay for rental with id " + idRental);
         return rentalService.payRental(idRental);
     }
 }

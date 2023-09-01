@@ -20,8 +20,6 @@ import java.util.List;
 @Getter
 @Setter
 public class ModelDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private CategoryEntity idCategory;
     private String makeAndModel;

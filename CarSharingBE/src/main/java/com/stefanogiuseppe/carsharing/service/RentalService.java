@@ -2,13 +2,8 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.RentalPriceResponse;
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
-import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
-import com.stefanogiuseppe.carsharing.entity.RentalEntity;
-import com.stefanogiuseppe.carsharing.entity.UserEntity;
-import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
-import com.stefanogiuseppe.carsharing.repository.RentalRepository;
-import com.stefanogiuseppe.carsharing.repository.UserRepository;
-import com.stefanogiuseppe.carsharing.repository.VehicleRepository;
+import com.stefanogiuseppe.carsharing.entity.*;
+import com.stefanogiuseppe.carsharing.repository.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -30,7 +25,10 @@ public class RentalService {
     private RentalRepository rentalRepository;
     @Autowired
     private VehicleRepository vehicleRepository;
-
+    @Autowired
+    private CategoryRepository categoryRepository;
+    @Autowired
+    private ModelRepository modelRepository;
     @Autowired
     private UserRepository userRepository;
 
@@ -162,7 +160,10 @@ public class RentalService {
     public RentalPriceResponse getRentalPrice(RentalEntity r){
         double rentalPrice = 0.0;
         boolean extraPay = false;
-        CategoryEntity ce = r.getIdVehicle().getIdModel().getIdCategory();
+        Optional<VehicleEntity> v = vehicleRepository.findById(r.getIdVehicle().getId());
+        Optional<ModelEntity> m = modelRepository.findById(v.get().getIdModel().getId());
+        Optional<CategoryEntity> ceOptional = categoryRepository.findById(m.get().getIdCategory().getId());
+        CategoryEntity ce = ceOptional.get();
         Instant startInstant = r.getDateTimeStartRental().toInstant();
         Instant endInstant = r.getDateTimeEndRental().toInstant();
         Duration duration = Duration.between(startInstant, endInstant);
@@ -221,6 +222,8 @@ public class RentalService {
                     if(user.getResidualCredit() >= price){
                         user.setResidualCredit(user.getResidualCredit() - price);
                         r.setPayed(true);
+                        userRepository.save(user);
+                        rentalRepository.save(r);
                         return "Rental payed successfully";
                     }else{
                         return "User credit insufficient";
