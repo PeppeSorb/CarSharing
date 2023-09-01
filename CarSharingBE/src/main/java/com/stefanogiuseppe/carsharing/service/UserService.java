@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
@@ -25,6 +27,9 @@ import java.util.stream.Stream;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RentalService rentalService;
 
     @Autowired
     private RechargeRepository rechargeRepository;
@@ -97,18 +102,7 @@ public class UserService {
         List<RentalEntity> rentals = rentalRepository.findAll();
         for(RentalEntity r : rentals){
             if(r.getDateTimeEndRental() != null && r.getIdUser().getId() == userId){
-                //r è un noleggio concluso dell'utente con id userId
-                //cerca di capire quanto ha pagato l'utente
-                //cosa determina il prezzo da pagare:
-                //category del veicolo
-                //tempo totale di utilizzo
-                //tipo di noleggio
-                //considera eventuali extra
-                //indispensabile ottenere il tempo trascorso tra datetime start e datetime end
-                CategoryEntity ce = r.getIdVehicle().getIdModel().getIdCategory();
-                r.getDateTimeEndRental();
-                Date diff = r.getDateTimeEndRental(); //continuare calcolando la differenza
-
+                credit = credit - rentalService.getRentalPrice(r);
             }
         }
         return credit;

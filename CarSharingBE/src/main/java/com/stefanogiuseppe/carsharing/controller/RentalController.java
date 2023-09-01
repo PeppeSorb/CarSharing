@@ -1,5 +1,6 @@
 package com.stefanogiuseppe.carsharing.controller;
 
+import com.stefanogiuseppe.carsharing.RentalPriceResponse;
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -137,4 +139,15 @@ public class RentalController {
         return rentalDTO;
     }
 
+    @GetMapping("/price/{idRental}")
+    @ResponseBody
+    @Operation(description = "Given a rental, returns the amount that the user has to pay. If the user returns the vehicle late, extraPay is true and and additional fee is automatically added")
+    public RentalPriceResponse rentalPriceTest(@Parameter(description = "The id of the rental") @PathVariable Long idRental){
+        RentalEntity r = rentalService.findById(idRental);
+        if(r != null){
+            return rentalService.getRentalPrice(r);
+        }else{
+            return null;
+        }
+    }
 }

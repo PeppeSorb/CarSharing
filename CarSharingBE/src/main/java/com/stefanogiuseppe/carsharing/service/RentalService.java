@@ -1,6 +1,8 @@
 package com.stefanogiuseppe.carsharing.service;
 
+import com.stefanogiuseppe.carsharing.RentalPriceResponse;
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
+import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
@@ -14,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -154,6 +158,54 @@ public class RentalService {
             vehicleRepository.save(vehicleToMove);
         }
         return rentalRepository.save(rentalToEnd);
+    }
+    public RentalPriceResponse getRentalPrice(RentalEntity r){
+        double rentalPrice = 0.0;
+        boolean extraPay = false;
+        CategoryEntity ce = r.getIdVehicle().getIdModel().getIdCategory();
+        Instant startInstant = r.getDateTimeStartRental().toInstant();
+        Instant endInstant = r.getDateTimeEndRental().toInstant();
+        Duration duration = Duration.between(startInstant, endInstant);
+        long days = duration.toDays();
+        long hours = duration.toHoursPart();
+        long minutes = duration.toMinutesPart();
+        long seconds = duration.toSecondsPart();
+        String rentType = r.getTypeRental();
+        double totDays = ((days  *1.0) + (hours/24.0) + (minutes/1440.0) + (seconds/86400.0));
+        switch(rentType){
+            case "Hourly":
+                rentalPrice = ce.getHourlyRate() * ((days * 24.0) + (hours * 1.0) + (minutes/60.0) + (seconds / 3600.0));
+                break;
+            case "Daily":
+                rentalPrice = ce.getDailyRate();
+                if(totDays > 1){
+                    extraPay = true;
+                    rentalPrice += ce.getExtraHourlyRate() * ((totDays - 1.0) * 24.0);
+                }
+                break;
+            case "Two Days":
+                rentalPrice = ce.getTwoDaysRate();
+                if(totDays > 2){
+                    extraPay = true;
+                    rentalPrice += ce.getExtraHourlyRate() * ((totDays - 2.0) * 24.0);
+                }
+                break;
+            case "Weekly":
+                rentalPrice = ce.getWeeklyRate();
+                if(totDays > 7){
+                    extraPay = true;
+                    rentalPrice += ce.getExtraHourlyRate() * ((totDays - 7.0) * 24.0);
+                }
+                break;
+            case "Monthly":
+                rentalPrice = ce.getMonthlyRate();
+                if(totDays > 30){
+                    extraPay = true;
+                    rentalPrice += ce.getExtraHourlyRate() * ((totDays - 30.0) * 24.0);
+                }
+                break;
+        }
+        return new RentalPriceResponse(rentalPrice,extraPay);
     }
 
 }
