@@ -10,6 +10,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { CarmapComponent } from './carmap/carmap.component';
 import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
 import { HomeUserComponent } from './components/user/home-user/home-user.component';
+import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
+import { ManageVehiclesComponent } from './components/admin/manage-vehicles/manage-vehicles.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'login', component: LogInComponent},
   {path: 'signup', component: SignUpComponent},
   {path: 'admin', component: HomeAdminComponent},
+  {path: 'manageusers', component: ManageUsersComponent},
+  {path: 'managevehicles', component: ManageVehiclesComponent},
   {path: 'user', component: HomeUserComponent},
 ];
 

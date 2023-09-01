@@ -1,0 +1,53 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="subtitle">
+        <h3>Sei collegato come: &nbsp;</h3><span>Admin</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-admin></app-navbar-admin>
+    </div>
+</div>
+
+<div class="body">
+    <section class="button">
+        <button mat-raised-button color="primary">Aggiungi utente</button>
+        <button mat-raised-button color="primary">Modifica utente</button>
+    </section>
+
+    <table class="table">
+        <thead>
+        <tr>
+        <th>ID</th>
+        <th>P.Iva</th>
+        <th>Patente</th>
+        <th>Email</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Password</th>
+        <th>Verifica mail</th>
+        <th>Immagine profilo</th>
+        <th>Credito residuo</th>
+        <th>Cancella</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of data" class="tr">
+                <td>{{record.id}}</td>
+                <td>{{record.pivaOrCf}}</td>
+                <td>{{record.idDrivingLicense}}</td>
+                <td>{{record.email}}</td>
+                <td>{{record.firstName}}</td>
+                <td>{{record.surname}}</td>
+                <td>{{record.password}}</td>
+                <td>{{record.emailIsVerified}}</td>
+                <td>{{record.urlProfilePicture}}</td>
+                <td>{{record.residualCredit}}</td>
+                <td>
+                    <span class="delete">X</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
