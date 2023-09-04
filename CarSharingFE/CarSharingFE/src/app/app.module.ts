@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {NgIf} from '@angular/common';
     HomeUserComponent,
     NavbarUserComponent,
     ManageUsersComponent,
-    ManageVehiclesComponent
+    ManageVehiclesComponent,
+    ManageRentalsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import {NgIf} from '@angular/common';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

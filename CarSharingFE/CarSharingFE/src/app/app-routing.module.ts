@@ -12,6 +12,7 @@ import { HomeAdminComponent } from './components/admin/home-admin/home-admin.com
 import { HomeUserComponent } from './components/user/home-user/home-user.component';
 import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
 import { ManageVehiclesComponent } from './components/admin/manage-vehicles/manage-vehicles.component';
+import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'admin', component: HomeAdminComponent},
   {path: 'manageusers', component: ManageUsersComponent},
   {path: 'managevehicles', component: ManageVehiclesComponent},
+  {path: 'managerentals', component: ManageRentalsComponent},
   {path: 'user', component: HomeUserComponent},
 ];
 
