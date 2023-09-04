@@ -90,8 +90,9 @@ public class ModelController {
         return "Model " + id + " deleted";
     }
     //TODO: scrivere il metodo uploadImageToModel
-    @PostMapping("/upload-image/{modelId}")
-    public String uploadImageToModel(@PathVariable Long modelId, @RequestParam("file") MultipartFile file) {
+    @PostMapping(value = "/upload-image/{modelId}", consumes = {"multipart/form-data"})
+    @Operation(description = "Uploads an image to the server for a vehicle model")
+    public String uploadImageToModel(@Parameter(description = "The id of the model to update") @PathVariable Long modelId, @Parameter(description = "The image file to upload") @RequestParam("file") MultipartFile file) {
         return modelService.uploadImageToModel(modelId,file);
     }
 }
