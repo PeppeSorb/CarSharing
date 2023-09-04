@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import { UserMod } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 export class AuthService {
   url = ''
   isLoggedIn = false
-  // user: User
+  // user: UserMod
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   // createUser(email: string, id: string, token: string, expirationDate: Date){
-  //   this.user = new User(email, id, token, expirationDate)
+  //   this.user = new UserMod(email, id, token, expirationDate)
   // }
 
   signedUp(body: {}){

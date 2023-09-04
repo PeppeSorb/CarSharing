@@ -1,0 +1,77 @@
+.header{
+  padding: 10px 10px;
+  margin-bottom: 190px;
+}
+
+.title{
+  float: left;
+  font-size: 100px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.subtitle{
+  float: left;
+  clear: right;
+  margin-top: 130px;
+  margin-left: -145px;
+}
+
+.subtitle h3{
+  display: inline-block;
+  font-size: 20px;
+}
+
+.subtitle span{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navbar{
+  margin-top: -10px;
+}
+
+.body{
+  clear: both;
+}
+
+.body .button{
+  margin-bottom: 20px;
+}
+
+.body button{
+  margin-left: 35px;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th{
+  background-color: #e7e4e4;
+  padding: 10px;
+}
+
+.table td{
+  padding: 10px;
+  text-align: center;
+}
+
+.table .tr:nth-child(even){
+  background-color: #f9f9f9;
+  transition: box-shadow .3;
+}
+
+.table .tr:hover{
+  background-color: #e5e5e5;
+  box-shadow: 0 0 8px rgba(33, 33, 33, 0.2);
+  width: 45px;
+  height: 45px;
+}
+
+.delete{
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}

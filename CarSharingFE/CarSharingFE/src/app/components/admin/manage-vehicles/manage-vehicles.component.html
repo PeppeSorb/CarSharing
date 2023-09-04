@@ -1,0 +1,55 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="subtitle">
+        <h3>Sei collegato come: &nbsp;</h3><span>Admin</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-admin></app-navbar-admin>
+    </div>
+</div>
+
+<div class="body">
+    <section class="button">
+        <button mat-raised-button color="primary">Aggiungi Auto</button>
+        <button mat-raised-button color="primary">Modifica Auto</button>
+    </section>
+
+    <table class="table">
+        <thead>
+        <tr>
+        <th>ID</th>
+        <th>Targa</th>
+        <th>ID Modello</th>
+        <th>Paese</th>
+        <th>Regione</th>
+        <th>Città</th>
+        <th>Indirizzo</th>
+        <th>Civico</th>
+        <th>Prenotata</th>
+        <th>Latitudine</th>
+        <th>Longitudine</th>
+        <th>Cancella</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of data" class="tr">
+                <td>{{record.id}}</td>
+                <td>{{record.licensePlate}}</td>
+                <td>{{record.idModel}}</td>
+                <td>{{record.country}}</td>
+                <td>{{record.region}}</td>
+                <td>{{record.city}}</td>
+                <td>{{record.street}}</td>
+                <td>{{record.houseNumber}}</td>
+                <td>{{record.booked}}</td>
+                <td>{{record.latitude}}</td>
+                <td>{{record.longitude}}</td>
+                <td>
+                    <span class="delete">X</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
