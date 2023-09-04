@@ -95,5 +95,10 @@ public class ModelController {
     public String uploadImageToModel(@Parameter(description = "The id of the model to update") @PathVariable Long modelId, @Parameter(description = "The image file to upload") @RequestParam("file") MultipartFile file) {
         return modelService.uploadImageToModel(modelId,file);
     }
+    @DeleteMapping(value = "/delete-unused")
+    @Operation(description = "Deletes image files inside the models images folder that are not used by any vehicle model.")
+    public void deleteUnusedModelImages(){
+        modelService.deleteUnusedModelImages();
+    }
 }
 

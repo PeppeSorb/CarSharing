@@ -16,12 +16,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.FeatureDescriptor;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -113,5 +115,27 @@ public class UserService {
             e.printStackTrace();
             return "Bad request";
         }
+    }
+    public void deleteUnusedUserImages(){
+        File directory = new File("src/main/resources/static/users_images");
+        File[] files = directory.listFiles();
+        List<String> usedImageUrls = getAllUsedImageUrls();
+        for(String str : usedImageUrls){
+            System.out.println(str);
+        }
+        for (File file : files) {
+            if (!usedImageUrls.contains(file.getName())) {
+                file.delete();
+            }
+        }
+    }
+
+    private List<String> getAllUsedImageUrls() {
+        List<UserEntity> users = userRepository.findAll();
+        List<String> userUrls = new ArrayList<String>();
+        for(UserEntity user : users){
+            userUrls.add(user.getUrlProfilePicture());
+        }
+        return userUrls;
     }
 }

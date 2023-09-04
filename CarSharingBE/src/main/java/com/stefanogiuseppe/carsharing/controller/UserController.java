@@ -137,4 +137,9 @@ public class UserController {
     public String uploadImageToUser(@Parameter(description = "The id of the user to update") @PathVariable Long userId, @Parameter(description = "The image file to upload") @RequestParam("file") MultipartFile file) {
         return userService.uploadImageToUser(userId,file);
     }
+    @DeleteMapping(value = "/delete-unused")
+    @Operation(description = "Deletes image files inside the user images folder that are not used by any user.")
+    public void deleteUnusedUserImages(){
+        userService.deleteUnusedUserImages();
+    }
 }

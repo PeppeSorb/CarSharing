@@ -2,6 +2,7 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
+import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.repository.ModelRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.FeatureDescriptor;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
@@ -82,6 +85,29 @@ public class ModelService {
             e.printStackTrace();
             return "Bad request";
         }
+    }
+
+    public void deleteUnusedModelImages(){
+        File directory = new File("src/main/resources/static/models_images");
+        File[] files = directory.listFiles();
+        List<String> usedImageUrls = getAllUsedImageUrls();
+        for(String str : usedImageUrls){
+            System.out.println(str);
+        }
+        for (File file : files) {
+            if (!usedImageUrls.contains(file.getName())) {
+                file.delete();
+            }
+        }
+    }
+
+    private List<String> getAllUsedImageUrls() {
+        List<ModelEntity> models = modelRepository.findAll();
+        List<String> modelsUrls = new ArrayList<String>();
+        for(ModelEntity model : models){
+            modelsUrls.add(model.getImage());
+        }
+        return modelsUrls;
     }
 
 }
