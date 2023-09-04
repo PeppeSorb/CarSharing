@@ -16,6 +16,7 @@ public class ModelMapper {
         modelEntity.setBootCapacity(modelDTO.getBootCapacity());
 
         modelEntity.setIdCategory(modelDTO.getIdCategory());
+        modelEntity.setImage(modelDTO.getImage());
         return modelEntity;
     }
     public ModelDTO toDto(ModelEntity modelEntity) {
@@ -27,6 +28,7 @@ public class ModelMapper {
         modelDTO.setBootCapacity(modelEntity.getBootCapacity());
 
         modelDTO.setIdCategory(modelEntity.getIdCategory());
+        modelDTO.setImage(modelEntity.getImage());
         return modelDTO;
     }
 }

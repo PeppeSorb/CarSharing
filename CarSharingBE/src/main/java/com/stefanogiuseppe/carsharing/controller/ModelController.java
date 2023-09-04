@@ -9,11 +9,18 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -23,13 +30,9 @@ import java.util.stream.Collectors;
 public class ModelController {
     @Autowired
     private ModelService modelService;
-    /*
-    private ModelMapper modelMapper;
-    @Autowired
-    public ModelController(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
-    */
+
+
+
     @Autowired
     private ModelMapper modelMapper;
     @PostMapping("")
@@ -85,6 +88,11 @@ public class ModelController {
     public String deleteModel(@Parameter(description = "The id of the vehicle model to delete") @PathVariable Long id){
         modelService.deleteModel(id);
         return "Model " + id + " deleted";
+    }
+    //TODO: scrivere il metodo uploadImageToModel
+    @PostMapping("/upload-image/{modelId}")
+    public String uploadImageToModel(@PathVariable Long modelId, @RequestParam("file") MultipartFile file) {
+        return modelService.uploadImageToModel(modelId,file);
     }
 }
 

@@ -7,10 +7,17 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.FeatureDescriptor;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
@@ -18,6 +25,11 @@ public class ModelService {
 
     @Autowired
     private ModelRepository modelRepository;
+
+    @Value("${file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
+    private String uploadDir; // Percorso della cartella di caricamento delle immagini
+
+
 
     public ModelEntity saveModel(ModelEntity modelEntity) {
         return modelRepository.save(modelEntity);
@@ -52,6 +64,25 @@ public class ModelService {
         ModelEntity modelEntity = modelRepository.findById(id).orElseThrow();
         modelEntity.setDeleted(true);
         modelRepository.save(modelEntity);
+    }
+    //TODO: scrivere il metodo uploadImageToModel
+    public String uploadImageToModel(Long modelId, MultipartFile file){
+        try {
+            ModelEntity vehicleModel = findById(modelId);
+            if (vehicleModel == null) {
+                return "Model not found";
+            }
+            String fileName = UUID.randomUUID().toString() + ".png";
+            String filePath = Paths.get(uploadDir, fileName).toString();
+            Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            String imageUrl = fileName;
+            vehicleModel.setImage(imageUrl);
+            saveModel(vehicleModel);
+            return imageUrl;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Bad request";
+        }
     }
 
 }

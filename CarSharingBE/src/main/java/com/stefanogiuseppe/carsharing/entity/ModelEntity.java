@@ -45,6 +45,9 @@ public class ModelEntity {
     @JsonIgnore
     private List<VehicleEntity> vehicles;
 
+    @Column(name = "image")
+    private String image;
+
     @Column(name="deleted")
     @JsonIgnore
     private Boolean deleted;
