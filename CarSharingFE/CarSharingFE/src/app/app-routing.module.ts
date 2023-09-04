@@ -13,6 +13,8 @@ import { HomeUserComponent } from './components/user/home-user/home-user.compone
 import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
 import { ManageVehiclesComponent } from './components/admin/manage-vehicles/manage-vehicles.component';
 import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
+import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
+import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'signup', component: SignUpComponent},
   {path: 'admin', component: HomeAdminComponent},
   {path: 'manageusers', component: ManageUsersComponent},
+  {path: 'adduser', component: AddUserFormComponent},
   {path: 'managevehicles', component: ManageVehiclesComponent},
+  {path: 'addvehicle', component: AddVehicleFormComponent},
   {path: 'managerentals', component: ManageRentalsComponent},
   {path: 'user', component: HomeUserComponent},
 ];
