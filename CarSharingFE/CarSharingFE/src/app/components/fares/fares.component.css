@@ -43,6 +43,7 @@
     margin-right: 10px;
     margin-left: 65px;
     border: solid gray 1px;
+    border-radius: 20px;
 }
 
 .card h2{

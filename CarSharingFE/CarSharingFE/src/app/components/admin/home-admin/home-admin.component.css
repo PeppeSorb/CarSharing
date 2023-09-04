@@ -1,32 +1,32 @@
 .header{
-    min-height: 695px;
-    padding: 10px 10px;
+  padding: 10px 10px;
+  margin-bottom: 190px;
 }
 
 .title{
-    float: left;
-    font-size: 100px;
-    margin-left: 20px;
-    margin-top: 40px;
+  float: left;
+  font-size: 100px;
+  margin-left: 20px;
+  margin-top: 40px;
 }
 
 .subtitle{
-    float: left;
-    clear: right;
-    margin-top: 130px;
-    margin-left: -145px;
+  float: left;
+  clear: right;
+  margin-top: 130px;
+  margin-left: -145px;
 }
 
 .subtitle h3{
-    display: inline-block;
-    font-size: 20px;
+  display: inline-block;
+  font-size: 20px;
 }
 
 .subtitle span{
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .navbar{
-    margin-top: -10px;
+  margin-top: -10px;
 }
