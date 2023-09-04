@@ -2,10 +2,7 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
-import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
-import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
-import com.stefanogiuseppe.carsharing.entity.RentalEntity;
-import com.stefanogiuseppe.carsharing.entity.UserEntity;
+import com.stefanogiuseppe.carsharing.entity.*;
 import com.stefanogiuseppe.carsharing.repository.RechargeRepository;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
 import com.stefanogiuseppe.carsharing.repository.UserRepository;
@@ -14,13 +11,20 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.FeatureDescriptor;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
@@ -33,6 +37,9 @@ public class UserService {
 
     @Autowired
     private RechargeRepository rechargeRepository;
+
+    @Value("${users.file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
+    private String uploadDir; // Percorso della cartella di caricamento delle immagini
 
     @Autowired
     private RentalRepository rentalRepository;
@@ -88,5 +95,23 @@ public class UserService {
         UserEntity userEntity = userRepository.findById(id).orElseThrow();
         userEntity.setDeleted(true);
         userRepository.save(userEntity);
+    }
+    public String uploadImageToUser(Long userId, MultipartFile file){
+        try {
+            UserEntity user = findById(userId);
+            if (user == null) {
+                return "User not found";
+            }
+            String fileName = UUID.randomUUID().toString() + ".png";
+            String filePath = Paths.get(uploadDir, fileName).toString();
+            Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+            String imageUrl = fileName;
+            user.setUrlProfilePicture(imageUrl);
+            saveUser(user);
+            return imageUrl;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Bad request";
+        }
     }
 }

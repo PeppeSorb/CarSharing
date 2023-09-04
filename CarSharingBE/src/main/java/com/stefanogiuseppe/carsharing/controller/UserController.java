@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,5 +131,10 @@ public class UserController {
         } else {
             return ("L'account è già stato verificato.");
         }
+    }
+    @PostMapping(value = "/upload-image/{userId}", consumes = {"multipart/form-data"})
+    @Operation(description = "Uploads an image to the server for a user")
+    public String uploadImageToUser(@Parameter(description = "The id of the user to update") @PathVariable Long userId, @Parameter(description = "The image file to upload") @RequestParam("file") MultipartFile file) {
+        return userService.uploadImageToUser(userId,file);
     }
 }

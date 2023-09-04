@@ -26,7 +26,7 @@ public class ModelService {
     @Autowired
     private ModelRepository modelRepository;
 
-    @Value("${file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
+    @Value("${models.file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
     private String uploadDir; // Percorso della cartella di caricamento delle immagini
 
 
@@ -65,7 +65,6 @@ public class ModelService {
         modelEntity.setDeleted(true);
         modelRepository.save(modelEntity);
     }
-    //TODO: scrivere il metodo uploadImageToModel
     public String uploadImageToModel(Long modelId, MultipartFile file){
         try {
             ModelEntity vehicleModel = findById(modelId);
