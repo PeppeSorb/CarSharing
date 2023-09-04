@@ -46,7 +46,7 @@ public class RentalController {
     @Autowired
     private VehicleMapper vehicleMapper;
 
-    @PostMapping("")
+    @PostMapping("") //NUOVO POST -> GETRENTAL SU ENDPOINT "CREATE/VEHICLE/USER
     @ResponseBody
     @Operation(description = "Adds a new rental to the repository")
     public RentalDTO addRental(@Parameter(description = "The new rental in a JSON format") @RequestBody RentalDTO rentalDTO) {
@@ -110,7 +110,9 @@ public class RentalController {
         System.out.println("Rental " + id + " deleted");
     }
 
-    @GetMapping("/create/{idVehicle}/{idUser}")
+
+    //CONTROLLO PRIMA DEL RENTAL
+    @PostMapping("/create/{idVehicle}/{idUser}")
     @ResponseBody
     @Operation(description = "Adds a new rental if the vehicle is not currently booked and if the user is not currently renting a vehicle")
     public String getRental(@Parameter(description="The id of the vehicle to rent") @PathVariable Long idVehicle, @Parameter(description="The id of the user who wants to rent the vehicle") @PathVariable Long idUser, @Parameter(description="The rental in a JSON format") @RequestBody RentalDTO rentalDTO) {

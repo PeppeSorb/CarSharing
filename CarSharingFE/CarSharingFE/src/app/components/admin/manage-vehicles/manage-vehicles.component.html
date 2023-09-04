@@ -19,19 +19,33 @@
     <table class="table">
         <thead>
         <tr>
-        <th>Nome</th>
-        <th>Cognome</th>
         <th>ID</th>
-        <th>Data di nascita</th>
+        <th>Targa</th>
+        <th>ID Modello</th>
+        <th>Paese</th>
+        <th>Regione</th>
+        <th>Città</th>
+        <th>Indirizzo</th>
+        <th>Civico</th>
+        <th>Prenotata</th>
+        <th>Latitudine</th>
+        <th>Longitudine</th>
         <th>Cancella</th>
         </tr>
         </thead>
         <tbody>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr *ngFor="let record of data" class="tr">
+                <td>{{record.id}}</td>
+                <td>{{record.licensePlate}}</td>
+                <td>{{record.idModel}}</td>
+                <td>{{record.country}}</td>
+                <td>{{record.region}}</td>
+                <td>{{record.city}}</td>
+                <td>{{record.street}}</td>
+                <td>{{record.houseNumber}}</td>
+                <td>{{record.booked}}</td>
+                <td>{{record.latitude}}</td>
+                <td>{{record.longitude}}</td>
                 <td>
                     <span class="delete">X</span>
                 </td>
