@@ -24,7 +24,7 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>ID Modello</mat-label>
-                    <input type="text" name="idModel" matInput [(ngModel)]="c" required>
+                    <input type="number" name="idModel" matInput [(ngModel)]="c" required>
                     <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
@@ -49,7 +49,7 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Civico</mat-label>
-                    <input type="number" name="houseNumber" matInput [(ngModel)]="h" required>
+                    <input type="text" name="houseNumber" matInput [(ngModel)]="h" required>
                     <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field" style="display: none;">
