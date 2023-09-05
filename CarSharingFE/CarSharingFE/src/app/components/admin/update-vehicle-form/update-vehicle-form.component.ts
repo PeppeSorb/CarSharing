@@ -11,7 +11,7 @@ export class UpdateVehicleFormComponent {
 
   a = ''; b = ''; c = '';
   d = ''; e = ''; f = '';
-  g = ''; h = '';
+  g = ''; h = ''; i = false;
 
   constructor(private service: VehiclesService){}
 

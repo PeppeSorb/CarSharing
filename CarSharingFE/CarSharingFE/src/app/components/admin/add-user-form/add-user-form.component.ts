@@ -12,7 +12,8 @@ export class AddUserFormComponent {
   b = ''; c = '';
   d = ''; e = '';
   f = ''; g = '';
-  a = 'false';
+  a = false; h = 'profile1.jpg';
+  i = 0;
 
   constructor(private service: UsersService){}
 

@@ -19,22 +19,22 @@
             <section>
                 <mat-form-field class="field">
                     <mat-label>P.Iva/Codice Fiscale</mat-label>
-                    <input type="text" name="pIva" matInput [(ngModel)]="b" required>
+                    <input type="text" name="pivaOrCf" matInput [(ngModel)]="b" required>
                     <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Patente</mat-label>
-                    <input type="text" name="license" matInput [(ngModel)]="c" required>
+                    <input type="text" name="idDrivingLicense" matInput [(ngModel)]="c" required>
                     <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Email</mat-label>
-                    <input type="email" name="email" matInput [(ngModel)]="d" required>
+                    <input type="text" name="email" matInput [(ngModel)]="d" required>
                     <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Nome</mat-label>
-                    <input type="text" name="name" matInput [(ngModel)]="e" required>
+                    <input type="text" name="firstName" matInput [(ngModel)]="e" required>
                     <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
@@ -46,10 +46,18 @@
                     <mat-label>Password</mat-label>
                     <input type="password" name="password" matInput [(ngModel)]="g" required>
                     <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
-                </mat-form-field><br>
+                </mat-form-field>
                 <mat-form-field class="field" style="display: none;">
                     <mat-label>Verifica mail</mat-label>
-                    <input type="boolean" name="emailverified" matInput [(ngModel)]="a" disabled>
+                    <input type="boolean" name="emailIsVerified" matInput [(ngModel)]="a" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Immagine del profilo</mat-label>
+                    <input type="string" name="urlProfilePicture" matInput [(ngModel)]="h" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Credito residuo</mat-label>
+                    <input type="number" name="residualCredit" matInput [(ngModel)]="i" disabled>
                 </mat-form-field>
             </section>
             <section>
