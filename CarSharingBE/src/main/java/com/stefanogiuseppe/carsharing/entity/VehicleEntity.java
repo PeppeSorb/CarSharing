@@ -61,7 +61,7 @@ public class VehicleEntity {
     @JsonIgnore
     private List<RentalEntity> rentals;
 
-    @Column(name="deleted")
+    @Column(name="deleted", columnDefinition = "default 0")
     @JsonIgnore
-    private Boolean deleted;
+    private boolean deleted;
 }
