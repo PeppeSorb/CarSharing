@@ -19,17 +19,17 @@
             <section>
                 <mat-form-field class="field">
                     <mat-label>ID Auto ( DB Record )</mat-label>
-                    <input type="text" name="id" matInput [(ngModel)]="a" required>
+                    <input type="number" name="id" matInput [(ngModel)]="a" required>
                     <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Targa</mat-label>
-                    <input type="text" name="plate" matInput [(ngModel)]="b" required>
+                    <input type="text" name="licensePlate" matInput [(ngModel)]="b" required>
                     <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>ID Modello</mat-label>
-                    <input type="text" name="idModel" matInput [(ngModel)]="c" required>
+                    <input type="number" name="idMod" matInput [(ngModel)]="c" required>
                     <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
@@ -54,8 +54,12 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Civico</mat-label>
-                    <input type="number" name="houseNumber" matInput [(ngModel)]="h" required>
+                    <input type="text" name="houseNumber" matInput [(ngModel)]="h" required>
                     <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Prenotato</mat-label>
+                    <input type="boolean" name="booked" matInput [(ngModel)]="i" disabled>
                 </mat-form-field>
             </section>
             <section>

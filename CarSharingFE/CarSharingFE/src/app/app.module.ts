@@ -28,6 +28,7 @@ import { AddUserFormComponent } from './components/admin/add-user-form/add-user-
 import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
 import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
 import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
+import { ProfileUserComponent } from './components/user/profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-fo
     AddUserFormComponent,
     AddVehicleFormComponent,
     UpdateUserFormComponent,
-    UpdateVehicleFormComponent
+    UpdateVehicleFormComponent,
+    ProfileUserComponent
   ],
   imports: [
     BrowserModule,

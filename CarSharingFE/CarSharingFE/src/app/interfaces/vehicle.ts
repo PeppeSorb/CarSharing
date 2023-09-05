@@ -1,7 +1,14 @@
 export interface Vehicle{
     id: number,
     licensePlate: string,
-    idModel: null,
+    idModel: {
+        idMod: number,
+        idCategory: null,
+        makeAndModel: null,
+        bootCapacity: null,
+        averageConsumption: null,
+        forNewDrivers: null,
+        image: null},
     country: string,
     region: string,
     city: string,

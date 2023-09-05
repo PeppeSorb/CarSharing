@@ -11,7 +11,11 @@ export class AddVehicleFormComponent {
 
   b = ''; c = ''; d = '';
   e = ''; f = ''; g = '';
-  h = '';
+  h = ''; a = false;
+
+  aa = null; bb = null; cc = null;
+  dd = null; ee = null; ff = null;
+  gg = 0; hh = 0;
 
   constructor(private service: VehiclesService){}
 

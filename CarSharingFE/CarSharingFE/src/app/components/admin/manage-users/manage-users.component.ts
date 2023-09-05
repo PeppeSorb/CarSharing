@@ -15,7 +15,7 @@ export class ManageUsersComponent implements OnInit {
       this.service.deleteUser(id)
       .subscribe((response)=>{
         console.log(response);
-        this.ngOnInit;
+        this.ngOnInit();
       })
     }
   }

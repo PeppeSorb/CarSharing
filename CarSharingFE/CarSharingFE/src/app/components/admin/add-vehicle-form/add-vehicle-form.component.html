@@ -19,14 +19,40 @@
             <section>
                 <mat-form-field class="field">
                     <mat-label>Targa</mat-label>
-                    <input type="text" name="plate" matInput [(ngModel)]="b" required>
+                    <input type="text" name="licensePlate" matInput [(ngModel)]="b" required>
                     <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>ID Modello</mat-label>
-                    <input type="text" name="idModel" matInput [(ngModel)]="c" required>
+                    <input type="number" name="idMod" matInput [(ngModel)]="c" required>
                     <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
+
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>ID Categoria</mat-label>
+                    <input type="text" name="idCategory" matInput [(ngModel)]="aa" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Marca e modello</mat-label>
+                    <input type="text" name="makeAndModel" matInput [(ngModel)]="bb" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Serbatoio</mat-label>
+                    <input type="text" name="bootCapacity" matInput [(ngModel)]="cc" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Consumi</mat-label>
+                    <input type="text" name="averageConsumption" matInput [(ngModel)]="dd" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Neopatentati</mat-label>
+                    <input type="text" name="forNewDrivers" matInput [(ngModel)]="ee" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Immagine</mat-label>
+                    <input type="text" name="image" matInput [(ngModel)]="ff" disabled>
+                </mat-form-field>
+
                 <mat-form-field class="field">
                     <mat-label>Paese</mat-label>
                     <input type="text" name="country" matInput [(ngModel)]="d" required>
@@ -49,9 +75,23 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Civico</mat-label>
-                    <input type="number" name="houseNumber" matInput [(ngModel)]="h" required>
+                    <input type="text" name="houseNumber" matInput [(ngModel)]="h" required>
                     <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Prenotato</mat-label>
+                    <input type="boolean" name="booked" matInput [(ngModel)]="a" disabled>
                 </mat-form-field>
+
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Latitudine</mat-label>
+                    <input type="text" name="latitude" matInput [(ngModel)]="gg" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Longitudine</mat-label>
+                    <input type="text" name="longitude" matInput [(ngModel)]="hh" disabled>
+                </mat-form-field>
+
             </section>
             <section>
                 <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
