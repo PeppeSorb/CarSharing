@@ -2,6 +2,7 @@ package com.stefanogiuseppe.carsharing.service;
 import com.google.maps.model.LatLng;
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
+import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.repository.VehicleRepository;
 import org.springframework.beans.BeanUtils;
@@ -24,6 +25,9 @@ public class VehicleService {
 
     @Autowired
     private GeoCodingService geoCodingService;
+
+    @Autowired
+    private ReviewService reviewService;
     //private GoogleMapsService googleMapsService;
 
     public VehicleEntity saveVehicle(VehicleEntity vehicleEntity) {
@@ -102,6 +106,19 @@ public class VehicleService {
             newVehicles.add(vehicle);
         }
         return newVehicles;
+    }
+    public Double getVehicleReviewsScore(Long idVehicle){
+        List<ReviewEntity> reviews = reviewService.getAllReview();
+        double sum = 0.0;
+        int count = 0;
+        for(ReviewEntity review : reviews){
+            if(review.getIdRental().getIdVehicle().getId() == idVehicle){
+                //la recensione riguarda questo veicolo
+                sum = sum + review.getValutation();
+                count++;
+            }
+        }
+        return sum/(count+0.0);
     }
 
 

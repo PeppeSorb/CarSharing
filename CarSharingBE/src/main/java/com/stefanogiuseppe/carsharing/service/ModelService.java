@@ -2,6 +2,7 @@ package com.stefanogiuseppe.carsharing.service;
 
 import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
+import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.repository.ModelRepository;
 import org.springframework.beans.BeanUtils;
@@ -28,6 +29,9 @@ public class ModelService {
 
     @Autowired
     private ModelRepository modelRepository;
+
+    @Autowired
+    private ReviewService reviewService;
 
     @Value("${models.file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
     private String uploadDir; // Percorso della cartella di caricamento delle immagini
@@ -108,6 +112,19 @@ public class ModelService {
             modelsUrls.add(model.getImage());
         }
         return modelsUrls;
+    }
+    public Double getModelReviewsScore(Long idModel){
+        List<ReviewEntity> reviews = reviewService.getAllReview();
+        double sum = 0.0;
+        int count = 0;
+        for(ReviewEntity review : reviews){
+            if(review.getIdRental().getIdVehicle().getIdModel().getId() == idModel){
+                //la recensione riguarda questo modello
+                sum = sum + review.getValutation();
+                count++;
+            }
+        }
+        return sum/(count+0.0);
     }
 
 }
