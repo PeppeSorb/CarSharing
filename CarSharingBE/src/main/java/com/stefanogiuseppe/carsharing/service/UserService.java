@@ -50,7 +50,7 @@ public class UserService {
     private EmailService emailService;
 
     public UserEntity saveUser(UserEntity userEntity) {
-        List<UserEntity> userEntities = userRepository.findAll();
+        List<UserEntity> userEntities = userRepository.findAll(); //Questo perché è chiamato in altre funzioni e non voglio che invii sempre email
         for (UserEntity user : userEntities) {
             if (userEntity.getId() == user.getId()) {
                 userRepository.save(userEntity);
@@ -98,7 +98,8 @@ public class UserService {
         userEntity.setDeleted(true);
         userRepository.save(userEntity);
     }
-    public String uploadImageToUser(Long userId, MultipartFile file){
+
+    public String uploadImageToUser(Long userId, MultipartFile file) {
         try {
             UserEntity user = findById(userId);
             if (user == null) {
@@ -116,11 +117,12 @@ public class UserService {
             return "Bad request";
         }
     }
-    public void deleteUnusedUserImages(){
+
+    public void deleteUnusedUserImages() {
         File directory = new File("src/main/resources/static/users_images");
         File[] files = directory.listFiles();
         List<String> usedImageUrls = getAllUsedImageUrls();
-        for(String str : usedImageUrls){
+        for (String str : usedImageUrls) {
             System.out.println(str);
         }
         for (File file : files) {
@@ -133,7 +135,7 @@ public class UserService {
     private List<String> getAllUsedImageUrls() {
         List<UserEntity> users = userRepository.findAll();
         List<String> userUrls = new ArrayList<String>();
-        for(UserEntity user : users){
+        for (UserEntity user : users) {
             userUrls.add(user.getUrlProfilePicture());
         }
         return userUrls;
