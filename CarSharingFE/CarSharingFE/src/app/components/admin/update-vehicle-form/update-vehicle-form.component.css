@@ -1,0 +1,73 @@
+.header{
+  padding: 10px 10px;
+  margin-bottom: 150px;
+}
+
+.title{
+  float: left;
+  font-size: 100px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.subtitle{
+  float: left;
+  clear: right;
+  margin-top: 130px;
+  margin-left: -145px;
+}
+
+.subtitle h3{
+  display: inline-block;
+  font-size: 20px;
+}
+
+.subtitle span{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navbar{
+  margin-top: -10px;
+}
+
+.body{
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.body .title{
+  padding-top: 5px;
+  clear: both;
+  padding-left: 618px;
+}
+
+.body h1{
+  font-size: 40px;
+}
+
+.card{
+  clear: both;
+  width: 500px;
+  min-height: 700px;
+  box-shadow: 8px 8px #9eb0b67e;
+  margin-right: auto;
+  margin-left: auto;
+  border: solid gray 1px;
+  border-radius: 20px;
+}
+
+section{
+  margin-top: 50px;
+}
+
+.field{
+  width: 350px;
+  margin-bottom: 10px;
+}
+
+.button{
+  width: 90px;
+  font-size: large;
+  margin-bottom: 20px;
+}

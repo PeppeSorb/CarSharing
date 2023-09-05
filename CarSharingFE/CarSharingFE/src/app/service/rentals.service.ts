@@ -15,4 +15,9 @@ export class RentalsService {
   getRentals(): Observable<Rental[]>{
     return this.http.get<Rental[]>(rentalUrl);
   }
+
+  deleteRental(id:number): Observable<void>{
+    const url = `${rentalUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

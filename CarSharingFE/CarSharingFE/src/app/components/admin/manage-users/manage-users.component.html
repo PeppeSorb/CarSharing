@@ -13,7 +13,7 @@
 <div class="body">
     <section class="button">
         <button mat-raised-button color="primary" routerLink="/adduser">Aggiungi utente</button>
-        <button mat-raised-button color="primary">Modifica utente</button>
+        <button mat-raised-button color="primary" routerLink="/updateuser">Modifica utente</button>
     </section>
 
     <table class="table">
@@ -45,7 +45,7 @@
                 <td>{{record.urlProfilePicture}}</td>
                 <td>{{record.residualCredit}}</td>
                 <td>
-                    <span class="delete">X</span>
+                    <span class="delete" (click)="deleteUser(record.id)">X</span>
                 </td>
             </tr>
         </tbody>

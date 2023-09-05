@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
 import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
 import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
+import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
+import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add
     ManageVehiclesComponent,
     ManageRentalsComponent,
     AddUserFormComponent,
-    AddVehicleFormComponent
+    AddVehicleFormComponent,
+    UpdateUserFormComponent,
+    UpdateVehicleFormComponent
   ],
   imports: [
     BrowserModule,

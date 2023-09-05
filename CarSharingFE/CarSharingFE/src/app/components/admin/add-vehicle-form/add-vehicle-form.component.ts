@@ -9,8 +9,9 @@ import { VehiclesService } from 'src/app/service/vehicles.service';
 })
 export class AddVehicleFormComponent {
 
-  a = ''; b = ''; c = ''; d = '';
+  b = ''; c = ''; d = '';
   e = ''; f = ''; g = '';
+  h = '';
 
   constructor(private service: VehiclesService){}
 

@@ -19,4 +19,14 @@ export class VehiclesService {
   postVehicle(vehicle: Vehicle): Observable<Vehicle>{
     return this.http.post<Vehicle>(vehicleUrl, vehicle);
   }
+
+  updateVehicle(id: number, vehicle: Vehicle): Observable<Vehicle>{
+    const url = `${vehicleUrl}/${id}`;
+    return this.http.put<Vehicle>(url, vehicle);
+  }
+
+  deleteVehicle(id:number): Observable<void>{
+    const url = `${vehicleUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

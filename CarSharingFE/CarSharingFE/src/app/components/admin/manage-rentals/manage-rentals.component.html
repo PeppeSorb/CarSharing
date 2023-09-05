@@ -36,7 +36,7 @@
                 <td>{{record.typeRental}}</td>
                 <td>{{record.payed}}</td>
                 <td>
-                    <span class="delete">X</span>
+                    <span class="delete" (click)="deleteRental(record.id)">X</span>
                 </td>
             </tr>
         </tbody>

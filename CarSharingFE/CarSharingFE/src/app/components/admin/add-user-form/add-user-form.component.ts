@@ -9,9 +9,9 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class AddUserFormComponent {
 
-  a = ''; b = ''; c = ''
-  d = ''; e = ''; f = ''
-  g = '';
+  b = ''; c = '';
+  d = ''; e = '';
+  f = ''; g = '';
 
   constructor(private service: UsersService){}
 

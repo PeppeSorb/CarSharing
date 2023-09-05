@@ -10,6 +10,16 @@ export class ManageVehiclesComponent implements OnInit {
 
   constructor(private service: VehiclesService){}
 
+  deleteVehicle(id:number){
+    if(confirm('Sei sicuro di voler eliminare questo dato ?') == true){
+      this.service.deleteVehicle(id)
+      .subscribe((response)=>{
+        console.log(response);
+        this.ngOnInit;
+      })
+    }
+  }
+
   data: any
   ngOnInit(): void {
     this.service.getVehicles().subscribe(
