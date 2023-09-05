@@ -1,15 +1,15 @@
 package com.stefanogiuseppe.carsharing;
 
 public class RentalPriceResponse {
-    private double amount;
+    private double price;
     private boolean extraPay;
 
-    public double getAmount() {
-        return amount;
+    public double getPrice() {
+        return price;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public boolean isExtraPay() {
@@ -20,8 +20,8 @@ public class RentalPriceResponse {
         this.extraPay = extraPay;
     }
 
-    public RentalPriceResponse(double amount, boolean extraPay) {
-        this.amount = amount;
+    public RentalPriceResponse(double price, boolean extraPay) {
+        this.price = price;
         this.extraPay = extraPay;
     }
 }

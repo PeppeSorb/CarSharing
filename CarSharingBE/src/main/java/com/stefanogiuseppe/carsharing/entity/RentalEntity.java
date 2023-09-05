@@ -53,5 +53,11 @@ public class RentalEntity {
     @JsonIgnore
     private ReviewEntity review;
 
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "extra_pay")
+    private Boolean extraPay;
+
 }
 

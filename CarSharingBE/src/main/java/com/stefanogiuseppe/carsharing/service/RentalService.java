@@ -139,6 +139,9 @@ public class RentalService {
         RentalEntity rentalToEnd = rentalRepository.findById(idRental).orElseThrow();
         rentalToEnd.setDateTimeEndRental(new Date());
         Long vehicleId = rentalToEnd.getIdVehicle().getId();
+        RentalPriceResponse rpr = getRentalPrice(rentalToEnd);
+        rentalToEnd.setPrice(rpr.getPrice());
+        rentalToEnd.setExtraPay(rpr.isExtraPay());
         Optional<VehicleEntity> vehicleToMoveOptional = vehicleRepository.findById(vehicleId);
         //se esiste un veicolo associato al noleggio...
         if(!vehicleToMoveOptional.isEmpty()){
@@ -217,7 +220,7 @@ public class RentalService {
             }else{
                 Optional<UserEntity> userOptional = userRepository.findById(r.getIdUser().getId());
                 if(userOptional.isEmpty() == false){
-                    double price = getRentalPrice(r).getAmount();
+                    double price = r.getPrice();
                     UserEntity user = userOptional.get();
                     if(user.getResidualCredit() >= price){
                         user.setResidualCredit(user.getResidualCredit() - price);
