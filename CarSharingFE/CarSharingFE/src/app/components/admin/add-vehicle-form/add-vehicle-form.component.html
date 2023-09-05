@@ -1,0 +1,66 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="subtitle">
+        <h3>Sei collegato come: &nbsp;</h3><span>Admin</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-admin></app-navbar-admin>
+    </div>
+</div>
+
+<div class="body">
+    <div class="title">
+        <h1>Aggiungi auto</h1>
+    </div>
+    <div class="card">
+        <form #form="ngForm">
+            <section>
+                <mat-form-field class="field">
+                    <mat-label>ID</mat-label>
+                    <input type="number" name="id" matInput [(ngModel)]="a" required>
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Targa</mat-label>
+                    <input type="text" name="plate" matInput [(ngModel)]="b" required>
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>ID Modello</mat-label>
+                    <input type="text" name="idModel" matInput [(ngModel)]="c" required>
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Paese</mat-label>
+                    <input type="text" name="country" matInput [(ngModel)]="d" required>
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Regione</mat-label>
+                    <input type="text" name="region" matInput [(ngModel)]="e" required>
+                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Città</mat-label>
+                    <input type="text" name="city" matInput [(ngModel)]="f" required>
+                    <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Indirizzo</mat-label>
+                    <input type="text" name="street" matInput [(ngModel)]="g" required>
+                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Numero Civico</mat-label>
+                    <input type="number" name="houseNumber" matInput [(ngModel)]="g" required>
+                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+            </section>
+            <section>
+                <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
+            </section>
+        </form>
+    </div>
+</div>

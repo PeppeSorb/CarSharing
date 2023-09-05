@@ -24,6 +24,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
+import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
+import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ManageRentalsComponent } from './components/admin/manage-rentals/manage
     NavbarUserComponent,
     ManageUsersComponent,
     ManageVehiclesComponent,
-    ManageRentalsComponent
+    ManageRentalsComponent,
+    AddUserFormComponent,
+    AddVehicleFormComponent
   ],
   imports: [
     BrowserModule,

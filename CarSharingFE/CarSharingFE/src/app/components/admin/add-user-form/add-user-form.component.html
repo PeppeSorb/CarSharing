@@ -1,0 +1,61 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="subtitle">
+        <h3>Sei collegato come: &nbsp;</h3><span>Admin</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-admin></app-navbar-admin>
+    </div>
+</div>
+
+<div class="body">
+    <div class="title">
+        <h1>Aggiungi utente</h1>
+    </div>
+    <div class="card">
+        <form #form="ngForm" (submit)="postUser(form.value)">
+            <section>
+                <mat-form-field class="field">
+                    <mat-label>ID</mat-label>
+                    <input type="number" name="id" matInput [(ngModel)]="a" required>
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>P.Iva/Codice Fiscale</mat-label>
+                    <input type="text" name="pIva" matInput [(ngModel)]="b" required>
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Numero Patente</mat-label>
+                    <input type="text" name="license" matInput [(ngModel)]="c" required>
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Email</mat-label>
+                    <input type="email" name="email" matInput [(ngModel)]="d" required>
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" name="name" matInput [(ngModel)]="e" required>
+                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Cognome</mat-label>
+                    <input type="text" name="surname" matInput [(ngModel)]="f" required>
+                    <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field">
+                    <mat-label>Password</mat-label>
+                    <input type="password" name="password" matInput [(ngModel)]="g" required>
+                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+            </section>
+            <section>
+                <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
+            </section>
+        </form>
+    </div>
+</div>

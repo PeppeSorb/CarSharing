@@ -15,4 +15,8 @@ export class VehiclesService {
   getVehicles(): Observable<Vehicle[]>{
     return this.http.get<Vehicle[]>(vehicleUrl);
   }
+
+  postVehicle(vehicle: Vehicle): Observable<Vehicle>{
+    return this.http.post<Vehicle>(vehicleUrl, vehicle);
+  }
 }
