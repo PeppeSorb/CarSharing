@@ -90,5 +90,10 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
         return "Vehicle " + id + " deleted";
     }
+    @GetMapping("/score/{idVehicle}")
+    @Operation(description = "Returns the overall score of the reviews about this vehicle")
+    public Double getVehicleReviewsScore(@Parameter(description = "The id of the vehicle") @PathVariable Long idVehicle){
+        return vehicleService.getVehicleReviewsScore(idVehicle);
+    }
 }
 

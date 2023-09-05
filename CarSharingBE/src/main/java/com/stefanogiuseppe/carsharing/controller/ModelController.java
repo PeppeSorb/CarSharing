@@ -100,5 +100,11 @@ public class ModelController {
     public void deleteUnusedModelImages(){
         modelService.deleteUnusedModelImages();
     }
+
+    @GetMapping("/score/{idModel}")
+    @Operation(description = "Returns the overall score of the reviews about this model")
+    public Double getModelReviewsScore(@Parameter(description = "The id of the model") @PathVariable Long idModel){
+        return modelService.getModelReviewsScore(idModel);
+    }
 }
 

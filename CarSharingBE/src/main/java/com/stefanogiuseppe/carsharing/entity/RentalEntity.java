@@ -52,6 +52,7 @@ public class RentalEntity {
 
 
     @OneToOne(mappedBy = "idRental")
+    @JsonIgnore
     private ReviewEntity review;
 
 }
