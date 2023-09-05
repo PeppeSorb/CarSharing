@@ -10,7 +10,8 @@ import { UsersService } from 'src/app/service/users.service';
 export class UpdateUserFormComponent {
 
   a = ''; b = ''; c = ''; d = '';
-  e = ''; f = ''; g = '';
+  e = ''; f = ''; g = ''; h = false;
+  i = 'profile1.jpg'; l = 0;
 
   constructor(private service: UsersService){}
 

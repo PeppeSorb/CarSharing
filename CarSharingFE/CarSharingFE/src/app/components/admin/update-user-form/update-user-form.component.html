@@ -52,6 +52,18 @@
                     <input type="password" name="password" matInput [(ngModel)]="g" required>
                     <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Verifica mail</mat-label>
+                    <input type="boolean" name="emailIsVerified" matInput [(ngModel)]="h" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Immagine del profilo</mat-label>
+                    <input type="string" name="urlProfilePicture" matInput [(ngModel)]="i" disabled>
+                </mat-form-field>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Credito residuo</mat-label>
+                    <input type="number" name="residualCredit" matInput [(ngModel)]="l" disabled>
+                </mat-form-field>
             </section>
             <section>
                 <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
