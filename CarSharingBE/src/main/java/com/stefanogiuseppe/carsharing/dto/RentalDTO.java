@@ -20,7 +20,7 @@ public class RentalDTO {
     private Long id;
     private UserEntity idUser;
     private VehicleEntity idVehicle;
-    private AdministratorEntity idAdmin;
+   // private AdministratorEntity idAdmin;
     private Date dateTimeStartRental;
     private Date dateTimeEndRental;
     private String typeRental;

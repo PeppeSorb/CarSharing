@@ -11,7 +11,7 @@ public class RentalMapper {
         rentalDTO.setId(rentalEntity.getId());
         rentalDTO.setIdUser(rentalEntity.getIdUser());
         rentalDTO.setIdVehicle(rentalEntity.getIdVehicle());
-        rentalDTO.setIdAdmin(rentalEntity.getIdAdmin());
+     //   rentalDTO.setIdAdmin(rentalEntity.getIdAdmin());
         rentalDTO.setDateTimeStartRental(rentalEntity.getDateTimeStartRental());
         rentalDTO.setDateTimeEndRental(rentalEntity.getDateTimeEndRental());
         rentalDTO.setTypeRental(rentalEntity.getTypeRental());
@@ -24,7 +24,7 @@ public class RentalMapper {
         rentalEntity.setId(rentalDTO.getId());
         rentalEntity.setIdUser(rentalDTO.getIdUser());
         rentalEntity.setIdVehicle(rentalDTO.getIdVehicle());
-        rentalEntity.setIdAdmin(rentalDTO.getIdAdmin());
+      //  rentalEntity.setIdAdmin(rentalDTO.getIdAdmin());
         rentalEntity.setDateTimeStartRental(rentalDTO.getDateTimeStartRental());
         rentalEntity.setDateTimeEndRental(rentalDTO.getDateTimeEndRental());
         rentalEntity.setTypeRental(rentalDTO.getTypeRental());
