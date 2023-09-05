@@ -44,12 +44,11 @@ public class VehicleService {
     }
 
     public VehicleEntity updateVehicle(Long id, VehicleDTO vehicleDTO) {
-        VehicleEntity vehicleEntity = findById(id);
-        vehicleDTO.setId(vehicleEntity.getId());
+            VehicleEntity vehicleEntity = findById(id);
+            vehicleDTO.setId(vehicleEntity.getId());
 
-        BeanUtils.copyProperties(vehicleDTO, vehicleEntity, getNullPropertyNames(vehicleDTO));
-        return vehicleRepository.save(vehicleEntity);
-
+            BeanUtils.copyProperties(vehicleDTO, vehicleEntity, getNullPropertyNames(vehicleDTO));
+            return vehicleRepository.save(vehicleEntity);
     }
 
     private String[] getNullPropertyNames(Object source) {
@@ -61,9 +60,9 @@ public class VehicleService {
     }
 
     public void deleteVehicle(Long id) {
-        VehicleEntity vehicleEntity = vehicleRepository.findById(id).orElseThrow();
-        vehicleEntity.setDeleted(true);
-        vehicleRepository.save(vehicleEntity);
+            VehicleEntity vehicleEntity = vehicleRepository.findById(id).orElseThrow();
+            vehicleEntity.setDeleted(true);
+            vehicleRepository.save(vehicleEntity);
     }
 
     public Boolean isBooked(Long idVehicle) {

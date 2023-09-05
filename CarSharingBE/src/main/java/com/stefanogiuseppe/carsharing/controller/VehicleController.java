@@ -95,5 +95,11 @@ public class VehicleController {
     public Double getVehicleReviewsScore(@Parameter(description = "The id of the vehicle") @PathVariable Long idVehicle){
         return vehicleService.getVehicleReviewsScore(idVehicle);
     }
+
+    @GetMapping("is_booked/{idVehicle}")
+    @Operation(description = "Returns true if the vehicle is already booked, false otherwise")
+    public Boolean isBooked(@Parameter(description = "The id of the vehicle to check") @PathVariable Long idVehicle){
+        return vehicleService.isBooked(idVehicle);
+    }
 }
 
