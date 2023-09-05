@@ -13,6 +13,10 @@ export class UpdateVehicleFormComponent {
   d = ''; e = ''; f = '';
   g = ''; h = ''; i = false;
 
+  aa = null; bb = null; cc = null;
+  dd = null; ee = null; ff = null;
+  gg = 0; hh = 0;
+  
   constructor(private service: VehiclesService){}
 
   updateVehicle(id: number, vehicle: Vehicle){
