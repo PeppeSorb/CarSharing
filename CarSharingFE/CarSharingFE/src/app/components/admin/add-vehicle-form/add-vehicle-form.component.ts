@@ -11,7 +11,7 @@ export class AddVehicleFormComponent {
 
   b = ''; c = ''; d = '';
   e = ''; f = ''; g = '';
-  h = '';
+  h = ''; a = 'false';
 
   constructor(private service: VehiclesService){}
 

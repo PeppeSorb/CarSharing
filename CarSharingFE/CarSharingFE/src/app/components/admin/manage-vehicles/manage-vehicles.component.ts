@@ -15,7 +15,7 @@ export class ManageVehiclesComponent implements OnInit {
       this.service.deleteVehicle(id)
       .subscribe((response)=>{
         console.log(response);
-        this.ngOnInit;
+        this.ngOnInit();
       })
     }
   }

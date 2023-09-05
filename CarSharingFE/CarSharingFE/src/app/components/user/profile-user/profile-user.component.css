@@ -1,0 +1,19 @@
+.header{
+    padding: 10px 10px;
+}
+
+.title{
+    float: left;
+    font-size: 100px;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.navbar{
+    margin-top: -10px;
+}
+
+.body{
+    clear: both;
+    margin-top: 150px;
+}

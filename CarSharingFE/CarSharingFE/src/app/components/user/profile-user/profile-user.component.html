@@ -1,0 +1,21 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-user></app-navbar-user>
+    </div>
+</div>
+
+<div class="body">
+    <div class="title">
+        <h1>Aggiungi utente</h1>
+    </div>
+    <div class="card">
+        <form #form="ngForm">
+            <section>
+                <button class="button" mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Invia</button>
+            </section>
+        </form>
+    </div>
+</div>

@@ -51,6 +51,10 @@
                     <mat-label>Numero Civico</mat-label>
                     <input type="number" name="houseNumber" matInput [(ngModel)]="h" required>
                     <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field class="field" style="display: none;">
+                    <mat-label>Prenotato</mat-label>
+                    <input type="boolean" name="booked" matInput [(ngModel)]="a" disabled>
                 </mat-form-field>
             </section>
             <section>

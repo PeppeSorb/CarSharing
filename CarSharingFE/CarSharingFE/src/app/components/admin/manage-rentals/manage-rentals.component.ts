@@ -15,7 +15,7 @@ export class ManageRentalsComponent implements OnInit{
       this.service.deleteRental(id)
       .subscribe((response)=>{
         console.log(response);
-        this.ngOnInit;
+        this.ngOnInit();
       })
     }
   }
