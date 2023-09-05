@@ -10,6 +10,16 @@ export class ManageRentalsComponent implements OnInit{
 
   constructor(private service: RentalsService){}
 
+  deleteRental(id:number){
+    if(confirm('Sei sicuro di voler eliminare questo dato ?') == true){
+      this.service.deleteRental(id)
+      .subscribe((response)=>{
+        console.log(response);
+        this.ngOnInit;
+      })
+    }
+  }
+
   data: any
   ngOnInit(): void {
     this.service.getRentals().subscribe(

@@ -13,7 +13,7 @@
 <div class="body">
     <section class="button">
         <button mat-raised-button color="primary" routerLink="/addvehicle">Aggiungi Auto</button>
-        <button mat-raised-button color="primary">Modifica Auto</button>
+        <button mat-raised-button color="primary" routerLink="/updatevehicle">Modifica Auto</button>
     </section>
 
     <table class="table">
@@ -47,7 +47,7 @@
                 <td>{{record.latitude}}</td>
                 <td>{{record.longitude}}</td>
                 <td>
-                    <span class="delete">X</span>
+                    <span class="delete" (click)="deleteVehicle(record.id)">X</span>
                 </td>
             </tr>
         </tbody>

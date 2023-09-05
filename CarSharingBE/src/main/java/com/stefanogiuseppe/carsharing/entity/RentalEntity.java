@@ -49,8 +49,6 @@ public class RentalEntity {
     @JsonIgnore
     private Boolean deleted;
 
-
-
     @OneToOne(mappedBy = "idRental")
     @JsonIgnore
     private ReviewEntity review;

@@ -10,6 +10,16 @@ export class ManageUsersComponent implements OnInit {
 
   constructor(private service: UsersService){}
 
+  deleteUser(id: number){
+    if(confirm('Sei sicuro di voler eliminare questo dato ?') == true){
+      this.service.deleteUser(id)
+      .subscribe((response)=>{
+        console.log(response);
+        this.ngOnInit;
+      })
+    }
+  }
+
   data: any
   ngOnInit(): void {
       this.service.getUsers().subscribe(

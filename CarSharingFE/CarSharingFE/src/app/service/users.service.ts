@@ -19,4 +19,14 @@ export class UsersService {
   postUser(user: Userr): Observable<Userr>{
     return this.http.post<Userr>(userUrl, user);
   }
+
+  updateUser(id: number, user: Userr): Observable<Userr>{
+    const url = `${userUrl}/${id}`;
+    return this.http.put<Userr>(url, user);
+  }
+
+  deleteUser(id:number): Observable<void>{
+    const url = `${userUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

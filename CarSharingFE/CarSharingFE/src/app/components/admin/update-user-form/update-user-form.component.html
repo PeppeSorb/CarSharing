@@ -12,11 +12,16 @@
 
 <div class="body">
     <div class="title">
-        <h1>Aggiungi utente</h1>
+        <h1>Modifica utente</h1>
     </div>
     <div class="card">
-        <form #form="ngForm" (submit)="postUser(form.value)">
+        <form #form="ngForm" (submit)="updateUser(form.value.id, form.value)">
             <section>
+                <mat-form-field class="field">
+                    <mat-label>ID utente da aggiornare</mat-label>
+                    <input type="number" name="id" matInput [(ngModel)]="a" required>
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>P.Iva/Codice Fiscale</mat-label>
                     <input type="text" name="pIva" matInput [(ngModel)]="b" required>

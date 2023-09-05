@@ -15,13 +15,8 @@
         <h1>Aggiungi auto</h1>
     </div>
     <div class="card">
-        <form #form="ngForm">
+        <form #form="ngForm" (submit)="postVehicle(form.value)">
             <section>
-                <mat-form-field class="field">
-                    <mat-label>ID</mat-label>
-                    <input type="number" name="id" matInput [(ngModel)]="a" required>
-                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
-                </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Targa</mat-label>
                     <input type="text" name="plate" matInput [(ngModel)]="b" required>
@@ -54,8 +49,8 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Civico</mat-label>
-                    <input type="number" name="houseNumber" matInput [(ngModel)]="g" required>
-                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                    <input type="number" name="houseNumber" matInput [(ngModel)]="h" required>
+                    <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
             </section>
             <section>

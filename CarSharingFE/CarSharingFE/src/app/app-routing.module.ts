@@ -15,6 +15,8 @@ import { ManageVehiclesComponent } from './components/admin/manage-vehicles/mana
 import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
 import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
 import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
+import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
+import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,8 +27,10 @@ const routes: Routes = [
   {path: 'admin', component: HomeAdminComponent},
   {path: 'manageusers', component: ManageUsersComponent},
   {path: 'adduser', component: AddUserFormComponent},
+  {path: 'updateuser', component: UpdateUserFormComponent},
   {path: 'managevehicles', component: ManageVehiclesComponent},
   {path: 'addvehicle', component: AddVehicleFormComponent},
+  {path: 'updatevehicle', component: UpdateVehicleFormComponent},
   {path: 'managerentals', component: ManageRentalsComponent},
   {path: 'user', component: HomeUserComponent},
 ];
