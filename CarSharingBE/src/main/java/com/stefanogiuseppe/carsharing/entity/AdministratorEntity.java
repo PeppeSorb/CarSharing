@@ -34,9 +34,9 @@ public class AdministratorEntity {
 
     private String pwd;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idAdmin")
+  /*  @OneToMany(fetch = FetchType.LAZY, mappedBy = "idAdm")
     @JsonIgnore
-    private List<RentalEntity> managedRentals;
+    private List<RentalEntity> managedRentals;*/
 
     @Column(name="deleted")
     @JsonIgnore
