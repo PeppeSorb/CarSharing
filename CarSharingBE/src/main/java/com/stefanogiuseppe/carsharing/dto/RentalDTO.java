@@ -1,10 +1,7 @@
 package com.stefanogiuseppe.carsharing.dto;
 
-import com.stefanogiuseppe.carsharing.entity.AdministratorEntity;
-import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
