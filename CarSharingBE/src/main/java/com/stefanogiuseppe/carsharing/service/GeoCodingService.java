@@ -65,22 +65,30 @@ public class GeoCodingService {
             System.out.println("Dimensione: "+ jsonNode.size());
             System.out.println("è array: " + jsonNode.isArray());
             if (jsonNode.size() > 0) {
-                if(jsonNode.get("address").get("country") == null){
-                    ls.add(null);
+                if(jsonNode.get("address") != null) {
+                    if (jsonNode.get("address").get("country") == null) {
+                        ls.add(null);
+                    } else {
+                        ls.add(jsonNode.get("address").get("country").asText());
+                    }
+                    if (jsonNode.get("address").get("road") == null) {
+                        ls.add(null);
+                    } else {
+                        ls.add(jsonNode.get("address").get("road").asText());
+                    }
+                    if (jsonNode.get("address").get("town") == null) {
+                        ls.add(null);
+                    } else {
+                        ls.add(jsonNode.get("address").get("town").asText());
+                    }
+                    ls.add(null); //ancora da definire l'inserimento del numero civico
                 }else{
-                    ls.add(jsonNode.get("address").get("country").asText());
-                }
-                if(jsonNode.get("address").get("road") == null){
+                    //Se l'indirizzo non esiste, tutto null!!
                     ls.add(null);
-                }else{
-                    ls.add(jsonNode.get("address").get("road").asText());
-                }
-                if(jsonNode.get("address").get("town") == null){
                     ls.add(null);
-                }else{
-                    ls.add(jsonNode.get("address").get("town").asText());
+                    ls.add(null);
+                    ls.add(null);
                 }
-                ls.add(null); //ancora da definire l'inserimento del numero civico
                 return ls;
             }
         } catch (IOException e) {
