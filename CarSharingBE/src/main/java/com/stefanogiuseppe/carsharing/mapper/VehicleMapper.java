@@ -17,9 +17,11 @@ public class VehicleMapper {
         vehicleEntity.setCountry(vehicleDTO.getCountry());
         vehicleEntity.setRegion(vehicleDTO.getRegion());
         vehicleEntity.setHouseNumber(vehicleDTO.getHouseNumber());
+
         ModelDTO modelDTO = vehicleDTO.getIdModel();
         ModelEntity modelEntity = modelMapper.toEntity(modelDTO);
         vehicleEntity.setIdMod(modelEntity);
+
         vehicleEntity.setLicensePlate(vehicleDTO.getLicensePlate());
         vehicleEntity.setStreet(vehicleDTO.getStreet());
         vehicleEntity.setBooked(vehicleDTO.getBooked());
@@ -34,7 +36,11 @@ public class VehicleMapper {
         vehicleDTO.setCountry(vehicleEntity.getCountry());
         vehicleDTO.setRegion(vehicleEntity.getRegion());
         vehicleDTO.setHouseNumber(vehicleEntity.getHouseNumber());
-        vehicleDTO.setIdModel(vehicleEntity.getIdMod());
+
+        ModelEntity modelEntity = vehicleEntity.getIdMod();
+        ModelDTO modelDTO = modelMapper.toDto(modelEntity);
+        vehicleDTO.setIdModel(modelDTO);
+
         vehicleDTO.setLicensePlate(vehicleEntity.getLicensePlate());
         vehicleDTO.setStreet(vehicleEntity.getStreet());
         vehicleDTO.setBooked(vehicleEntity.getBooked());
