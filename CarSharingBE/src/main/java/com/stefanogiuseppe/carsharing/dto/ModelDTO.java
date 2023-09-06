@@ -20,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 public class ModelDTO {
-    private Long id;
+    private Long idMod;
     private CategoryEntity idCategory;
     private String makeAndModel;
     private int bootCapacity;

@@ -46,7 +46,7 @@ public class VehicleService {
     public VehicleEntity updateVehicle(Long id, VehicleDTO vehicleDTO) {
             VehicleEntity vehicleEntity = findById(id);
             vehicleDTO.setId(vehicleEntity.getId());
-            vehicleEntity.setIdModel(vehicleDTO.getIdMod());
+            vehicleEntity.setIdMod(vehicleDTO.getIdModel());
 
             BeanUtils.copyProperties(vehicleDTO, vehicleEntity, getNullPropertyNames(vehicleDTO));
             return vehicleRepository.save(vehicleEntity);

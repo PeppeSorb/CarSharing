@@ -164,7 +164,7 @@ public class RentalService {
         double rentalPrice = 0.0;
         boolean extraPay = false;
         Optional<VehicleEntity> v = vehicleRepository.findById(r.getIdVehicle().getId());
-        Optional<ModelEntity> m = modelRepository.findById(v.get().getIdModel().getId());
+        Optional<ModelEntity> m = modelRepository.findById(v.get().getIdMod().getIdMod());
         Optional<CategoryEntity> ceOptional = categoryRepository.findById(m.get().getIdCategory().getId());
         CategoryEntity ce = ceOptional.get();
         Instant startInstant = r.getDateTimeStartRental().toInstant();

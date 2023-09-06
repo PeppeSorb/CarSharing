@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class ModelMapper {
     public ModelEntity toEntity(ModelDTO modelDTO) {
         ModelEntity modelEntity = new ModelEntity();
-        modelEntity.setId(modelDTO.getId());
+        modelEntity.setIdMod(modelDTO.getIdMod());
         modelEntity.setMakeAndModel(modelDTO.getMakeAndModel());
         modelEntity.setAverageConsumption(modelDTO.getAverageConsumption());
 
@@ -21,7 +21,7 @@ public class ModelMapper {
     }
     public ModelDTO toDto(ModelEntity modelEntity) {
         ModelDTO modelDTO = new ModelDTO();
-        modelDTO.setId(modelEntity.getId());
+        modelDTO.setIdMod(modelEntity.getIdMod());
         modelDTO.setMakeAndModel(modelEntity.getMakeAndModel());
         modelDTO.setAverageConsumption(modelEntity.getAverageConsumption());
 
