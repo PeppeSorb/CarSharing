@@ -1,12 +1,15 @@
 package com.stefanogiuseppe.carsharing.mapper;
 
+import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.dto.RechargeDTO;
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
+import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import org.springframework.stereotype.Component;
 @Component
 public class VehicleMapper {
+    ModelMapper modelMapper;
     public VehicleEntity toEntity(VehicleDTO vehicleDTO) {
         VehicleEntity vehicleEntity = new VehicleEntity();
         vehicleEntity.setId(vehicleDTO.getId());
@@ -14,7 +17,9 @@ public class VehicleMapper {
         vehicleEntity.setCountry(vehicleDTO.getCountry());
         vehicleEntity.setRegion(vehicleDTO.getRegion());
         vehicleEntity.setHouseNumber(vehicleDTO.getHouseNumber());
-        vehicleEntity.setIdMod(vehicleDTO.getIdModel());
+        ModelDTO modelDTO = vehicleDTO.getIdModel();
+        ModelEntity modelEntity = modelMapper.toEntity(modelDTO);
+        vehicleEntity.setIdMod(modelEntity);
         vehicleEntity.setLicensePlate(vehicleDTO.getLicensePlate());
         vehicleEntity.setStreet(vehicleDTO.getStreet());
         vehicleEntity.setBooked(vehicleDTO.getBooked());
