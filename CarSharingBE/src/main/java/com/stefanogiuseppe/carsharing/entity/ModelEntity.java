@@ -25,9 +25,8 @@ public class ModelEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMod;
 
-    @ManyToOne
-    @JoinColumn(name = "id_category")
-    private CategoryEntity idCategory;
+    @Column(name = "category_name")
+    private String categoryName;
 
     @Column(name = "make_and_model")
     private String makeAndModel;

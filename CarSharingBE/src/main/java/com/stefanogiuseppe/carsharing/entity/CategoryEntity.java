@@ -8,6 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,9 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "category_name")
+    private String category_name;
 
     @Column(name = "hourly_rate")
     private double hourlyRate;
@@ -44,10 +48,12 @@ public class CategoryEntity {
     @Column(name = "extra_hourly_rate")
     private double extraHourlyRate;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idCategory")
-    @JsonIgnore
+    @Column(name = "valid_from")
+    private Date validFrom;
 
-    private List<ModelEntity> models;
+    @Column(name = "valid_to")
+    private Date validTo;
+
 
     @Column(name="deleted")
     @JsonIgnore
