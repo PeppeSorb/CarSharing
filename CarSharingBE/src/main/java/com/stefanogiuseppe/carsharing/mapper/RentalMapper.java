@@ -16,6 +16,8 @@ public class RentalMapper {
         rentalDTO.setDateTimeEndRental(rentalEntity.getDateTimeEndRental());
         rentalDTO.setTypeRental(rentalEntity.getTypeRental());
         rentalDTO.setPayed(rentalEntity.getPayed());
+        rentalDTO.setPrice(rentalEntity.getPrice());
+        rentalDTO.setExtraPay(rentalEntity.getExtraPay());
         return rentalDTO;
     }
 
@@ -29,6 +31,8 @@ public class RentalMapper {
         rentalEntity.setDateTimeEndRental(rentalDTO.getDateTimeEndRental());
         rentalEntity.setTypeRental(rentalDTO.getTypeRental());
         rentalEntity.setPayed(rentalDTO.getPayed());
+        rentalEntity.setPrice(rentalDTO.getPrice());
+        rentalEntity.setExtraPay(rentalDTO.getExtraPay());
         return rentalEntity;
     }
 }

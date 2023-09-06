@@ -22,4 +22,6 @@ public class RentalDTO {
     private Date dateTimeEndRental;
     private String typeRental;
     private Boolean payed;
+    private Double price;
+    private Boolean extraPay;
 }
