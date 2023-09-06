@@ -24,33 +24,39 @@
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>ID Modello</mat-label>
-                    <input type="number" name="idMod" matInput [(ngModel)]="c" required>
+                    <input type="number" name="id_mod" matInput [(ngModel)]="c" required>
                     <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
 
-                <mat-form-field class="field" style="display: none;">
+                <mat-form-field class="field">
                     <mat-label>ID Categoria</mat-label>
-                    <input type="text" name="idCategory" matInput [(ngModel)]="aa" disabled>
+                    <input type="text" name="categoryName" matInput [(ngModel)]="aa" required>
+                    <button *ngIf="aa" matSuffix mat-icon-button aria-label="Clear" (click)="aa=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field" style="display: none;">
+                <mat-form-field class="field">
                     <mat-label>Marca e modello</mat-label>
-                    <input type="text" name="makeAndModel" matInput [(ngModel)]="bb" disabled>
+                    <input type="text" name="makeAndModel" matInput [(ngModel)]="bb" required>
+                    <button *ngIf="bb" matSuffix mat-icon-button aria-label="Clear" (click)="bb=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field" style="display: none;">
+                <mat-form-field class="field">
                     <mat-label>Serbatoio</mat-label>
-                    <input type="text" name="bootCapacity" matInput [(ngModel)]="cc" disabled>
+                    <input type="number" name="bootCapacity" matInput [(ngModel)]="cc" required>
+                    <button *ngIf="cc" matSuffix mat-icon-button aria-label="Clear" (click)="cc=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field" style="display: none;">
+                <mat-form-field class="field">
                     <mat-label>Consumi</mat-label>
-                    <input type="text" name="averageConsumption" matInput [(ngModel)]="dd" disabled>
+                    <input type="number" name="averageConsumption" matInput [(ngModel)]="dd" required>
+                    <button *ngIf="dd" matSuffix mat-icon-button aria-label="Clear" (click)="dd=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field" style="display: none;">
+                <mat-form-field class="field">
                     <mat-label>Neopatentati</mat-label>
-                    <input type="text" name="forNewDrivers" matInput [(ngModel)]="ee" disabled>
+                    <input type="boolean" name="forNewDrivers" matInput [(ngModel)]="ee" required>
+                    <button *ngIf="ee" matSuffix mat-icon-button aria-label="Clear" (click)="ee=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
                 <mat-form-field class="field" style="display: none;">
                     <mat-label>Immagine</mat-label>
                     <input type="text" name="image" matInput [(ngModel)]="ff" disabled>
+                    <button *ngIf="ff" matSuffix mat-icon-button aria-label="Clear" (click)="ff=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
 
                 <mat-form-field class="field">
@@ -83,14 +89,14 @@
                     <input type="boolean" name="booked" matInput [(ngModel)]="a" disabled>
                 </mat-form-field>
 
-                <mat-form-field class="field" style="display: none;">
+                <!-- <mat-form-field class="field" style="display: none;">
                     <mat-label>Latitudine</mat-label>
                     <input type="number" name="latitude" matInput [(ngModel)]="gg" disabled>
                 </mat-form-field>
                 <mat-form-field class="field" style="display: none;">
                     <mat-label>Longitudine</mat-label>
                     <input type="number" name="longitude" matInput [(ngModel)]="hh" disabled>
-                </mat-form-field>
+                </mat-form-field> -->
 
             </section>
             <section>
