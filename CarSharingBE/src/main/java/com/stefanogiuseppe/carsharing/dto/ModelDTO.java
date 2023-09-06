@@ -20,8 +20,8 @@ import java.util.List;
 @Getter
 @Setter
 public class ModelDTO {
-    private Long id;
-    private CategoryEntity idCategory;
+    private Long idMod;
+    private CategoryDTO idCategory;
     private String makeAndModel;
     private int bootCapacity;
     private double averageConsumption;

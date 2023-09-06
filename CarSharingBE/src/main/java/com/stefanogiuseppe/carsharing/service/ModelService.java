@@ -52,7 +52,7 @@ public class ModelService {
 
     public ModelEntity updateModel(Long id, ModelDTO modelDTO) {
         ModelEntity modelEntity = findById(id);
-        modelDTO.setId(modelEntity.getId());
+        modelDTO.setIdMod(modelEntity.getIdMod());
 
         BeanUtils.copyProperties(modelDTO, modelEntity, getNullPropertyNames(modelDTO));
         return modelRepository.save(modelEntity);
@@ -118,7 +118,7 @@ public class ModelService {
         double sum = 0.0;
         int count = 0;
         for(ReviewEntity review : reviews){
-            if(review.getIdRental().getIdVehicle().getIdModel().getId() == idModel){
+            if(review.getIdRental().getIdVehicle().getIdMod().getIdMod() == idModel){
                 //la recensione riguarda questo modello
                 sum = sum + review.getValutation();
                 count++;

@@ -31,7 +31,7 @@ public class VehicleEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_model")
-    private ModelEntity idModel;
+    private ModelEntity idMod;
 
     @Column(name = "country")
     private String country;

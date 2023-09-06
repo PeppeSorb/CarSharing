@@ -16,7 +16,7 @@ import java.util.List;
 public class VehicleDTO {
     private Long id;
     private String licensePlate;
-    private ModelEntity idMod;
+    private ModelDTO idModel;
     private String country;
     private String region;
     private String city;

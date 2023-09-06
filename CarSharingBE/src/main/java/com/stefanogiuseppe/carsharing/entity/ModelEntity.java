@@ -23,7 +23,7 @@ import java.util.List;
 public class ModelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idMod;
 
     @ManyToOne
     @JoinColumn(name = "id_category")
@@ -41,7 +41,7 @@ public class ModelEntity {
     @Column(name = "for_new_drivers")
     private boolean forNewDrivers;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idModel")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idMod")
     @JsonIgnore
     private List<VehicleEntity> vehicles;
 
