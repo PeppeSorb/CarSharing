@@ -6,10 +6,12 @@ import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.entity.RechargeEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
 public class VehicleMapper {
-    ModelMapper modelMapper;
+    @Autowired
+    private ModelMapper modelMapper=new ModelMapper();
     public VehicleEntity toEntity(VehicleDTO vehicleDTO) {
         VehicleEntity vehicleEntity = new VehicleEntity();
         vehicleEntity.setId(vehicleDTO.getId());
@@ -37,9 +39,14 @@ public class VehicleMapper {
         vehicleDTO.setRegion(vehicleEntity.getRegion());
         vehicleDTO.setHouseNumber(vehicleEntity.getHouseNumber());
 
-        ModelEntity modelEntity = vehicleEntity.getIdMod();
+        ModelEntity modelEntity = new ModelEntity();
+        if(vehicleEntity.getIdMod()!=null){
+        modelEntity = vehicleEntity.getIdMod();
         ModelDTO modelDTO = modelMapper.toDto(modelEntity);
         vehicleDTO.setIdModel(modelDTO);
+        }
+        else
+            vehicleDTO.setIdModel(null);
 
         vehicleDTO.setLicensePlate(vehicleEntity.getLicensePlate());
         vehicleDTO.setStreet(vehicleEntity.getStreet());
