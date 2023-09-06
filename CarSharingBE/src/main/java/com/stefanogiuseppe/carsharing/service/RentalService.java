@@ -27,6 +27,9 @@ public class RentalService {
     private VehicleRepository vehicleRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private CategoryService categoryService;
     @Autowired
     private ModelRepository modelRepository;
     @Autowired
@@ -165,8 +168,10 @@ public class RentalService {
         boolean extraPay = false;
         Optional<VehicleEntity> v = vehicleRepository.findById(r.getIdVehicle().getId());
         Optional<ModelEntity> m = modelRepository.findById(v.get().getIdMod().getIdMod());
-        Optional<CategoryEntity> ceOptional = categoryRepository.findById(m.get().getIdCategory().getId());
-        CategoryEntity ce = ceOptional.get();
+        CategoryEntity ce = categoryService.findByNameAndDate(m.get().getCategoryName(), r.getDateTimeStartRental());
+
+        System.out.println("categoria presa: " + ce.getCategoryName());
+        System.out.println("categoria data in input: " + m.get().getCategoryName());
         Instant startInstant = r.getDateTimeStartRental().toInstant();
         Instant endInstant = r.getDateTimeEndRental().toInstant();
         Duration duration = Duration.between(startInstant, endInstant);

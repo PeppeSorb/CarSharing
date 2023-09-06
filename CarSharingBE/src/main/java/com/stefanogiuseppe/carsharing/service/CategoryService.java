@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -54,4 +56,20 @@ public class CategoryService {
         categoryRepository.save(categoryEntity);
     }
 
+    public CategoryEntity findByNameAndDate(String categoryName, Date dateTimeStartRental) {
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        for(CategoryEntity ce : categories){
+            if(ce.getCategoryName().equals(categoryName)) {
+                int compareValidFrom = ce.getValidFrom().compareTo(dateTimeStartRental);
+                int compareValidTo = 0;
+                if (ce.getValidTo() != null) {
+                    compareValidTo = ce.getValidTo().compareTo(dateTimeStartRental);
+                }
+                if (compareValidFrom <= 0 && (ce.getValidTo() == null || compareValidTo >= 0)) {
+                    return ce;
+                }
+            }
+        }
+        return null;
+    }
 }

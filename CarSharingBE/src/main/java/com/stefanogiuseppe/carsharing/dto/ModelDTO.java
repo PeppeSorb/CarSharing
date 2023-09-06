@@ -21,7 +21,7 @@ import java.util.List;
 @Setter
 public class ModelDTO {
     private Long idMod;
-    private CategoryDTO idCategory;
+    private String categoryName;
     private String makeAndModel;
     private int bootCapacity;
     private double averageConsumption;

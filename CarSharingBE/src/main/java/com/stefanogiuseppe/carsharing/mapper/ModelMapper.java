@@ -19,7 +19,8 @@ public class ModelMapper {
         modelEntity.setAverageConsumption(modelDTO.getAverageConsumption());
 
         modelEntity.setBootCapacity(modelDTO.getBootCapacity());
-
+        modelEntity.setCategoryName(modelDTO.getCategoryName());
+        /*
         CategoryDTO categoryDTO;
 
         if(modelDTO.getIdCategory()!=null){
@@ -29,7 +30,7 @@ public class ModelMapper {
         }
         else
             modelEntity.setIdCategory(null);
-
+        */
         modelEntity.setImage(modelDTO.getImage());
         return modelEntity;
     }
@@ -40,8 +41,8 @@ public class ModelMapper {
         modelDTO.setAverageConsumption(modelEntity.getAverageConsumption());
 
         modelDTO.setBootCapacity(modelEntity.getBootCapacity());
-
-
+        modelDTO.setCategoryName(modelEntity.getCategoryName());
+        /*
         CategoryEntity categoryEntity;
         if(modelEntity.getIdCategory()!=null){
             categoryEntity=modelEntity.getIdCategory();
@@ -50,7 +51,7 @@ public class ModelMapper {
         }
         else
             modelDTO.setIdCategory(null);
-
+        */
         modelDTO.setImage(modelEntity.getImage());
         return modelDTO;
     }

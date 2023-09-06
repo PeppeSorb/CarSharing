@@ -28,7 +28,7 @@ public class CategoryEntity {
     private Long id;
 
     @Column(name = "category_name")
-    private String category_name;
+    private String categoryName;
 
     @Column(name = "hourly_rate")
     private double hourlyRate;
