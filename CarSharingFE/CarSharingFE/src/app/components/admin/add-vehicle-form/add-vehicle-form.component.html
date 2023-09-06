@@ -33,24 +33,24 @@
                     <input type="text" name="categoryName" matInput [(ngModel)]="aa" required>
                     <button *ngIf="aa" matSuffix mat-icon-button aria-label="Clear" (click)="aa=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field">
+                <mat-form-field class="field" style="display: none;">
                     <mat-label>Marca e modello</mat-label>
-                    <input type="text" name="makeAndModel" matInput [(ngModel)]="bb" required>
+                    <input type="text" name="makeAndModel" matInput [(ngModel)]="bb">
                     <button *ngIf="bb" matSuffix mat-icon-button aria-label="Clear" (click)="bb=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field">
+                <mat-form-field class="field" style="display: none;">
                     <mat-label>Serbatoio</mat-label>
-                    <input type="number" name="bootCapacity" matInput [(ngModel)]="cc" required>
+                    <input type="number" name="bootCapacity" matInput [(ngModel)]="cc">
                     <button *ngIf="cc" matSuffix mat-icon-button aria-label="Clear" (click)="cc=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field">
+                <mat-form-field class="field" style="display: none;">
                     <mat-label>Consumi</mat-label>
-                    <input type="number" name="averageConsumption" matInput [(ngModel)]="dd" required>
+                    <input type="number" name="averageConsumption" matInput [(ngModel)]="dd">
                     <button *ngIf="dd" matSuffix mat-icon-button aria-label="Clear" (click)="dd=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
-                <mat-form-field class="field">
+                <mat-form-field class="field" style="display: none;">
                     <mat-label>Neopatentati</mat-label>
-                    <input type="boolean" name="forNewDrivers" matInput [(ngModel)]="ee" required>
+                    <input type="boolean" name="forNewDrivers" matInput [(ngModel)]="ee">
                     <button *ngIf="ee" matSuffix mat-icon-button aria-label="Clear" (click)="ee=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
                 <mat-form-field class="field" style="display: none;">
