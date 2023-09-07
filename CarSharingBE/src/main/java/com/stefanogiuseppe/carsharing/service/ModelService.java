@@ -4,7 +4,9 @@ import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.entity.ReviewEntity;
 import com.stefanogiuseppe.carsharing.entity.UserEntity;
+import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import com.stefanogiuseppe.carsharing.repository.ModelRepository;
+import com.stefanogiuseppe.carsharing.repository.VehicleRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -32,6 +34,9 @@ public class ModelService {
 
     @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    private VehicleService vehicleService;
 
     @Value("${models.file.upload.dir}") // Configura questa property nel tuo application.properties o application.yml
     private String uploadDir; // Percorso della cartella di caricamento delle immagini
@@ -125,6 +130,15 @@ public class ModelService {
             }
         }
         return sum/(count+0.0);
+    }
+    public boolean isBooked(Long idModel){
+        List<VehicleEntity> vehicles = vehicleService.getAllVehicle();
+        for(VehicleEntity vehicle : vehicles){
+            if(vehicle.getIdMod().getIdMod() == idModel && vehicleService.isBooked(vehicle.getId())){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

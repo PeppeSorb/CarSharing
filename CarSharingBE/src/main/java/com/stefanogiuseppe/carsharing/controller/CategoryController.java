@@ -87,5 +87,11 @@ public class CategoryController {
         categoryService.deleteCategory(id);
         return "Category " + id + " deleted";
     }
+
+    @GetMapping("has_vehicles_booked/{categoryName}")
+    @Operation(description = "Returns true if there is at least one vehicle booked of this category, false otherwise")
+    public Boolean isBooked(@Parameter(description = "The category name") @PathVariable String categoryName){
+        return categoryService.hasVehiclesBooked(categoryName);
+    }
 }
 

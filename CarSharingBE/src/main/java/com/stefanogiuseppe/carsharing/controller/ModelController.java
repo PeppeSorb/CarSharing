@@ -106,5 +106,11 @@ public class ModelController {
     public Double getModelReviewsScore(@Parameter(description = "The id of the model") @PathVariable Long idModel){
         return modelService.getModelReviewsScore(idModel);
     }
+
+    @GetMapping("is_booked/{idModel}")
+    @Operation(description = "Returns true if a vehicle of this model is already booked, false otherwise")
+    public Boolean isBooked(@Parameter(description = "The id of the model to check") @PathVariable Long idModel){
+        return modelService.isBooked(idModel);
+    }
 }
 

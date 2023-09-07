@@ -3,6 +3,7 @@ package com.stefanogiuseppe.carsharing.service;
 import com.stefanogiuseppe.carsharing.dto.CategoryDTO;
 import com.stefanogiuseppe.carsharing.entity.CategoryEntity;
 import com.stefanogiuseppe.carsharing.repository.CategoryRepository;
+import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -20,6 +21,9 @@ public class CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ModelService modelService;
 
     public CategoryEntity saveCategory(CategoryEntity categoryEntity) {
         return categoryRepository.save(categoryEntity);
@@ -71,5 +75,14 @@ public class CategoryService {
             }
         }
         return null;
+    }
+    public boolean hasVehiclesBooked(String categoryName){
+        List<ModelEntity> models = modelService.getAllModel();
+        for(ModelEntity model : models){
+            if(model.getCategoryName().equals(categoryName) && modelService.isBooked(model.getIdMod())){
+                return true;
+            }
+        }
+        return false;
     }
 }
