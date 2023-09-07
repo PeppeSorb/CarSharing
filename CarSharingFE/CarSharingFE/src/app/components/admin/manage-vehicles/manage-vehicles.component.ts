@@ -24,7 +24,7 @@ export class ManageVehiclesComponent implements OnInit {
   ngOnInit(): void {
     this.service.getVehicles().subscribe(
       response =>{
-      console.log(response)
+      console.log(response);
       this.data = response
     })
   }

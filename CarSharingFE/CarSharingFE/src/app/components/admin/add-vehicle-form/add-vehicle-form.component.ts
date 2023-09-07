@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { idModel } from 'src/app/interfaces/idModel';
 import { Vehicle } from 'src/app/interfaces/vehicle';
 import { VehiclesService } from 'src/app/service/vehicles.service';
 
@@ -9,13 +10,16 @@ import { VehiclesService } from 'src/app/service/vehicles.service';
 })
 export class AddVehicleFormComponent {
 
-  b = ''; c = ''; d = '';
+  c = '';
+  b = ''; d = '';
   e = ''; f = ''; g = '';
   h = ''; a = false;
 
-  aa = ''; bb = ''; cc = '';
-  dd = ''; ee = ''; ff = '';
+  aa = 'prova'; bb = 'prova'; cc = 222;
+  dd = 'prova'; ee?: boolean; ff = 'prova.jpg';
   gg = 0; hh = 0;
+
+  // idModel?: idModel = {};
 
   constructor(private service: VehiclesService){}
 

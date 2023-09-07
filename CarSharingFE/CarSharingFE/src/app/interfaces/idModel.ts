@@ -1,5 +1,5 @@
 export interface idModel{
-    id_mod: number,
+    idMod: number,
     categoryName?: string,
     makeAndModel?: string,
     bootCapacity?: number,

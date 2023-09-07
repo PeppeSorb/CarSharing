@@ -17,24 +17,26 @@
         <th>ID</th>
         <th>ID Utente</th>
         <th>ID Veicolo</th>
-        <th>ID Admin</th>
         <th>Inizio Noleggio</th>
         <th>Fine Noleggio</th>
         <th>Tipologia Noleggio</th>
         <th>Pagato</th>
+        <th>Prezzo</th>
+        <th>Sovrapprezzo</th>
         <th>Cancella</th>
         </tr>
         </thead>
         <tbody>
             <tr *ngFor="let record of data" class="tr">
                 <td>{{record.id}}</td>
-                <td>{{record.idUser}}</td>
-                <td>{{record.idVehicle}}</td>
-                <td>{{record.idAdmin}}</td>
+                <td>{{record.idUser.id}}</td>
+                <td>{{record.idVehicle.id}}</td>
                 <td>{{record.dateTimeStartRental}}</td>
                 <td>{{record.dateTimeEndRental}}</td>
                 <td>{{record.typeRental}}</td>
                 <td>{{record.payed}}</td>
+                <td>{{record.price}}</td>
+                <td>{{record.extrapay}}</td>
                 <td>
                     <span class="delete" (click)="deleteRental(record.id)">X</span>
                 </td>
