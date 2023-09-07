@@ -28,7 +28,7 @@ public class RentalMapper {
         }
         else
             rentalDTO.setIdVehicle(null);
-        
+
      //   rentalDTO.setIdAdmin(rentalEntity.getIdAdmin());
         rentalDTO.setDateTimeStartRental(rentalEntity.getDateTimeStartRental());
         rentalDTO.setDateTimeEndRental(rentalEntity.getDateTimeEndRental());
