@@ -13,8 +13,8 @@ export class AddVehicleFormComponent {
   e = ''; f = ''; g = '';
   h = ''; a = false;
 
-  aa = null; bb = null; cc = null;
-  dd = null; ee = null; ff = null;
+  aa = ''; bb = ''; cc = '';
+  dd = ''; ee = ''; ff = '';
   gg = 0; hh = 0;
 
   constructor(private service: VehiclesService){}
