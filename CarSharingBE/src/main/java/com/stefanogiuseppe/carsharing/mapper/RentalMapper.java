@@ -2,9 +2,11 @@ package com.stefanogiuseppe.carsharing.mapper;
 
 import com.stefanogiuseppe.carsharing.dto.ModelDTO;
 import com.stefanogiuseppe.carsharing.dto.RentalDTO;
+import com.stefanogiuseppe.carsharing.dto.UserDTO;
 import com.stefanogiuseppe.carsharing.dto.VehicleDTO;
 import com.stefanogiuseppe.carsharing.entity.ModelEntity;
 import com.stefanogiuseppe.carsharing.entity.RentalEntity;
+import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.entity.VehicleEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,10 +17,21 @@ public class RentalMapper {
     @Autowired
     VehicleMapper vehicleMapper=new VehicleMapper();
 
+    @Autowired
+    UserMapper userMapper= new UserMapper();
+
     public RentalDTO toDto(RentalEntity rentalEntity) {
         RentalDTO rentalDTO = new RentalDTO();
         rentalDTO.setId(rentalEntity.getId());
-        rentalDTO.setIdUser(rentalEntity.getIdUser());
+
+        UserEntity userEntity;
+        if(rentalEntity.getIdUser()!=null){
+            userEntity=rentalEntity.getIdUser();
+            UserDTO userDTO=userMapper.toDTO(userEntity);
+            rentalDTO.setIdUser(userDTO);
+        }
+        else
+            rentalDTO.setIdUser(null);
 
         VehicleEntity vehicleEntity;
         if(rentalEntity.getIdVehicle()!=null){
@@ -42,7 +55,15 @@ public class RentalMapper {
     public RentalEntity toEntity(RentalDTO rentalDTO) {
         RentalEntity rentalEntity = new RentalEntity();
         rentalEntity.setId(rentalDTO.getId());
-        rentalEntity.setIdUser(rentalDTO.getIdUser());
+
+        UserDTO userDTO;
+        if(rentalDTO.getIdUser()!=null){
+            userDTO=rentalDTO.getIdUser();
+            UserEntity userEntity=userMapper.toEntity(userDTO);
+            rentalEntity.setIdUser(userEntity);
+        }
+        else
+            rentalEntity.setIdUser(null);
 
         VehicleDTO vehicleDTO;
         if(rentalDTO.getIdVehicle()!=null){

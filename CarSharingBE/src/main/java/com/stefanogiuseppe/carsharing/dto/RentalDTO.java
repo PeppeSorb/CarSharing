@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 public class RentalDTO {
     private Long id;
-    private UserEntity idUser;
+    private UserDTO idUser;
     private VehicleDTO idVehicle;
    // private AdministratorEntity idAdmin;
     private Date dateTimeStartRental;
