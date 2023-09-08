@@ -1,8 +1,7 @@
 package com.stefanogiuseppe.carsharing.service;
 
-import com.stefanogiuseppe.carsharing.dto.RentalDTO;
 import com.stefanogiuseppe.carsharing.dto.UserDTO;
-import com.stefanogiuseppe.carsharing.entity.*;
+import com.stefanogiuseppe.carsharing.entity.UserEntity;
 import com.stefanogiuseppe.carsharing.repository.RechargeRepository;
 import com.stefanogiuseppe.carsharing.repository.RentalRepository;
 import com.stefanogiuseppe.carsharing.repository.UserRepository;
@@ -21,10 +20,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
