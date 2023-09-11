@@ -3,15 +3,7 @@ import { idModel } from "./idModel"
 export interface Vehicle{
     id?: number,
     licensePlate?: string,
-    idModel?: {
-        idMod: string,
-        categoryName?: string,
-        makeAndModel?: string,
-        bootCapacity?: number,
-        averageConsumption?: number,
-        forNewDrivers?: boolean,
-        image?: string
-    },
+    idModel?: number,
     country?: string,
     region?: string,
     city?: string,
