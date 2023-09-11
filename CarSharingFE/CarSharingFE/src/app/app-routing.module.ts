@@ -18,6 +18,8 @@ import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add
 import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
 import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
 import { ProfileUserComponent } from './components/user/profile-user/profile-user.component';
+import { RentalUserComponent } from './components/user/rental-user/rental-user.component';
+import { BookRentalUserComponent } from './components/user/book-rental-user/book-rental-user.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'updatevehicle', component: UpdateVehicleFormComponent},
   {path: 'managerentals', component: ManageRentalsComponent},
   {path: 'user', component: HomeUserComponent},
+  {path: 'bookrental', component: BookRentalUserComponent},
+  {path: 'rental', component: RentalUserComponent},
   {path: 'profile', component: ProfileUserComponent},
 ];
 

@@ -15,6 +15,12 @@ import { HomeUserComponent } from './components/user/home-user/home-user.compone
 import { NavbarUserComponent } from './components/user/navbar-user/navbar-user.component';
 import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
 import { ManageVehiclesComponent } from './components/admin/manage-vehicles/manage-vehicles.component';
+import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
+import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
+import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
+import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
+import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
+import { ProfileUserComponent } from './components/user/profile-user/profile-user.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -23,12 +29,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ManageRentalsComponent } from './components/admin/manage-rentals/manage-rentals.component';
-import { AddUserFormComponent } from './components/admin/add-user-form/add-user-form.component';
-import { AddVehicleFormComponent } from './components/admin/add-vehicle-form/add-vehicle-form.component';
-import { UpdateUserFormComponent } from './components/admin/update-user-form/update-user-form.component';
-import { UpdateVehicleFormComponent } from './components/admin/update-vehicle-form/update-vehicle-form.component';
-import { ProfileUserComponent } from './components/user/profile-user/profile-user.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { RentalUserComponent } from './components/user/rental-user/rental-user.component';
+import { BookRentalUserComponent } from './components/user/book-rental-user/book-rental-user.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { ProfileUserComponent } from './components/user/profile-user/profile-use
     AddVehicleFormComponent,
     UpdateUserFormComponent,
     UpdateVehicleFormComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    RentalUserComponent,
+    BookRentalUserComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,9 @@ import { ProfileUserComponent } from './components/user/profile-user/profile-use
     FormsModule,
     ReactiveFormsModule,
     NgIf,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

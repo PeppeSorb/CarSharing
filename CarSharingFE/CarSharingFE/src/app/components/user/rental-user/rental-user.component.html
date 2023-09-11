@@ -1,0 +1,71 @@
+<div class="header">
+    <div class="title">
+        <span>Car</span>
+    </div>
+    <div class="navbar">
+        <app-navbar-user></app-navbar-user>
+    </div>
+</div>
+
+<div class="body">
+    <h3>Le tue prenotazioni</h3>
+    <div class="hr"></div>
+    <div class="reservations">
+        <!-- <div class="text">
+            <p class="headText">Non hai prenotazioni attive.</p>
+            <p class="bottomText">Noleggia subito un' <a routerLink="/bookrental">auto</a> !</p>
+        </div> -->
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Il Tuo ID</th>
+                    <th>Id Veicolo noleggiato</th>
+                    <th>Modello Veicolo</th>
+                    <th>Inizio Noleggio</th>
+                    <th>Fine Noleggio</th>
+                    <th>Tipologia Noleggio</th>
+                    <th>Prezzo</th>
+                    <th>Annulla Prenotazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tr">
+                    <td>2</td>
+                    <td>3</td>
+                    <td>Bugatti Veyron</td>
+                    <td>10/10/2001</td>
+                    <td>10/10/2001</td>
+                    <td>Hourly</td>
+                    <td>2.00/h</td>
+                    <td>
+                        <span class="delete">X</span>
+                    </td>
+                </tr>
+            </tbody>
+
+            <thead class="head">
+                <th>Prenotazioni passate</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr class="tr">
+                    <td>2</td>
+                    <td>3</td>
+                    <td>Bugatti Veyron</td>
+                    <td>10/10/2001</td>
+                    <td>10/10/2001</td>
+                    <td>Hourly</td>
+                    <td>2.00/h</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

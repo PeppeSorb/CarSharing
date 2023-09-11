@@ -15,17 +15,26 @@
         <h1>Aggiungi auto</h1>
     </div>
     <div class="card">
-        <form #form="ngForm" (submit)="postVehicle(form.value)">
+        <form [formGroup]="form" (ngSubmit)="postVehicle(form.value)">
             <section>
                 <mat-form-field class="field">
                     <mat-label>Targa</mat-label>
-                    <input type="text" name="licensePlate" matInput [(ngModel)]="b" required>
-                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="licensePlate" matInput formControlName="licensePlate" required>
+                    <!-- <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>ID Modello</mat-label>
-                    <input type="number" name="idMod" matInput [(ngModel)]="c" required>
-                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                    <input type="text"
+                        matInput
+                        formControlName="idModel"
+                        [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="display">
+                        <mat-option *ngFor="let idModel of options" [value]="idModel">
+                        {{idModel}}
+      </mat-option>
+    </mat-autocomplete>
+                    <!-- <input type="number" name="idModel" matInput formControlName="idModel" [value]="idModel" required> -->
+                    <!-- <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
 
                 <!-- <mat-form-field class="field">
@@ -61,32 +70,32 @@
 
                 <mat-form-field class="field">
                     <mat-label>Paese</mat-label>
-                    <input type="text" name="country" matInput [(ngModel)]="d" required>
-                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="country" matInput required formControlName="country">
+                    <!-- <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Regione</mat-label>
-                    <input type="text" name="region" matInput [(ngModel)]="e" required>
-                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="region" matInput required formControlName="region">
+                    <!-- <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Città</mat-label>
-                    <input type="text" name="city" matInput [(ngModel)]="f" required>
-                    <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="city" matInput required formControlName="city">
+                    <!-- <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Indirizzo</mat-label>
-                    <input type="text" name="street" matInput [(ngModel)]="g" required>
-                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="street" matInput required formControlName="street">
+                    <!-- <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field">
                     <mat-label>Numero Civico</mat-label>
-                    <input type="text" name="houseNumber" matInput [(ngModel)]="h" required>
-                    <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                    <input type="text" name="houseNumber" matInput required formControlName="houseNumber">
+                    <!-- <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button> -->
                 </mat-form-field><br>
                 <mat-form-field class="field" style="display: none;">
                     <mat-label>Prenotato</mat-label>
-                    <input type="boolean" name="booked" matInput [(ngModel)]="a">
+                    <input type="boolean" name="booked" matInput>
                 </mat-form-field>
 
                 <!-- <mat-form-field class="field" style="display: none;">
