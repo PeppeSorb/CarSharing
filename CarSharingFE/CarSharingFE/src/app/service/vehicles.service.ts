@@ -17,28 +17,7 @@ export class VehiclesService {
   }
 
   postVehicle(vehicle: Vehicle): Observable<Vehicle>{
-    
-    var model = null;
-    if(vehicle.idModel !== undefined){
-        model = vehicle.idModel;
-    }
-    const jsonData = {
-      "id": vehicle.id,
-      "licensePlate": vehicle.licensePlate,
-      "idModel": {
-        "idMod": model
-      },
-      "country": vehicle.country,
-      "region": vehicle.region,
-      "city": vehicle.city,
-      "street": vehicle.street,
-      "houseNumber": vehicle.houseNumber,
-      "booked": vehicle.booked,
-      "latitude": vehicle.latitude,
-      "longitude": vehicle.longitude
-    };
-    return this.http.post(vehicleUrl, jsonData);
-    //return this.http.post<Vehicle>(vehicleUrl, vehicle);
+    return this.http.post<Vehicle>(vehicleUrl, vehicle);
   }
 
   updateVehicle(id: number, vehicle: Vehicle): Observable<Vehicle>{
