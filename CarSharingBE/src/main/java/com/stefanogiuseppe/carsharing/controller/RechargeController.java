@@ -34,16 +34,27 @@ public class RechargeController {
     @Autowired
     private RechargeMapper rechargeMapper;
 
-    @PostMapping("")
+    @PostMapping("no-user-credit-update")
     @ResponseBody
-    @Operation(description = "Adds a new recharge to the repository")
+    @Operation(description = "Adds a new recharge to the repository without updating the user's residual credit")
     public RechargeDTO addRecharge(@Parameter(description = "The new recharge in a JSON format") @RequestBody RechargeDTO rechargeDTO) {
         RechargeEntity rechargeEntity = rechargeMapper.toEntity(rechargeDTO);
+        rechargeEntity.setDeleted(false);
         RechargeEntity rechargeEntity1 = rechargeService.saveRecharge(rechargeEntity);
         RechargeDTO rechargeDTO1 = rechargeMapper.toDto(rechargeEntity1);
         return rechargeDTO1;
     }
 
+    @PostMapping("")
+    @ResponseBody
+    @Operation(description = "Adds a new recharge to the repository and updates the user's residual credit")
+    public RechargeDTO addRechargeAndAddCreditToUser(@Parameter(description = "The new recharge in a JSON format") @RequestBody RechargeDTO rechargeDTO) {
+        RechargeEntity rechargeEntity = rechargeMapper.toEntity(rechargeDTO);
+        rechargeEntity.setDeleted(false);
+        RechargeEntity rechargeEntity1 = rechargeService.addRechargeAndAddCreditToUser(rechargeEntity);
+        RechargeDTO rechargeDTO1 = rechargeMapper.toDto(rechargeEntity1);
+        return rechargeDTO1;
+    }
     @GetMapping("")
     @ResponseBody
     @Operation(description = "Returns all recharges of the repository")

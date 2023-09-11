@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.beans.FeatureDescriptor;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -21,8 +22,22 @@ public class RechargeService {
     @Autowired
     private RechargeRepository rechargeRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public RechargeEntity saveRecharge(RechargeEntity rechargeEntity) {
         return rechargeRepository.save(rechargeEntity);
+    }
+
+    public RechargeEntity addRechargeAndAddCreditToUser(RechargeEntity rechargeEntity){
+        Optional<UserEntity> user = userRepository.findById(rechargeEntity.getIdUser().getId());
+        if(user.isEmpty() == false){
+            user.get().setResidualCredit(user.get().getResidualCredit() + rechargeEntity.getAmount());
+            return rechargeRepository.save(rechargeEntity);
+        }else{
+            return null;
+        }
+
     }
 
     public List<RechargeEntity> getAllRecharge() {

@@ -26,7 +26,76 @@ public class CategoryService {
     private ModelService modelService;
 
     public CategoryEntity saveCategory(CategoryEntity categoryEntity) {
-        return categoryRepository.save(categoryEntity);
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        boolean isOverlapping = false;
+        categoryEntity.setDeleted(false);
+        for(CategoryEntity category : categories){
+            if(category.getDeleted() == false && category.getCategoryName().equals(categoryEntity.getCategoryName())) {
+                //hai trovato un'altra tariffa per la stessa categoria da confrontare
+                if(overlaps(categoryEntity,category)){
+                    isOverlapping = true;
+                    break;
+                }
+            }
+        }
+        if(!isOverlapping){
+            return categoryRepository.save(categoryEntity);
+        }else{
+            return null;
+        }
+
+    }
+
+    private boolean overlaps(CategoryEntity categoryEntity, CategoryEntity category) {
+        // le date non si sovrappongono se categoryEntity ha tutte e due le date successive a quelle di category oppure se categoryEntity ha tutte e due le date precedenti a quelle di category
+        int compareFromFrom = datesComparison(categoryEntity.getValidFrom(),category.getValidFrom(),0);
+        int compareFromTo   = datesComparison(categoryEntity.getValidFrom(),category.getValidTo(),1);
+        int compareToFrom   = datesComparison(categoryEntity.getValidTo(),category.getValidFrom(),2);
+        int compareToTo = datesComparison(categoryEntity.getValidTo(),category.getValidTo(),3);
+        if((compareFromFrom < 0 && compareFromTo < 0 && compareToFrom < 0 && compareToTo < 0) || (compareFromFrom > 0 && compareFromTo > 0 && compareToFrom > 0 && compareToTo > 0)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    private int datesComparison(Date date1, Date date2, int comparisonType){
+        //comparisonType: 0 = FromFrom, 1 = FromTo, 2 = ToFrom, 3 = ToTo
+
+        //compareTo. Se la prima data è precedente, restiuisce < 0, se la prima data è successiva restituisce > 0
+        if(date1 == null && date2 == null){
+            if(comparisonType == 0 || comparisonType == 3){
+                return 0;
+            }else if(comparisonType == 1){
+                return -1;
+            }else{
+                return 1;
+            }
+        }else if(date1 == null && date2 != null){
+            switch(comparisonType){
+                case 0:
+                    return -1;
+                case 1:
+                    return -1;
+                case 2:
+                    return 1;
+                case 3:
+                    return 1;
+            }
+        }else if(date1 != null && date2 == null){
+            switch(comparisonType){
+                case 0:
+                    return 1;
+                case 1:
+                    return -1;
+                case 2:
+                    return 1;
+                case 3:
+                    return -1;
+            }
+        }else{
+            return date1.compareTo(date2);
+        }
+        return 0;
     }
 
     public List<CategoryEntity> getAllCategory() {
@@ -42,7 +111,22 @@ public class CategoryService {
         categoryDTO.setId(categoryEntity.getId());
 
         BeanUtils.copyProperties(categoryDTO, categoryEntity, getNullPropertyNames(categoryDTO));
-        return categoryRepository.save(categoryEntity);
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        boolean isOverlapping = false;
+        for(CategoryEntity category : categories){
+            if(category.getId() != id && category.getDeleted() == false && category.getCategoryName().equals(categoryEntity.getCategoryName())) {
+                //hai trovato un'altra tariffa per la stessa categoria da confrontare
+                if(overlaps(categoryEntity,category)){
+                    isOverlapping = true;
+                    break;
+                }
+            }
+        }
+        if(!isOverlapping){
+            return categoryRepository.save(categoryEntity);
+        }else{
+            return null;
+        }
 
     }
 

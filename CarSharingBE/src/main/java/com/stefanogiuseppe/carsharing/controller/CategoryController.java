@@ -34,10 +34,13 @@ public class CategoryController {
     @Autowired
     private CategoryMapper categoryMapper;
     @PostMapping("")
-    @Operation(description = "Adds a new category to the repository")
+    @Operation(description = "Adds a new category to the repository. If category dates overlap, returns null and the category is not saved ")
     public CategoryDTO addCategory(@Parameter(description = "The new administrator in a JSON format") @RequestBody CategoryDTO categoryDTO){
         CategoryEntity categoryEntity = categoryMapper.toEntity(categoryDTO);
         CategoryEntity categoryEntity1 = categoryService.saveCategory(categoryEntity);
+        if(categoryEntity1 == null){
+            return null;
+        }
         CategoryDTO categoryDTO1 = categoryMapper.toDto(categoryEntity1);
         return categoryDTO1;
     }
@@ -61,21 +64,25 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    @Operation(description = "Updates all information of an existing category")
+    @Operation(description = "Updates all information of an existing category. If category dates overlap, returns null and the category is not saved")
     public CategoryDTO updatePutCategory(@Parameter(description="The id of the vehicle category to update") @PathVariable Long id,@Parameter(description = "The updated vehicle category") @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
-
+        if(categoryEntity == null){
+            return null;
+        }
         CategoryDTO categoryDTO1 = categoryMapper.toDto(categoryEntity);
 
         return categoryDTO1;
     }
     @PatchMapping("/{id}")
-    @Operation(description = "Updates some information of an existing vehicle category")
+    @Operation(description = "Updates some information of an existing vehicle category. If category dates overlap, returns null and the category is not saved")
     public CategoryDTO updatePatchCategory(@Parameter(description="The id of the category to update") @PathVariable Long id, @Parameter(description = "The updated information of vehicle category") @RequestBody CategoryDTO categoryDTO){
 
         CategoryEntity categoryEntity=categoryService.updateCategory(id, categoryDTO);
-
+        if(categoryEntity == null){
+            return null;
+        }
         CategoryDTO categoryDTO1 = categoryMapper.toDto(categoryEntity);
 
         return categoryDTO1;
